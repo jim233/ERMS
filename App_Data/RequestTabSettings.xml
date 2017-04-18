@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="EPT" tabReqCode="1" order="1" name="Request" urlName="Request" type="EPT" count="1"  page="Javascript:Load(&quot;EPTRangeRequest.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="FAST_EPT" tabReqCode="2" order="2" name="SC Fast" urlName="Fast" type="EPT" count="2"  page="Javascript:Load(&quot;FAST_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="SCP_EPT" tabReqCode="3" order="3" name="SCP" urlName="SCP" type="EPT" count="3"  page="Javascript:Load(&quot;SCP_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="PE_EPT" tabReqCode="7" order="4" name="Pack Engineer" urlName="PackEngineer" type="EPT" count="5"  page="Javascript:Load(&quot;PackTech_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="RDM_EPT" tabReqCode="8" order="4" name="RDM" urlName="RDM" type="EPT" count="5"  page="Javascript:Load(&quot;RDM_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+
+
+  <ERMSRequestTab tabCode="NP" tabReqCode="1" order="1" name="Request" urlName="Request" type="New Pack" count="1" page="Javascript:Load(&quot;NewPackRequest.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="EPM_NP" tabReqCode="6" order="2" name="EPM" urlName="EPM" type="New Pack" count="2" page="Javascript:Load(&quot;NewPackRequest_EBM.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="FAST_NP" tabReqCode="2" order="3" name="NP Fast" urlName="NPRFast" type="New Pack" count="3" page="Javascript:Load(&quot;NewPackRequest_Fast.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="SC_NP" tabReqCode="4" order="4" name="NP SC Team" urlName="NPRSCTeam" type="New Pack" count="4" page="Javascript:Load(&quot;SCTeam.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="SCP_NP" tabReqCode="3" order="5" name="SCP" urlName="SCP" type="New Pack" count="5" page="Javascript:Load(&quot;SCP_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="PE_NP" tabReqCode="7" order="6" name="Pack Engineer" urlName="PackEngineer" type="New Pack" count="6" page="Javascript:Load(&quot;PackTech_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="RDM_NP" tabReqCode="8" order="6" name="RDM" urlName="RDM" type="New Pack" count="7" page="Javascript:Load(&quot;RDM_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+
+  <ERMSRequestTab tabCode="CA" tabReqCode="1" order="1" name="Request" urlName="Request" type="Country Add" count="1" page="Javascript:Load(&quot;NewPackRequest.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="EPM_CA" tabReqCode="6" order="2" name="EPM" urlName="EPM" type="Country Add" count="2" page="Javascript:Load(&quot;NewPackRequest_EBM.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="SCP_CA" tabReqCode="3" order="3" name="SCP" urlName="SCP" type="Country Add" count="3" page="Javascript:Load(&quot;SCP_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="RDM_CA" tabReqCode="8" order="4" name="RDM" urlName="RDM" type="Country Add" count="4" page="Javascript:Load(&quot;RDM_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="PFR" tabReqCode="1" order="1" name="Request" urlName="Request" type="PFR" count="1" page="Javascript:Load(&quot;ProductForResale.aspx&quot;)">
+  </ERMSRequestTab>
+  
+  <ERMSRequestTab tabCode="EPM_PFR" tabReqCode="6" order="2" name="EPM" urlName="EPM" type="PFR" count="2" page="Javascript:Load(&quot;NewPackRequest_EBM.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="SCP_PFR" tabReqCode="3" order="3" name="SCP" urlName="SCP" type="PFR" count="3" page="Javascript:Load(&quot;SCP_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="RDM_PFR" tabReqCode="8" order="4" name="RDM" urlName="RDM" type="PFR" count="4" page="Javascript:Load(&quot;RDM_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+
+
+  <ERMSRequestTab tabCode="OTR" tabReqCode="1" order="1" name="Request"  urlName="Request" type="Other" count="1" page="Javascript:Load(&quot;OtherRangeRequest.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="RDM_OTR" tabReqCode="8" order="2" name="RDM" urlName="RDM" type="Other" count="2" page="Javascript:Load(&quot;RDM_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+
+  <ERMSRequestTab tabCode="SC" tabReqCode="1" order="1" name="Request" urlName="Request" type="Supply Chain" count="1" page="Javascript:Load(&quot;SupplyChainRequest.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="GSCM1_SC" tabReqCode="9" order="2" name="First GSCM" urlName="FirstGSCM" type="Supply Chain" count="2" page="Javascript:Load(&quot;GSCM_SupplyChain.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="SCT_SC" tabReqCode="4" order="3" name="SC SC Team" urlName="SCTeam" type="Supply Chain" count="3" page="Javascript:Load(&quot;SupplyChain_SCTeam.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="GSCM2_SC" tabReqCode="10" order="4" name="Final GSCM" urlName="FinalGSCM" type="Supply Chain" count="4" page="Javascript:Load(&quot;GSCM_SupplyChain.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="SCP_SC" tabReqCode="3" order="5" name="SCP" urlName="SCP" type="Supply Chain" count="5" page="Javascript:Load(&quot;SCP_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="PE_SC" tabReqCode="7" order="7" name="Pack Engineer" urlName="PackEngineer" type="Supply Chain" count="7" page="Javascript:Load(&quot;PackTech_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="RDM_SC" tabReqCode="8" order="8" name="RDM" urlName="RDM" type="Supply Chain" count="8" page="Javascript:Load(&quot;RDM_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+
+  <ERMSRequestTab tabCode="CMBI" tabReqCode="1" order="1" name="Request" urlName="Request" type="Combi Pack" count="1" page="Javascript:Load(&quot;CombiPackRequest_FormD.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="EPM1_CMBI" tabReqCode="12" order="2" name="First EPM" urlName="FirstEPM" type="Combi Pack" count="2" page="Javascript:Load(&quot;NewPackRequest_EBM.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="SCT_CMBI" tabReqCode="4" order="3" name="SC SC Team" urlName="SCTeam" type="Combi Pack" count="3" page="Javascript:Load(&quot;SupplyChain_SCTeam.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="EPM2_CMBI" tabReqCode="11" order="4" name="Final EPM" urlName="FinalEPM" type="Combi Pack" count="4" page="Javascript:Load(&quot;NewPackRequest_EBM.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="SCP_CMBI" tabReqCode="3" order="6" name="SCP" urlName="SCP" type="Combi Pack" count="6" page="Javascript:Load(&quot;SCP_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="PE_CMBI" tabReqCode="7" order="7" name="Pack Engineer" urlName="PackEngineer" type="Combi Pack" count="7" page="Javascript:Load(&quot;PackTech_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="IDS_CMBI" tabReqCode="11" order="4" name="IDS" urlName="IDS" type="Combi Pack" count="4" page="Javascript:Load(&quot;IDS.aspx&quot;)">
+  </ERMSRequestTab>
+
+  <ERMSRequestTab tabCode="RDM_CMBI" tabReqCode="8" order="8" name="RDM" urlName="RDM" type="Combi Pack" count="8" page="Javascript:Load(&quot;RDM_EPT.aspx&quot;)">
+  </ERMSRequestTab>
+
+</ERMSRequestTab>

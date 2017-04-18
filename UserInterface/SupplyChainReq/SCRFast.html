@@ -1,0 +1,69 @@
+﻿<div>
+    <form>
+        <div class="SCRtitle_contain">
+            <div class="row">
+                <div class="col-md-7 col-xs-12">
+                    <button type="button" class="btn_style btn-default" ng-click="Fast.saveFast()" ng-disabled="Fast.btnSaveDisabled">
+                        <div class="btn_bg"></div>
+                        Save
+                    </button>
+                    <button type="submit" class="btn_style btn-default" ng-click="Fast.submitFast()" ng-disabled="Fast.btnSubmitDisabled">
+                        <div class="btn_bg"></div>
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="second_contain">
+            <div class="row reserve_height">
+                <div class="col-md-12 col-xs-12 Special_text1" ng-show="Fast.showOperationMsg">
+                    {{Fast.operationMsg}}
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Submitted Date</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="date" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="Fast.SubmittedDate" ng-disabled="Fast.SubmittedDateDisabled">
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Fast Contact</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="Fast.FastContact" ng-disabled="Fast.FastContactDisabled">
+                </div>
+            </div>
+            <!--SOCB - LRMS change - Addition of Approval dropdown in FAST-->
+            <div class="row line_height_buttom" ng-show="Fast.showApprovalDDL">
+                <div class="col-md-3 col-xs-4 Common_text">Approved<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" ng-model="Fast.Approval" ng-options="m.Value as m.Text for m in Fast.ddlApprovalStatus" ng-disabled="Fast.GetApprovalStatusIDDisabled"></select>
+                </div>
+            </div>
+           <!--EOCB - LRMS change - Addition of Approval dropdown in FAST-->
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Agreed/Best Guess Source Plant<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8">
+                    <textarea class="form-control" rows="8" maxlength="1000" ng-model="Fast.AgreedSourcePlant" ng-readonly="Fast.AgreedSourcePlantReadOnly"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Comments</div>
+                <div class="col-md-4 col-xs-8 line_height_buttom">
+                    <textarea class="form-control" rows="8" maxlength="1000" ng-model="Fast.comments" ng-readonly="Fast.CommentsReadOnly"></textarea>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Completed Date</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="date" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="time2Fast" ng-disabled="Fast.CompletedDateDiabled">
+                </div>
+            </div>
+
+            <div>
+                <input type="hidden" ng-model="Fast.requestid">
+                <input type="hidden" ng-model="Fast.otherData" />
+            </div>
+        </div>
+    </form>  
+</div>
+

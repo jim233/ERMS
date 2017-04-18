@@ -1,0 +1,312 @@
+<div ng-include="'../UserInterface/loading.html'" ng-show="SCP.showLoadingPage"></div>
+<div>
+	<form>
+        <div class="row reserve_height">
+            <div class="col-md-12 col-xs-12 Special_text1" ng-show="SCP.showBranding">
+                It is a Reactivation Request
+            </div>
+        </div>
+        <div class="SCRtitle_contain">
+            <div class="row">
+                <div class="col-md-7 col-xs-12">
+                    <button type="button" class="btn_style btn-default" ng-click="SCP.saveSCP()" ng-disabled="SCP.SaveDisabled">
+                        <div class="btn_bg"></div>
+                        Save
+                    </button>
+                    <button type="submit" class="btn_style btn-default" ng-click="SCP.submitSCP()" ng-disabled="SCP.SubmitDisabled">
+                        <div class="btn_bg"></div>
+                        Submit
+                    </button>
+                
+                </div>
+            </div>
+        </div>
+		<div class="second_contain">
+            <div class="row reserve_height" ng-show="SCP.showWarningMessage">
+                <div class="col-md-12 col-xs-12 Special_text1">{{SCP.WarningMessage}}</div>
+            </div>
+			<!--<div class="row reserve_height">
+				<div class="col-md-12 col-xs-12 Special_text1" ng-show="SCP.subMenu">Data saved successfully.</div>
+			</div>-->
+            <div class="row reserve_height">
+                <div class="col-md-12 col-xs-12 Special_text1" ng-show="SCP.showOperationMsg">
+                    {{SCP.operationMsg}}
+                </div>
+            </div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Submitted Date</div>
+                <div class="col-md-4 col-xs-8" id="sandbox-container-SCP">
+                    <input type="text" size="20" class="form-control Small_input" ng-model="time2">
+                </div>
+				<div class="col-md-5 line_height_buttom">
+					<a>Supply Chain Planner tool</a>
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">SCP Name</div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.GetSCPName">
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">FF& P within EAME<span style="color:red">*</span></div>
+				<div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" ng-options="m.Value as m.Text for m in SCP.GetFFPOutsideEAME" ng-model="SCP.GetSelectedFFPOutsideEAME" 
+                            ng-disabled="SCP.FFPOutsideEAMEDisabled" ng-change="SCP.FFPSelectedChanged()"></select>
+                    <div class="input-error-messages" ng-show="SCP.isEAME">
+                        <div>Please input FF& P within EAME</div>
+                        <div class="input-error-messages-arrow"></div>
+                    </div> 
+				</div>
+				<div class="col-md-5 col-xs-12 line_height_buttom">
+					If No complete HUB Plant details only
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-5 col-md-offset-7 line_height_buttom">
+					If Yes complete FF&P plant details plus any hub if necessar
+				</div>
+			</div>
+            <div class="row line_height_buttom" ng-show="SCP.showFastRecmd">
+                <div class="col-md-3 col-xs-4 Common_text">
+                    FAST recommendation for Source Plant
+                </div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" class="form-control Small_input" ng-model="SCP.GetSourcePlant">
+                </div>
+            </div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Late Labelling ?
+				</div>
+				<div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" style="width: 90px;" ng-change="SCP.LateLabellingSelectChangeFunc()" ng-options="m.Value as m.Text for m in SCP.GetFFPOutsideEAME" ng-model="SCP.GetSelectedlateLabelingId">
+                    </select>
+				</div>
+			</div>
+			<div class="LateLabelling_contain" ng-show="SCP.LateLabellingPart">
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-12 Common_text2">Late Labelling details</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">SAP Plant Code</div>
+					<div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-options="m.Value as m.Text for m in SCP.GetLLSourcePlantGetLLSourcePlant" ng-model="SCP.GetSelectedLLSAPCodeSourcePlant"></select>
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">Procurement Type</div>
+					<div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-options="m.Value as m.Text for m in SCP.GetProcurementType" ng-model="SCP.GetSelectedLLProcurementType"></select>
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">MRP Controller Name</div>
+					<div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.GetLLMRPControllerName">
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">MRP Controller Code</div>
+					<div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.GetLLMRPControllerCode">
+					</div>
+					<div class="col-md-5 line_height_buttom">
+						Please enter 3 digit code
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">Planned in APO?</div>
+					<div class="radio_style">
+						<label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadios" value="0" ng-checked="SCP.GetLLReleventAPO == 0" ng-model="SCP.GetLLReleventAPO">
+    				Yes
+  					</label>
+					</div>
+					<div class="radio_style">
+						<label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadios" value="1" ng-checked="SCP.GetLLReleventAPO == 1" ng-model="SCP.GetLLReleventAPO">
+    				No
+  					</label>
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">Supply Response
+					</div>
+					<div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-options="m.Value as m.Text for m in SCP.GetSupplyResponse" ng-model="SCP.GetSelectedLLSupplyResponse"></select>
+					</div>
+				</div>
+			</div>
+			<div class="FF&P_contain">
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-12 Common_text2">FF&P Plant details</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">System for Code Set up</div>
+					<div class="radio_style">
+						<label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadios" value="0" ng-checked="true" ng-model="SCP.GetSystemCodeSetup" ng-change="SCP.CodeSetUpERPSelectChangeFunc()" ng-disabled="SCP.GSAPSystemCodeSetupDisabled">
+    				GSAP
+  					</label>
+					</div>
+					<div class="radio_style">
+						<label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadios" value="1" ng-checked="true" ng-model="SCP.GetSystemCodeSetup" ng-change="SCP.CodeSetUpERPSelectChangeFunc()" ng-disabled="SCP.ERPSystemCodeSetupDisabled">
+    				Local ERP 
+  					</label>
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">SAP Plant Code</div>
+					<div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-options="m.Value as m.Text for m in SCP.GetSAPCodeSourcePlant" ng-model="SCP.GetSelectedSAPCodeSourcePlant" ng-disabled="SCP.SAPCodeSourcePlantDisabled"></select>
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">Procurement Type</div>
+					<div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-options="m.Value as m.Text for m in SCP.GetProcurementType" ng-model="SCP.GetSelectedProcurementType" ng-disabled="SCP.ProcurementTypeDisabled"></select>
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">MRP Controller Name</div>
+					<div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.GetFFPMRPControllerName" ng-disabled="SCP.FFPMRPControllerNameDisabled">
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">MRP Controller Code</div>
+					<div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.GetFFPMRPControllerCode" ng-disabled="SCP.FFPMRPControllerCodeDisabled">
+					</div>
+					<div class="col-md-5 line_height_buttom">
+						Please enter 3 digit code
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">Planned in APO?</div>
+					<div class="radio_style">
+						<label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadios" value="0" ng-checked="SCP.GetReleventAPO == 0" ng-model="SCP.GetReleventAPO" ng-disabled="SCP.ReleventAPODisabled">
+    				Yes
+  					</label>
+					</div>
+					<div class="radio_style">
+						<label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadios" value="1" ng-checked="SCP.GetReleventAPO == 1" ng-model="SCP.GetReleventAPO" ng-disabled="SCP.ReleventAPODisabled">
+    				No
+  					</label>
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">Supply Response
+					</div>
+					<div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-options="m.Value as m.Text for m in SCP.GetSupplyResponse" ng-model="SCP.GetSelectedSupplyResponse" ng-disabled="SCP.SupplyResponseDisabled"></select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-xs-4 Common_text line_height_buttom">SCP Comments</div>
+					<div class="col-md-4 col-xs-8 line_height_buttom">
+                        <textarea class="form-control" rows="8" maxlength="1000" ng-model="SCP.GetSCPComments" ng-readonly="SCP.SCPCommentsDisabled" ></textarea>
+					</div>
+					<div class="col-md-4 col-xs-7 Common_text line_height_buttom">Maximum 1000 letters</div>
+				</div>
+			</div>
+			<div class="HUB_contain" ng-disabled="SCP.HubDisabled">
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-12 Common_text2">HUB Plant details</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">GSAP Hub Plant Code</div>
+					<div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-options="m.Value as m.Text for m in SCP.GetGSAPHubPlantCode1" ng-model="SCP.GetSelectedGSAPHubPlantCode1" ng-disabled="SCP.GSAPHubPlantCode1Disabled"></select>
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">Supply Plant<span style="color:blue">*</span></div>
+					<div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.GetSupplyPlant1" ng-disabled="SCP.SupplyPlant1Disabled">
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">MRP Controller Name<span style="color:blue">*</span></div>
+					<div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.GetHubMRPControllerName1" ng-disabled="SCP.HubMRPControllerName1Disabled">
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">MRP Controller Code<span style="color:blue">*</span></div>
+					<div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.GetHubMRPControllerCode1" ng-disabled="SCP.HubMRPControllerCode1Disabled">
+					</div>
+					<div class="col-md-5 line_height_buttom">
+						Please enter 3 digit numeric/alphanumeric code
+					</div>
+				</div>
+				<div class="row line_height_buttom">
+					<div class="col-md-3 col-xs-4 Common_text">Purchaser Number<span style="color:blue">*</span></div>
+					<div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.GetPurchaseNumber1" ng-disabled="SCP.PurchaseNumber1Disabled">
+					</div>
+					<div class="col-md-5 line_height_buttom">
+						Please enter 3 digit code
+					</div>
+				</div>
+			</div>
+            <div class="2ndHUB_contain" ng-disabled="SCP.SecHubDisabled">
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-12 Common_text2">2nd HUB Plant details-if required</div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">GSAP Hub Plant Code</div>
+                    <div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-options="m.Value as m.Text for m in SCP.GetGSAPHubPlantCode1" ng-model="SCP.GetSelectedGSAPHubPlantCode2" ng-disabled="SCP.GSAPHubPlantCode2Disabled"></select>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Supply Plant<span style="color:blue">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.GetSupplyPlant2" ng-disabled="SCP.SupplyPlant2Disabled">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">MRP Controller Name<span style="color:blue">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.GetHubMRPControllerName2" ng-disabled="SCP.HubMRPControllerName2Disabled">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">MRP Controller Code<span style="color:blue">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.GetHubMRPControllerCode2" ng-disabled="SCP.HubMRPControllerCode2Disabled">
+                    </div>
+                    <div class="col-md-5 line_height_buttom">
+                        Please enter 3 digit code
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Purchaser Number<span style="color:blue">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.GetPurchaseNumber2" ng-disabled="SCP.PurchaseNumber2Disabled">
+                    </div>
+                    <div class="col-md-5 line_height_buttom">
+                        Please enter 3 digit code
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Completed Date</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCP.time2SCP" ng-disabled="SCP.CompletedDateDisabled">
+                    </div>
+                </div>
+            </div>
+			<div class="row line_height_buttom"></div>
+			<div class="row line_height_buttom"></div>
+			<div class="row line_height_buttom">
+				<div class="col-md-12 col-xs-12 Common_text"><span style="color:blue">*</span>- These fields are mandatory when corresponding GSAP Hub Plant Code is selected.</div>
+			</div>
+           
+		</div>
+	</form>
+</div>

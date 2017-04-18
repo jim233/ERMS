@@ -1,0 +1,19 @@
+<div ng-controller="NewCodeRequestSubCtrl as NCRS">
+	<div class="Search_text"><span>NEW Code Request - </span><span ng-bind="NCodeRequest.titleName"></span></div>
+
+	<div class="row_block">
+		<ul class="ul_list_style">
+			<a class="ul_list_floatLeft1" ui-sref=".NewCodeSC" ng-class="{true:'Tabactive2',false:''}[header.subTabActive('NewCodeRequestSub.NewCodeSC')]">
+				Supply Chain Request
+			</a>
+			<a class="ul_list_floatLeft1" ui-sref=".NewCodeIMC" ng-class="{true:'Tabactive2',false:''}[header.subTabActive('NewCodeRequestSub.NewCodeIMC')]">
+				IMC/Country Request
+			</a>
+		</ul>
+	</div>
+
+	<br>
+	<div ui-view="lazyLoadView" class="ng_tpls">
+	</div>
+
+</div>

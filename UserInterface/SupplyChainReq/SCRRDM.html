@@ -1,0 +1,277 @@
+﻿<div>
+	<form>
+		<div class="SCRtitle_contain">
+			<div class="row">
+				<div class="col-md-7 col-xs-12">
+                    <button type="button" class="btn_style btn-default" ng-click="RDM.saveRDMMenu()" ng-disabled="RDM.SaveEnableRDM">
+                        <div class="btn_bg"></div>
+                        Save
+                    </button>
+                    <button type="submit" class="btn_style btn-default" ng-click="RDM.submitRDMMenu()" ng-disabled="RDM.SubmitEnableRDM">
+                        <div class="btn_bg"></div>
+                        Submit
+                    </button>
+				</div>
+			</div>
+		</div>
+		<div class="second_contain">
+            <div class="row reserve_height">
+                <div class="col-md-12 col-xs-12 Special_text1" ng-show="RDM.RectivationReq">It is a Reactivation Request.</div>
+            </div>
+			<div class="row reserve_height">
+				<div class="col-md-12 col-xs-12 Special_text1" ng-show="RDM.subMenu">Data saved successfully.Please click on submit, if you wish to complete the screen.</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-12 Common_text2">STEP 1</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">RDM Contact</div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="RDM.RDMrdmContact" ng-disabled="RDM.RDMrdmContactEnable">
+                    <input type="button" value="..." class="btn btn-default file_btn" ng-click="RDM.openOrg()">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-xs-12 Common_text line_height_buttom">If you wish to e-mail this request to another member of your team for action, select their name from the GAL and then click the save button</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">SU or PU or NSU<span style="color:red">*</span></div>
+				<div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" ng-options="m.Value as m.Text for m in ddlSUPUNSU" ng-model="RDM.RDMSelectedSUPUNSU"
+                            ng-change="validateOtherNSU()" ng-disabled="RDM.RDMSelectedSUPUNSUEnable"></select>
+                    <div class="input-error-messages" ng-show="RDM.isSuPuNsu">
+                        <div>Please select SU or PU or NSU</div>
+                        <div class="input-error-messages-arrow"></div>
+                    </div>
+				</div>
+			</div>
+            <div class="row line_height_buttom" ng-show="RDM.NSUShow">
+                <div class="col-md-3 col-xs-4 Common_text">Core/Existing NSU<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" ng-change="validateOtherCoreNSU()" name="upfile" id="upfile" class="form-control Small_input" ng-model="RDM.RDMNSUCode" ng-disabled="RDM.RDMNSUCodeRead" ng-readonly="true">
+                    <div class="input-error-messages" ng-show="RDM.isCoreNsu">
+                        <div>Please enter Core/Existing NSU</div>
+                        <div class="input-error-messages-arrow"></div>
+                    </div>
+                </div>
+            </div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Agi Code<span style="color:red">*</span></div>
+				<div class="col-md-4 col-xs-8">
+                    <!--<input type="number" size="20" ng-change="validateOtherAgiCode()" name="Agicode" id="upfile" class="form-control Small_input" ng-model="RDM.RDMAAgiCode" ng-disabled="RDM.RDMAAgiCodeRead" ng-pattern="/^[0-9]*$/">-->
+                    <input type="text" size="20" ng-change="validateOtherAgiCode()" name="Agicode" id="upfile" class="form-control Small_input" ng-model="RDM.RDMAAgiCode" ng-disabled="RDM.RDMAAgiCodeRead">
+                    <div class="input-error-messages" ng-show="RDM.isAgiCode">
+                        <div>Please enter Agi Code</div>
+                        <div class="input-error-messages-arrow"></div>
+                    </div>
+                    <div class="input-error-messages" ng-show="RDM.isAgiCodeNum">
+                        <div>Please enter only integer values</div>
+                        <div class="input-error-messages-arrow"></div>
+                    </div>
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Date Code Raised<span style="color:blue">*</span></div>
+                <div class="col-md-4 col-xs-8" id="sandbox-container-RDM">
+                    <input type="date" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="RDM.time2RDM" ng-disabled="RDM.RDMDateCodeRaisedEnable">
+                    <div class="input-error-messages" ng-show="RDM.isDate">
+                        <div>Please enter Date Code Raised</div>
+                        <div class="input-error-messages-arrow"></div>
+                    </div>
+                </div>
+			</div>
+            <div class="row line_height_buttom" ng-show="RDM.DatePU2SU">
+                <div class="col-md-3 col-xs-4 Common_text">Date of PU promoted to SU<span style="color:lawngreen">*</span></div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="RDM.RDMGetPUtoSUPromotedDate" ng-disabled="RDM.RDMGetPUtoSUPromotedDateEnable" required>
+                </div>
+            </div>
+			<div class="row">
+				<div class="col-md-3 col-xs-4 Common_text line_height_buttom">RDM Comments</div>
+				<div class="col-md-4 col-xs-8 line_height_buttom">
+                    <textarea class="form-control" rows="8" maxlength="1000" ng-model="RDM.RDMComments" ng-readonly="RDM.RDMCommentsRead" ng-change="RDM.checkLength()"></textarea>
+                    <div class="input-error-messages" ng-show="request.isRDMCommentLen">
+                        <div>Maximum 1000 letters in the field Comment</div>
+                        <div class="input-error-messages-arrow"></div>
+                    </div>
+				</div>
+				<div class="col-md-4 col-xs-7 Common_text line_height_buttom">Maximum 1000 letters</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">More Data Required</div>
+				<div class="radio_style">
+					<label style="font-weight: normal;">
+                        <input type="radio" name="optionsRadios" ng-value="true" ng-model="RDM.RDMMoreDataReqd" ng-checked="RDM.RDMMoreDataReqd == true" ng-disabled="RDM.RDMMoreDataReqdEnableYes" ng-change="RDM.MoreDataRequiredFunc()">
+    				Yes
+  					</label>
+				</div>
+				<div class="radio_style">
+					<label style="font-weight: normal;">
+                        <input type="radio" name="optionsRadios" ng-value="false" ng-model="RDM.RDMMoreDataReqd" ng-checked="RDM.RDMMoreDataReqd== false" ng-disabled="RDM.RDMMoreDataReqdEnableNo" ng-change="RDM.MoreDataRequiredFunc()">
+    				No
+  					</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-xs-4 Common_text line_height_buttom">More Data Required Reason</div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1" >
+                    <select class="form-control Common_select" ng-options="m.Value as m.Text for m in ddlMoreDataReqReason" ng-model="RDM.RDMMreDataReqReason" ng-disabled="RDM.ddlMoreDataReqReasonenable"></select>
+                </div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">More Data Required Contact</div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" readonly="true" ng-model="RDM.RDMMreDataReqdContact" ng-disabled="RDM.RDMMreDataReqdContactEnable">
+                    <input type="button" value="..." class="btn btn-default file_btn" ng-click="RDM.openReg()">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-xs-4 Common_text line_height_buttom">Notes</div>
+				<div class="col-md-4 col-xs-8 line_height_buttom">
+                    <textarea class="form-control" rows="8" maxlength="1000" ng-model="RDM.RDMnotes" ng-readonly="RDM.RDMnotesenable"></textarea>
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">SU Code Completed Date</div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="RDM.RDMSUCodeCompltdDate" ng-disabled="RDM.RDMSUCodeCompltdDateEnable">
+				</div>
+			</div>
+			<div class="row line_height_buttom"></div>
+			<div class="row line_height_buttom"></div>
+			<div class="row line_height_buttom">
+				<div class="col-md-12 col-xs-12 Common_text"><span style="color:blue">*</span>- These fields are mandatory before the request status changes to complete.</div>
+			</div>
+            <div class="row line_height_buttom" ng-show="RDM.PUtoSUmdtryMess">
+                <div class="col-md-12 col-xs-12 Common_text"><span style="color:lawngreen">*</span>- These fields are mandatory when the date of PU promoted to SU</div>
+            </div>
+		</div>
+	</form>
+
+    <script type="text/ng-template" id="myModelContent.html">
+        <!--//创建一个局部视图，需要的时候引用它， 下面会用到-->
+        <div class="modal-header">
+            <!--// modal头部 。body footer 类推-->
+            <h4 class="modal-title">Populate your details</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row line_height_buttom">
+                <div class="col-md-2 col-xs-2 Common_text">Search:</div>
+                <div class="radio_style col-md-4 col-xs-4">
+                    <label style="font-weight: normal;">
+                        <input type="radio" name="optionsRadios" value="0" ng-checked="Rchecked0" ng-change="radioCheckedFunc1(true)" ng-model="radioChecked0">
+                        Name Only&nbsp;
+                    </label>
+                </div>
+                <div class="radio_style col-md-4 col-xs-4">
+                    <label style="font-weight: normal;">
+                        <input type="radio" name="optionsRadios" value="1" ng-checked="Rchecked1" ng-change="radioCheckedFunc1(false)" ng-model="radioChecked0">
+                        More Columns
+                    </label>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-6 col-xs-4 Common_text">
+                    <input class="form-control Common_input1" type="text" ng-model="selected.item">
+                </div>
+                <div class="col-md-1 col-xs-2 form-group">
+                    <input type="button" value="Go" class="btn btn-default select_btn" ng-disabled="disabled">
+                </div>
+                <a class="col-md-4 col-xs-6 col-md-offset-1 Common_text" ng-click="open1()"> Advance Find</a>
+            </div>
+            <div class="Select_User_Form">
+                <ul>
+                    <div ng-show="disabled">
+                        <li ng-repeat="item in items | filter:selected.item">
+                            <a ng-click="selected.item = item">{{item}}</a>
+                            <!--//显示当前点击的item-->
+                        </li>
+                    </div>
+                    <br> 当前选择：
+                    <b>{{selected.item}}</b>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn_style btn-default" ng-click="ok()">
+                <div class="btn_bg"></div>
+                Ok
+            </button>
+            <button type="button" class="btn_style btn-default" ng-click="cancel()">
+                <div class="btn_bg"></div>
+                Cancle
+            </button>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="myModelContent1.html">
+        <!--//创建一个局部视图，需要的时候引用它， 下面会用到-->
+        <div class="modal-header">
+            <!--// modal头部 。body footer 类推-->
+            <h4 class="modal-title">Find</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row line_height_buttom">
+                <div class="col-md-2 col-xs-2 Common_text2">General</div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-6 Common_text">Display name:</div>
+                <div class="col-md-9 col-xs-6 Common_text">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">Frist name:</div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">Last name:</div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">Title:</div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">Alias:</div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">Company:</div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">Department:</div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-6 Common_text">Office:</div>
+                <div class="col-md-3 col-xs-6 Common_text">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-6 Common_text">City:</div>
+                <div class="col-md-3 col-xs-6 Common_text">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn_style btn-default" ng-click="ok()">
+                <div class="btn_bg"></div>
+                Ok
+            </button>
+            <button type="button" class="btn_style btn-default" ng-click="cancel()">
+                <div class="btn_bg"></div>
+                Cancle
+            </button>
+        </div>
+    </script>
+</div>

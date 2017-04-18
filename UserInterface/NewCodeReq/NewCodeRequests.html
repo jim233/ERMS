@@ -1,0 +1,205 @@
+<div>
+	<div ng-show="true">
+		<form>
+			<div class="Search_text">NEW Code Request - Home</div>
+			<div class="first_contain">
+				<div class="radio">
+					<label>
+    				<input type="radio" name="optionsRadios" ng-model="NCR.radioChecked" ng-change="NCR.radioCheckedFunc()" value="0">
+    				Start a new request
+  					</label>
+				</div>
+			</div>
+			<div class="first_contain">
+				<div class="radio">
+					<label>
+    				<input type="radio" name="optionsRadios" ng-model="NCR.radioChecked" ng-change="NCR.radioCheckedFunc()" value="1">
+    				View/Search existing request
+  					</label>
+				</div>
+			</div>
+			<div class="thrid_contain">
+				<div class="row col-md-12 col-xs-12">
+					<button type="button" class="btn_style btn-default" ng-click="NCR.goState()">
+					<div class="btn_bg"></div>
+					Next&nbsp;
+				</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+    <!--for who's not in system-->
+	<div class="first_contain" ng-show="false">
+		<form>
+			<div class="NewCode_text1">It is important that we know who you are so that we can provide you with feedback on the request you create.</div>
+			<div class="text_part">
+				<div class="NewCode_text2">Please click on &nbsp;</div>
+                <input type="button" value="..." class="btn btn-default select_btn" ng-click="NCR.open()">
+				<div class="NewCode_text3">&nbsp;to populate your details.</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2 col-xs-4 Common_text">User ID:</div>
+				<div class="col-md-4 col-xs-8">
+					<input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="selected" readonly="true">
+                    <input type="button" value="..." class="btn btn-default file_btn" ng-click="NCR.open()">
+				</div>
+			</div>
+			<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+			<div class="row">
+				<div class="col-md-2 col-xs-4 Common_text">First name:</div>
+				<div class="col-md-4 col-xs-8">
+					<input class="form-control Common_input1" id="disabledInput" type="text" placeholder="">
+				</div>
+			</div>
+			<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+			<div class="row">
+				<div class="col-md-2 col-xs-4 Common_text">Last name:</div>
+				<div class="col-md-4 col-xs-8">
+					<input class="form-control Common_input1" id="disabledInput" type="text" placeholder="">
+				</div>
+			</div>
+			<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+			<div class="row">
+				<div class="col-md-2 col-xs-4 Common_text">Email:</div>
+				<div class="col-md-4 col-xs-8">
+					<input class="form-control Common_input1" id="disabledInput" type="text" placeholder="">
+				</div>
+			</div>
+			<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+			<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+			<div class="row col-md-12 col-xs-12">
+				<button type="button" class="btn_style btn-default" ng-click="NCR.goState2('SupplyChainRequest')">
+					<div class="btn_bg"></div>
+					Submit&nbsp;
+				</button>
+			</div>
+		</form>
+	</div>
+
+	<script type="text/ng-template" id="myModelContent.html">
+		<!--//创建一个局部视图，需要的时候引用它， 下面会用到-->
+		<div class="modal-header">
+			<!--// modal头部 。body footer 类推-->
+			<h4 class="modal-title">Populate your details</h4>
+		</div>
+		<div class="modal-body">
+			<div class="row line_height_buttom">
+				<div class="col-md-2 col-xs-2 Common_text">Search:</div>
+				<div class="radio_style col-md-4 col-xs-4">
+					<label style="font-weight: normal;">
+    				<input type="radio" name="optionsRadios" value="0" ng-checked="Rchecked0" ng-change="radioCheckedFunc1(true)" ng-model="radioChecked0">
+    				Name Only&nbsp;
+  					</label>
+				</div>
+				<div class="radio_style col-md-4 col-xs-4">
+					<label style="font-weight: normal;">
+    				<input type="radio" name="optionsRadios" value="1" ng-checked="Rchecked1" ng-change="radioCheckedFunc1(false)" ng-model="radioChecked0">
+    				More Columns
+  					</label>
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-6 col-xs-4 Common_text">
+					<input class="form-control Common_input1" type="text" ng-model="selected.item">
+				</div>
+				<div class="col-md-1 col-xs-2 form-group">
+					<input type="button" value="Go" class="btn btn-default select_btn" ng-disabled="disabled">
+				</div>
+				<a class="col-md-4 col-xs-6 col-md-offset-1 Common_text" ng-click="open1()"> Advance Find</a>
+			</div>
+			<div class="Select_User_Form">
+				<ul>
+					<div ng-show="disabled">
+						<li ng-repeat="item in items | filter:selected.item">
+							<a ng-click="selected.item = item">{{item}}</a>
+							<!--//显示当前点击的item-->
+						</li>
+					</div>
+					<br> 当前选择： <b>{{selected.item}}</b>
+				</ul>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn_style btn-default" ng-click="ok()">
+					<div class="btn_bg"></div>
+					Ok
+			</button>
+			<button type="button" class="btn_style btn-default" ng-click="cancel()">
+					<div class="btn_bg"></div>
+					Cancle
+			</button>
+		</div>
+	</script>
+
+	<script type="text/ng-template" id="myModelContent1.html">
+		<!--//创建一个局部视图，需要的时候引用它， 下面会用到-->
+		<div class="modal-header">
+			<!--// modal头部 。body footer 类推-->
+			<h4 class="modal-title">Find</h4>
+		</div>
+		<div class="modal-body">
+			<div class="row line_height_buttom">
+				<div class="col-md-2 col-xs-2 Common_text2">General</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-6 Common_text">Display name:</div>
+				<div class="col-md-9 col-xs-6 Common_text">
+					<input class="form-control Common_input1" type="text" ng-model="test">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-xs-6 Common_text line_height_buttom">Frist name:</div>
+				<div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+					<input class="form-control Common_input1" type="text" ng-model="test">
+				</div>
+				<div class="col-md-3 col-xs-6 Common_text line_height_buttom">Last name:</div>
+				<div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+					<input class="form-control Common_input1" type="text" ng-model="test">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-xs-6 Common_text line_height_buttom">Title:</div>
+				<div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+					<input class="form-control Common_input1" type="text" ng-model="test">
+				</div>
+				<div class="col-md-3 col-xs-6 Common_text line_height_buttom">Alias:</div>
+				<div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+					<input class="form-control Common_input1" type="text" ng-model="test">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-xs-6 Common_text line_height_buttom">Company:</div>
+				<div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+					<input class="form-control Common_input1" type="text" ng-model="test">
+				</div>
+				<div class="col-md-3 col-xs-6 Common_text line_height_buttom">Department:</div>
+				<div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+					<input class="form-control Common_input1" type="text" ng-model="test">
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-6 Common_text">Office:</div>
+				<div class="col-md-3 col-xs-6 Common_text">
+					<input class="form-control Common_input1" type="text" ng-model="test">
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-6 Common_text">City:</div>
+				<div class="col-md-3 col-xs-6 Common_text">
+					<input class="form-control Common_input1" type="text" ng-model="test">
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn_style btn-default" ng-click="ok()">
+					<div class="btn_bg"></div>
+					Ok
+			</button>
+			<button type="button" class="btn_style btn-default" ng-click="cancel()">
+					<div class="btn_bg"></div>
+					Cancle
+			</button>
+		</div>
+	</script>
+</div>

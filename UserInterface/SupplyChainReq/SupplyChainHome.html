@@ -1,0 +1,54 @@
+<div>
+	<form>
+		<div class="Search_text">Supply Chain Home</div>
+		<div class="CoreRange_contain">
+			<div class="row ">
+				<div class="col-md-12 col-xs-12 Common_text2">European Range Management(ERMS)</div>
+				<div class="col-md-12 col-xs-12 Common_text2">equest for code change across multiple countries</div>
+				<div class="col-md-12 col-xs-12 Common_text2">Please select LeadAI</div>
+			</div>
+			<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+			<div class="row">
+				<div class="col-md-2 col-xs-4 Common_text">Lead AI<span style="color:red">*</span></div>
+				<div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" ng-model="SCH.LeadAIValue" ng-options="m.Value as m.Text for m in GetLeadAI" ng-change="SCH.changeForTypehere()"></select>
+				</div>
+			</div>
+			<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+			<div class="row">
+				<div class="col-md-2 col-xs-4 Common_text">Or Type here</div>
+				<div class="col-md-4 col-xs-8">
+                    <input class="form-control Common_input1" id="disabledInput" type="text" placeholder="" ng-disabled="SCH.showFirstPart" ng-model="textinput" ng-bind="textinput">
+				</div>
+			</div>
+		</div>
+		<div class="second_contain">
+			<div class="row">
+				<div class="col-md-7 col-xs-12">
+					<!--<button type="button" class="btn_style btn-default" ng-click="NewCodeSC.goState()">-->
+					<button type="button" class="btn_style btn-default" ng-click="open()" style="width: 220px;">
+					<div class="btn_bg"></div>
+					Create Change Request&nbsp;&nbsp;&nbsp;
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+	
+	<script type="text/ng-template" id="myModelContent.html">
+		<!--//创建一个局部视图，需要的时候引用它， 下面会用到-->
+		<div class="modal-header">
+			<!--// modal头部 。body footer 类推-->
+			<div class="modal-title"><img src="../Images/ic_warn.gif" style="width: 32px; height: 32px;">&nbsp;&nbsp;Message from webpage</div>
+		</div>
+		<div class="modal-body">
+			<div>LeadAI need to be selected or typed.</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn_style btn-default" ng-click="ok()">
+					<div class="btn_bg"></div>
+					Ok
+			</button>
+		</div>
+	</script>
+</div>

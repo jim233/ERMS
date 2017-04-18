@@ -1,0 +1,59 @@
+<div>
+	<form>
+		<div class="fourth_contain line_height_buttom">
+			<div class="row line_height_buttom">
+				<div class="col-md-6 col-xs-9 Common_text">To see the Core Range list and start a request for an existing or new pack please click</div>
+				<div class="col-md-6 col-xs-3">
+					<button type="button" class="btn_style btn-default" ng-click="NewCodeIMC.goState()">
+					<div class="btn_bg"></div>
+					Next&nbsp;
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="first_contain">
+			<div class="row line_height_buttom">
+				<div class="col-md-12 col-xs-12 Common_text">To request a code for Product for Resale or Non Chemical item Please select Product for Resale or Non Chemical Item</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-4 col-xs-6">
+					<div class="radio_style">
+						<label style="font-weight: normal;">
+    						<input type="radio" name="optionsRadios1" value="0" ng-model="NewCodeIMC.radioChecked0" ng-change="NewCodeIMC.radioCheckedFunc()"  ng-disabled="NewCodeIMC.showPart0" ng-checked='NewCodeIMC.Rchecked0 == 0' >
+    						Yes
+  						</label>
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-6">
+					<div class="radio_style">
+						<label style="font-weight: normal;">
+    						<input type="radio" name="optionsRadios1" value="1" ng-model="NewCodeIMC.radioChecked0" ng-change="NewCodeIMC.radioCheckedFunc()" ng-disabled="NewCodeIMC.showPart1" ng-checked='NewCodeIMC.Rchecked0 == 1'>
+    						No
+  						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-4 col-xs-6">
+					<div class="radio_style" >
+						<label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadios2" value="2" ng-model="NewCodeIMC.radioChecked1" ng-change="NewCodeIMC.radioCheckedFunc()" ng-disabled="NewCodeIMC.showPart2" ng-checked='NewCodeIMC.radioChecked1 == 2'>
+    						Product for resale
+  						</label>
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-6">
+					<div class="radio_style">
+						<label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadios2" value="3" ng-model="NewCodeIMC.radioChecked1" ng-change="NewCodeIMC.radioCheckedFunc()" ng-disabled="NewCodeIMC.showPart3" ng-checked='NewCodeIMC.radioChecked1 == 3'>
+    						Non Chemical Item 
+  						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row text_promote">
+				<div class="col-md-12 col-xs-12 Common_text"><span style="color:blue">*</span>-PFR stands for Product For Resale (Purchased in a final, labelled sales pack. No Syngenta Supply Chain involvement in relation to labelling or packing activities)</div>
+			</div>
+		</div>
+	</form>
+</div>

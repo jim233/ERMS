@@ -1,0 +1,103 @@
+<div>
+	<form>
+		<div class="SCRtitle_contain">
+			<div class="row">
+				<div class="col-md-7 col-xs-12">
+                    <button type="button" class="btn_style btn-default" ng-click="Fast.saveFast()" ng-disabled="Fast.SaveDisabled">
+                        <div class="btn_bg"></div>
+                        Save
+                    </button>
+                    <button type="submit" class="btn_style btn-default" ng-click="Fast.submitFast()" ng-disabled="Fast.SubmitDisabled">
+                        <div class="btn_bg"></div>
+                        Submit
+                    </button>
+				</div>
+			</div>
+		</div>
+		<div class="second_contain">
+			<div class="row reserve_height">
+                <div class="col-md-12 col-xs-12 Special_text1" ng-show="Fast.showOperationMsg">
+                    {{Fast.operationMsg}}
+                </div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Fast Contact</div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="Fast.fastContact" ng-disabled="Fast.fastContactDisabled">
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Request Approved<span style="color:red">*</span></div>
+				<div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" ng-options="m.Value as m.Text for m in Fast.requestApproved" ng-model="Fast.requestApprovedSelected" 
+                    ng-disabled="Fast.RequestApprovedDisabled" ng-change="Fast.changeForComment()"></select>
+                    <div class="input-error-messages" ng-show="Fast.isReqApprv">
+                        <div>Please select Request Approved</div>
+                        <div class="input-error-messages-arrow"></div>
+                    </div>
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Confirm Source<span style="color:blue">*</span></div>
+				<div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" ng-options="m.Value as m.Text for m in Fast.confirmSource" ng-model="Fast.confirmSourceSelected" 
+                     ng-disabled="Fast.confirmSourceDisabled" ng-change="Fast.ConfSrc()">
+                    </select>
+                    <div class="input-error-messages" ng-show="Fast.isConfSrc">
+                        <div>Please select Confirm Source</div>
+                        <div class="input-error-messages-arrow"></div>
+                    </div>
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Source Plant<span style="color:blue">*</span></div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="Fast.sourcePlant"
+                           ng-disabled="Fast.sourcePlantDisabled" ng-change="Fast.SrcPlnt()">
+                    <div class="input-error-messages" ng-show="Fast.isSrcPlnt">
+                        <div>Please select Source Plant</div>
+                        <div class="input-error-messages-arrow"></div>
+                    </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-xs-4 Common_text line_height_buttom">Comments</div>
+				<div class="col-md-4 col-xs-8 line_height_buttom">
+                    <textarea class="form-control" rows="8" maxlength="1000" ng-model="Fast.comments" ng-readonly="Fast.CommentsReadOnly"></textarea>
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Completed Date</div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="date" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="Fast.completedDate" ng-disabled="Fast.CompleteDateDisabled">
+				</div>
+			</div>
+			<div class="row line_height_buttom"></div>
+			<div class="row line_height_buttom"></div>
+			<div class="row line_height_buttom">
+				<div class="col-md-12 col-xs-12 Common_text"><span style="color:blue">*</span>- This fields are mandatory when the FAST Contact give an approval for this request.</div>
+			</div>
+   
+            <div>
+            
+                <input type="hidden" ng-model="Fast.fastId"  />
+                <input type="hidden" ng-model="Fast.otherData" />
+                <input type="hidden" ng-model="Fast.requestid" />
+                <input type="hidden" ng-model="Fast.username" />
+            </div>
+		</div>
+	</form>
+
+    <!--NPR 2-->
+    <div class="fix_banner">
+        <div class="banner_style" ng-model="Fast.NPRFastMessage1">
+            {{Fast.NPRFastMessage1}}
+        </div>
+        <!--SCR 1-->
+        <div class="banner_style" ng-show="Fast.NPRFastMessage2Show">
+            It is a Reactivation Request
+        </div>
+    </div>
+</div>
+
+

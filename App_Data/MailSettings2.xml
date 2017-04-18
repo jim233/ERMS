@@ -1,0 +1,562 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="2" mail="1" subject="ERMS Alert: request no "  body="FAST approval and action required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="3" mail="1" subject="ERMS Alert: request no "  body="SCP Data Input Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="8" mail="1" subject="ERMS Alert: request no "  body="Pack Engineer action required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="8" mail="2" subject="ERMS Alert: request no "  body="Pack Engineer action required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="8" mail="3" subject="ERMS INFORMATION: request no "  body="PU Code has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="8" mail="4" subject="ERMS INFORMATION: request no "  body="PU Code has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="9" mail="1" subject="ERMS INFORMATION: request no "  body="For your information - This Range Request has been approved and an estimated date for pack completion has been set">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="9" mail="2" subject="ERMS INFORMATION: request no "  body="For your information - This Range Request has been approved and an estimated date for pack completion has been set">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="9" mail="3" subject="ERMS INFORMATION: request no "  body="For your information - This Range Request has been approved and an estimated date for pack completion has been set">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="19" mail="1" subject="ERMS INFORMATION: request no "  body="For your information - Pack Tech has added BPS design code details">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="10" mail="1" subject="ERMS INFORMATION: request no "  body="For your information - Mail back to originator of request with Est Pack Comp Date: @EstPackDate - plus furher mails if this date changes">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="EPT" status="11" mail ="1" subject="ERMS Alert: request no "  body="RDM Data Input required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="11" mail ="2" subject="ERMS INFORMATION: request no "  body="For your information -SCP had submitted the request.">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="EPT" status="12" mail="1" subject="ERMS Alert: request no "  body="NSU code @NSU and BPS code @BPS have been raised,RDM Data Input required">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="EPT" status="12" mail="2" subject="ERMS INFORMATION: request no "  body="For your information - New Range request has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="12" mail="3" subject="ERMS INFORMATION: request no "  body="For your information - New Range request has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="13" mail="1" subject="ERMS Alert: request no "  body="More data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="13" mail="2" subject="ERMS Alert: request no "  body="For your information - Mail has been sent that more data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="5" mail="1" subject="ERMS INFORMATION: request no "  body="SU code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="5" mail="2" subject="ERMS INFORMATION: request no "  body="SU code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="5" mail="3" subject="ERMS INFORMATION: request no "  body="SU code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="-1" mail="1" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="-1" mail="2" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="-1" mail="3" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="-99" mail="1" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="-99" mail="2" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="-99" mail="3" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="20" mail="1" subject="ERMS INFORMATION: request no "  body="Request submit to procurementMgr ">
+  </ERMSMail>
+
+  <ERMSMail tabCode="EPT" status="21" mail="1" subject="ERMS INFORMATION: request no "  body="RA approval and action required ">
+  </ERMSMail>
+  
+  <ERMSMail tabCode="New Pack" status="6" mail="1" subject="ERMS Alert: request no "  body="European Product Manager First Approval required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="2" mail="1" subject="ERMS Alert: request no "  body="FAST approval and action required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="2" mail="2" subject="ERMS Alert: request no "  body="FAST approval and action required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="2" mail="3" subject="ERMS Alert: request no "  body="FAST approval and action required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="2" mail="4" subject="ERMS Alert: request no "  body="FAST approval and action required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="2" mail="5" subject="ERMS Alert: request no "  body="FAST approval and action required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="-1" mail="1" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="-1" mail="2" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="-1" mail="3" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="4" mail="1" subject="ERMS Alert: request no "  body="Pack Tech Head Approval Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="3" mail="1" subject="ERMS Alert: request no "  body="SCP Data Input Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="8" mail="1" subject="ERMS Alert: request no "  body="Pack Tech Input is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="8" mail="2" subject="ERMS Alert: request no "  body="Pack Engineer action required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="8" mail="3" subject="ERMS information: request no "  body="PU Code has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="8" mail="4" subject="ERMS information: request no "  body="PU Code has been raised">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="New Pack" status="16" mail="1" subject="ERMS Alert: request no "  body="This Range Request has been sent for approval, however there are concerns from the supply chain.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="16" mail="2" subject="ERMS Alert: request no "  body="This Range Request has been sent for approval, however there are concerns from the supply chain.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="16" mail="3" subject="ERMS Alert: request no "  body="This Range Request has been sent for approval, however there are concerns from the supply chain.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="9" mail="1" subject="ERMS INFORMATION: request no "  body="For your information - This Range Request has been approved and an estimated date for pack completion has been set">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="9" mail="2" subject="ERMS INFORMATION: request no "  body="For your information - This Range Request has been approved and an estimated date for pack completion has been set">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="9" mail="3" subject="ERMS INFORMATION: request no "  body="For your information - This Range Request has been approved and an estimated date for pack completion has been set">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="New Pack" status="10" mail="1" subject="ERMS INFORMATION: request no "  body="For your information - Mail back to originator of request with Est Pack Comp Date: @EstPackDate - plus furher mails if this date changes">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="10" mail="2" subject="ERMS INFORMATION: request no "  body="For your information - Mail back to backup originator of request with Est Pack Comp Date: @EstPackDate - plus furher mails if this date changes">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="10" mail="3" subject="ERMS INFORMATION: request no "  body="For your information - Mail back to regulatory contact of request with Est Pack Comp Date: @EstPackDate - plus furher mails if this date changes">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="New Pack" status="11" mail="1" subject="ERMS Alert: request no "  body="RDM Data Input required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="11" mail ="2" subject="ERMS INFORMATION: request no "  body="For your information - New Range request has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="11" mail ="3" subject="ERMS INFORMATION: request no "  body="For your information - New Range request has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="11" mail ="4" subject="ERMS INFORMATION: request no "  body="For your information - SCP had submitted the request">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="New Pack" status="12" mail="1" subject="ERMS Alert: request no "  body="NSU code @NSU and BPS code @BPS have been raised,RDM Data Input required">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="New Pack" status="13" mail="1" subject="ERMS Alert: request no "  body="More data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="13" mail="2" subject="ERMS Alert: request no "  body="For your information - Mail has been sent that more data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="5" mail="1" subject="ERMS INFORMATION: request no "  body="SU code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="5" mail="2" subject="ERMS INFORMATION: request no "  body="SU code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="5" mail="2" subject="ERMS INFORMATION: request no "  body="SU code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="-99" mail="1" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="-99" mail="2" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="-99" mail="3" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+  <ERMSMail tabCode="New Pack" status="20" mail="1" subject="ERMS INFORMATION: request no "  body="Request submit to procurementMgr ">
+    
+  </ERMSMail>
+
+  <ERMSMail tabCode="New Pack" status="21" mail="1" subject="ERMS INFORMATION: request no "  body="RA approval and action required ">
+  </ERMSMail>
+  
+  <ERMSMail tabCode="Country Add" status="6" mail="1" subject="ERMS Alert: request no "  body="European Product Manager First Approval required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="6" mail="2" subject="ERMS Alert: request no "  body="European Product Manager First Approval required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="6" mail="3" subject="ERMS Alert: request no "  body="European Product Manager First Approval required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="6" mail="4" subject="ERMS Alert: request no "  body="European Product Manager First Approval required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="6" mail="5" subject="ERMS Alert: request no "  body="European Product Manager First Approval required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="-1" mail="1" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="-1" mail="2" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="-1" mail="3" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="3" mail="1" subject="ERMS Alert: request no "  body="SCP Data Input Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="3" mail="2" subject="ERMS Alert: request no "  body="SCP Data Input Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="3" mail="3" subject="ERMS Alert: request no "  body="SCP Data Input Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="3" mail="4" subject="ERMS Alert: request no "  body="SCP Data Input Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="3" mail="5" subject="ERMS Alert: request no "  body="SCP Data Input Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="12" mail="1" subject="ERMS Alert: request no "  body="RDM Data Input required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="13" mail="1" subject="ERMS Alert: request no "  body="More data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="13" mail="2" subject="ERMS Alert: request no "  body="For your information - Mail has been sent that more data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="5" mail="1" subject="ERMS INFORMATION: request no "  body="SU Code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="5" mail="2" subject="ERMS INFORMATION: request no "  body="SU Code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="5" mail="3" subject="ERMS INFORMATION: request no "  body="SU Code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="11" mail="1" subject="ERMS Alert: request no "  body="RDM Data Input required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="11" mail ="2" subject="ERMS INFORMATION: request no "  body="For your information -SCP had submitted the request.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="-99" mail="1" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="-99" mail="2" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Country Add" status="-99" mail="3" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+  <ERMSMail tabCode="Country Add" status="20" mail="1" subject="ERMS INFORMATION: request no "  body="Request submit to procurementMgr ">
+  </ERMSMail>
+  <ERMSMail tabCode="Country Add" status="21" mail="1" subject="ERMS INFORMATION: request no "  body="RA approval and action required ">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="6" mail="1" subject="ERMS Alert: request no "  body="European Product Manager Approval required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="3" mail="1" subject="ERMS Alert: request no "  body="SCP Data Input Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="11" mail="1" subject="ERMS INFORMATION: request no "  body="Please raise NSU with dummy BPS">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="11" mail="2" subject="ERMS INFORMATION: request no "  body="For your information - New Range request has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="11" mail="3" subject="ERMS Alert: request no "  body="RDM Data Input required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="11" mail="4" subject="ERMS INFORMATION: request no "  body="For your information -SCP had submitted the request.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="13" mail="1" subject="ERMS Alert: request no "  body="More data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="13" mail="2" subject="ERMS Alert: request no "  body="For your information - Mail has been sent that more data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="5" mail="1" subject="ERMS INFORMATION: request no "  body="SU Code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="5" mail="2" subject="ERMS INFORMATION: request no "  body="SU Code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="5" mail="3" subject="ERMS INFORMATION: request no "  body="SU Code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="11" mail="1" subject="ERMS INFORMATION: request no "  body="RDM Data Input required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="-1" mail="1" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="-1" mail="2" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="-99" mail="1" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+
+  <ERMSMail tabCode="PFR" status="-99" mail="2" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+  <ERMSMail tabCode="PFR" status="20" mail="1" subject="ERMS INFORMATION: request no "  body="Request submit to procurementMgr ">
+  </ERMSMail>
+  
+    <ERMSMail tabCode="PFR" status="21" mail="1" subject="ERMS INFORMATION: request no "  body="RA approval and action required ">
+  </ERMSMail>
+  
+  <ERMSMail tabCode="Other" status="12" mail="1" subject="ERMS Alert: request no "  body="RDM Data Input required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Other" status="13" mail="1" subject="ERMS Alert: request no "  body="More data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Other" status="13" mail="2" subject="ERMS Alert: request no "  body="For your information - Mail has been sent that more data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Other" status="5" mail="1" subject="ERMS INFORMATION: request no "  body="SU Code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Other" status="5" mail="2" subject="ERMS INFORMATION: request no "  body="SU Code has been raised.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Other" status="11" mail="1" subject="ERMS INFORMATION: request no "  body="RDM Data Input required.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Other" status="-1" mail="1" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Other" status="-1" mail="2" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="Other" status="-99" mail="1" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Other" status="-99" mail="2" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+  <ERMSMail tabCode="Other" status="20" mail="1" subject="ERMS INFORMATION: request no "  body="Request submit to procurementMgr ">
+  </ERMSMail>
+  <ERMSMail tabCode="Supply Chain" mail="1" status="14" subject="ERMS Alert: request no "  body="Global Supply Chain Manager First Approval required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" mail="1" status="-1" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" mail="2" status="-1" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+
+
+  <ERMSMail tabCode="Supply Chain" mail="1" status="3" subject="ERMS Alert: request no "  body="SCP Data Input Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" mail="4" status="4" subject="ERMS Alert: request no "  body="Data Management Approval Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" mail="3" status="4" subject="ERMS Alert: request no "  body="FP Sourcing Approval Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" mail="2" status="4" subject="ERMS Alert: request no "  body="Purchasing Approval required">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="Supply Chain" mail="1" status="4" subject="ERMS Alert: request no "  body="Packaging Approval required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" mail="1" status="16" subject="ERMS Alert: request no "  body="This Range Request has been sent for final approval, however there are concerns from the supply chain.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" mail="2" status="16" subject="ERMS Alert: request no "  body="This Range Request has been sent for final approval, however there are concerns from the supply chain.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" mail="3" status="16" subject="ERMS Alert: request no "  body="This Range Request has been sent for final approval, however there are concerns from the supply chain.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" mail="1" status="8" subject="ERMS Alert: request no "  body="Pack Tech Input is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" mail ="2" status="8" subject="ERMS INFORMATION: request no "  body="For your information -SCP had submitted the request.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" mail="1" status="9" subject="ERMS INFORMATION: request no "  body="For your information - This Range Request has been approved and an estimated date for pack completion has been set">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" status="10" mail="1" subject="ERMS INFORMATION: request no "  body="For your information - This Range Request has been approved and an estimated date for pack completion has been set">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" status="10" mail="2" subject="ERMS INFORMATION: request no "  body="For your information - This Range Request has been approved and an estimated date for pack completion has been set">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="Supply Chain" status="19" mail="1" subject="ERMS INFORMATION: request no "  body="For your information - Mail back to originator of request with Est Pack Comp Date: @EstPackDate - plus furher mails if this date changes">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" status="12" mail="1" subject="ERMS Alert: request no "  body="NSU code @NSU and BPS code @BPS have been raised,RDM Data Input required">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="Supply Chain" status="13" mail="1" subject="ERMS Alert: request no "  body="More data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" status="13" mail="2" subject="ERMS Alert: request no "  body="For your information - Mail has been sent that more data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" status="15" mail="1" subject="ERMS Alert: request no "  body="Global Supply Chain Manager Final Approval required.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" status="5" mail="1" subject="ERMS INFORMATION: request no "  body="SU code has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" status="5" mail="2" subject="ERMS INFORMATION: request no "  body="SU code has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" status="5" mail="3" subject="ERMS INFORMATION: request no "  body="SU code has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" status="-99" mail="1" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" status="-99" mail="2" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+  <ERMSMail tabCode="Supply Chain" status="20" mail="1" subject="ERMS INFORMATION: request no "  body="Request submit to procurementMgr ">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Supply Chain" status="21" mail="1" subject="ERMS INFORMATION: request no "  body="RA approval and action required ">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="17" mail="1" subject="ERMS Alert: request no "  body="European Product Manager First Approval required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="7" mail="1" subject="ERMS Alert: request no "  body="Please raise NSU code">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="7" mail="2" subject="ERMS Alert: request no "  body="European Product Manager Final Approval required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="-1" mail="1" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="-1" mail="2" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="-1" mail="3" subject="ERMS INFORMATION: request no "  body="Request has been rejected">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="3" mail="1" subject="ERMS Alert: request no "  body="SCP Data Input Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="3" mail="2" subject="ERMS Alert: request no "  body="Please raise NSU code">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" mail="4" status="4" subject="ERMS Alert: request no "  body="Global Transfer Pricing Approval Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" mail="1" status="4" subject="ERMS Alert: request no "  body="GSCM Approval Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" mail="2" status="4" subject="ERMS Alert: request no "  body="Packaging Approval required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" mail="3" status="4" subject="ERMS Alert: request no "  body="FP Sourcing Approval Required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" mail="5" status="4" subject="ERMS Alert: request no "  body="Purchasing Approval required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="16" mail="1" subject="ERMS Alert: request no "  body="This Range Request has been sent for final approval, however there are concerns from the supply chain.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="16" mail="2" subject="ERMS Alert: request no "  body="This Range Request has been sent for final approval, however there are concerns from the supply chain.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="16" mail="3" subject="ERMS Alert: request no "  body="This Range Request has been sent for final approval, however there are concerns from the supply chain.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="16" mail="2" subject="ERMS Alert: request no "  body="This Range Request has been sent for final approval, however there are concerns from the supply chain.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="16" mail="3" subject="ERMS Alert: request no "  body="This Range Request has been sent for final approval, however there are concerns from the supply chain.">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="8" mail="1" subject="ERMS Alert: request no "  body="Pack Tech Input is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="8" mail ="2" subject="ERMS INFORMATION: request no "  body="For your information -SCP had submitted the request.">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="Combi Pack" status="19" mail="1" subject="ERMS INFORMATION: request no "  body="For your information - Mail back to originator of request with Est Pack Comp Date: @EstPackDate - plus furher mails if this date changes">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="12" mail="1" subject="ERMS Alert: request no "  body="NSU code @NSU and BPS code @BPS have been raised,RDM Data Input required">
+  </ERMSMail>
+
+
+  <ERMSMail tabCode="Combi Pack" status="13" mail="1" subject="ERMS Alert: request no "  body="More data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="13" mail="2" subject="ERMS Alert: request no "  body="For your information - Mail has been sent that more data is required">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="5" mail="1" subject="ERMS INFORMATION: request no "  body="SU code has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="5" mail="2" subject="ERMS INFORMATION: request no "  body="SU code has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="5" mail="3" subject="ERMS INFORMATION: request no "  body="SU code has been raised">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="-99" mail="1" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="-99" mail="2" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+
+  <ERMSMail tabCode="Combi Pack" status="-99" mail="3" subject="ERMS INFORMATION: request no "  body="Request has been deleted">
+  </ERMSMail>
+  <ERMSMail tabCode="Combi Pack" status="20" mail="1" subject="ERMS INFORMATION: request no "  body="Request submit to procurementMgr ">
+  </ERMSMail>
+  
+  <ERMSMail tabCode="Combi Pack" status="21" mail="1" subject="ERMS INFORMATION: request no "  body="RA approval and action required ">
+  </ERMSMail>
+  
+</ERMSMail>

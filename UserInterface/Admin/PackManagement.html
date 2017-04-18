@@ -1,0 +1,183 @@
+﻿<div>
+    <div class="Search_text">Manage Pack</div>
+    <div class="CoreRange_contain">
+        <div class="row ">
+            <div class="col-md-2 col-xs-4 Common_text">Lead AI:</div>
+            <div class="col-md-4 col-xs-8">
+                <select class="form-control Common_select" ng-change="ctrlPackMgmt.change()" ng-model="ctrlPackMgmt.selectedLeadAI" ng-options="m.Value as m.Text for m in ctrlPackMgmt.ddlLeadAI"></select>
+            </div>
+        </div>
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+        <div class="row">
+            <div class="col-md-2 col-xs-4 Common_text">Formulation:</div>
+            <div class="col-md-4 col-xs-8">
+                <select class="form-control Common_select" ng-disabled="ctrlPackMgmt.showSelect" ng-change="ctrlPackMgmt.change1()" ng-model="ctrlPackMgmt.selectedFormulation" ng-options="m.Value as m.Text for m in ctrlPackMgmt.ddlFormulation"></select>
+            </div>
+        </div>
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+    </div>
+    <div class="first_contain" id="dvCRResults" ng-show="ctrlPackMgmt.showSearchResult">
+        <div class="row line_height_buttom">
+            <div class="col-md-12 col-xs-12 Common_text" style="color:gray" ng-show="ctrlPackMgmt.showCreatePack1">Create Dummy Pack</div>
+            <a class="col-md-12 col-xs-12" style="line-height:25px;" ng-click="ctrlPackMgmt.CreatePack()" ng-show="ctrlPackMgmt.showCreatePack2">Create Dummy Pack</a>
+        </div>
+        <div ng-show="CreateTablePart" style="overflow-x:auto">
+            <div class="row">
+                <table class="table" style="width:800px; margin-left:15px" border="1" cellpadding="3%" width="95%">
+                    <thead>
+                        <tr style="background-color: #ffec8b;">
+                            <th>
+                                <div>
+                                    Pack Quantity
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    Pack Configuration
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    Pack UOM
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    Pack Description
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    Pack NSU Code
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    Syngenta Branded Pack
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="dummy in ctrlPackMgmt.DummyPack">
+                            <td>
+                                <div ng-bind="dummy.Quantity">
+
+                                </div>
+                            </td>
+                            <td>
+                                <div ng-bind="dummy.Configuration">
+
+                                </div>
+                            </td>
+                            <td>
+                                <div ng-bind="dummy.UOM">
+
+                                </div>
+                            </td>
+                            <td>
+                                <div ng-bind="dummy.PackDesc">
+
+                                </div>
+                            </td>
+                            <td>
+                                <div ng-bind="dummy.NSU">
+
+                                </div>
+                            </td>
+                            <td>
+                                <div ng-bind="dummy.IsSynBrdPack">
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-xs-12 line_height_buttom">
+                    <button type="button" class="btn_style btn-default" ng-click="ctrlPackMgmt.SaveDummyPack()">
+                        <div class="btn_bg"></div>
+                        Save
+                    </button>
+                    <button type="button" class="btn_style btn-default line_height_buttom">
+                        <div class="btn_bg"></div>
+                        Delete
+                    </button>
+                    <button type="button" class="btn_style btn-default line_height_buttom" ng-click="BtnCancel()">
+                        <div class="btn_bg"></div>
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div style="float:left; width:100%; height:auto;clear:both; margin-top:10px; overflow-x:auto" ng-show="ctrlPackMgmt.griddata">
+            <table border="1" cellpadding="3%" width="95%">
+                <tr style="background-color: #ffec8b">
+                    <th colspan="1">Pack and Collation</th>
+                    <th colspan="1">Pack Description</th>
+                    <th colspan="1">Ancillaries/Special Requirements</th>
+                    <th colspan="1">Syngenta Branded Pack<a class="a_link_class">&nbsp;?</a></th>
+                    <th colspan="1">Status</th>
+                    <th colspan="1">NSU Code</th>
+                    <th colspan="1" style="width:300px">Comments</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="col in ctrlPackMgmt.PackDetailsRepeat">
+                    <td ng-bind="col.Configuration"></td>
+                    <td ng-bind="col.PackDesc"></td>
+                    <td ng-bind="col.Ancillaries"></td>
+                    <td ng-bind="col.IsSynBrdPack"></td>
+                    <td ng-bind="col.Status"></td>
+                    <td ng-bind="col.NSU"></td>
+                    <td>
+                        <div ng-bind="col.Comment" ng-hide="!EditPart && UserName == $index"></div>
+                        <div style="float:left;">
+                            <textarea style="width:295px" class="form-control" ng-show="!EditPart && UserSelect == $index" rows="3" cols="10" ng-model="col.Comment"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="float:left" ng-click="EditClick($index)" ng-hide="!EditPart && hideSingleRow == $index" ng-model="ctrlPackMgmt.editLink">
+                            <a>Edit</a>
+                        </div>
+                        <div ng-show="!EditPart &&UpdatePart == $index" class="Edit_col">
+                            <div style="float:left;margin-right:10px;" ng-click="UpdateClick($index)">
+                                <a>Update</a>
+                            </div>
+                            <div style="float:left" ng-click="CancelClick($index)">
+                                <a>Cancel</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <nav>
+                <ul class="pagination">
+                    <li>
+                        <a ng-click="Previous()">
+                            <span>pre</span>
+                        </a>
+                    </li>
+                    <li ng-repeat="page in pageList" ng-class="{active: isActivePage(page)}">
+                        <a ng-click="selectPage(page)">{{ page }}</a>
+                    </li>
+                    <li>
+                        <a ng-click="Next()">
+                            <span>next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+    <div class="first_contain">
+        <div class="row col-md-12 col-xs-12" style="float:left">
+            <button type="button" class="btn_style btn-default" ng-click="ctrlPackMgmt.goState()">
+                <div class="btn_bg1"></div>
+                &nbsp;&nbsp;Back
+            </button>
+        </div>
+    </div>
+    <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+</div>

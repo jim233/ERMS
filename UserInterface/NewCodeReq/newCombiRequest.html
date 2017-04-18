@@ -1,0 +1,510 @@
+<!--Combi Pack Request-->
+<!--SCR COMBI Pack-->
+<div ng-include="'../UserInterface/loading.html'" ng-show="newCombi.showLoadingPage"></div>
+<div>
+    <div class="Search_text ng-scope">Combi Pack Request</div>
+    <div class="SCRtitle_contain">
+        <div class="row">
+            <div class="col-md-7 col-xs-12">
+                <button type="button" class="btn_style btn-default" ng-click="showSubmenu()">
+                    <div class="btn_bg"></div>
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="second_contain">
+        <!--<div class="row reserve_height">
+            <div class="col-md-12 col-xs-12 Special_text1" ng-show="newCombi.subMenu">Data saved successfully.</div>
+        </div>-->
+        <div class="row line_height_buttom">
+            <div class="col-md-6 col-xs-4 Common_text">You have selected a <span ng-bind="newCombi.fomulation"></span> Formulation/Product Combi-Pack </div>
+        </div>
+        <div class="row line_height_buttom">
+            <div class="col-md-3 col-xs-12 Common_text2">Combi Pack Sales Unit Details</div>
+        </div>
+        <div class="row line_height_buttom">
+            <div class="col-md-3 col-xs-4 Common_text">Combi Pack Collation Description</div>
+            <div class="col-md-4 col-xs-8">
+                <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="CollationDescription">
+            </div>
+        </div>
+        <div class="row line_height_buttom">
+            <div class="col-md-3 col-xs-4 Common_text">Combi Pack Lead AI<span style="color:red">*</span></div>
+            <div class="col-md-4 col-xs-8">
+                <input type="text" size="20" class="form-control Small_input" ng-model="newCombi.LeadAIText" ng-disabled="newCombi.LeadAITextEnable">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Combi Pack Product Line<span style="color:red">*</span></div>
+            <div class="col-md-4 col-xs-8 line_height_buttom1">
+                <select class="form-control Common_select" ng-model="newCombi.getProductLine" ng-options="m.Value as m.Text for m in GetProductLine">
+                </select>
+            </div>
+        </div>
+        <div class="row line_height_buttom">
+            <div class="col-md-3 col-xs-4 Common_text">Combi Pack Trade name<span style="color:red">*</span></div>
+            <div class="col-md-4 col-xs-8">
+                <input type="text" size="20" name="upfile" id="upfile" ng-model="newCombi.getCPTradeName" class="form-control Small_input">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Combi Pack Country of sale<span style="color:red">*</span></div>
+            <div class="col-md-4 col-xs-8 line_height_buttom1">
+                <select class="form-control Common_select" ng-model="newCombi.getCountrySale" ng-options="m.Value as m.Text for m in GetCountryOfSale"></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Combi Pack Presentation Code<span style="color:red">*</span></div>
+            <div class="col-md-4 col-xs-8 line_height_buttom">
+                <textarea class="form-control" rows="3" ng-model="newCombi.presentationCode"></textarea>
+            </div>
+            <a class="col-md-4 col-xs-7 Common_text line_height_buttom" ng-click="LookPresentationCode()">Look up Presentation Code</a>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Product Category<span style="color:red">*</span></div>
+            <div class="col-md-4 col-xs-8 line_height_buttom1">
+                <select class="form-control Common_select" ng-model="newCombi.productCaty" ng-options="m.Value as m.Text for m in GetProductCategory">
+                </select>
+            </div>
+            <a class="col-md-4 col-xs-7 Common_text line_height_buttom">Help</a>
+        </div>
+        <div class="row line_height_buttom"></div>
+
+        <!--first element-->
+        <div ng-show="showFirstPart">
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-12 Common_text2">Element 1</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Quantity=<span style="color:red">*</span></div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.elementConfiguration1" ng-change="mathDoforCollection('1')">
+                </div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X
+                </div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.elementQuantity1" ng-change="mathDoforCollection('1')">
+                </div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.GetUOMSelected1" ng-options="m.Value as m.Text for m in GetUOM" ng-change="mathDoforCollection('1')"></select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Fill Quantity (if part filled)</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.fillQuantity1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">LEAD AI<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-change="checkAIValue('1',newCombi.getLeaAIfst)" ng-model="newCombi.getLeaAIfst" ng-options="m.Value as m.Text for m in GetLeadAI">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Formulation<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-change="checkPackSizeFst('1',newCombi.checkFomulationFst)" ng-model="newCombi.checkFomulationFst" ng-options="m.Value as m.Text for m in GetFormulationFst"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Pack Size <span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.checkPackSizeFst" ng-options="m.Value as m.Text for m in GetPackSizeFst"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Do you require Syngenta Branded Pack<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.SYNBrandedPackFst" ng-options="m.Value as m.Text for m in GetSUExist">
+                    </select>
+                </div>
+                <div class="col-md-5 line_height_buttom Common_text">
+                    <a>Presentation on Syngenta Branded packs</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Product Line<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.getProductLineFst" ng-options="m.Value as m.Text for m in GetProductLine"></select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Tradename<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.tradeNameFst">
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-11 col-xs-12 Common_text">Does an Su already exist for this country/presentation code for this combi pack element?</div>
+                <div class="col-md-11 col-xs-12 Common_text">For example, if you require 2x5 litres in your final combi pack - is there an SU set up for the 4x5 litres or if you require 3x1 litres in your combi pack - is there an SU set up for the 12x1 litres? </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-5 col-xs-12 line_height_buttom Common_text">
+                    <a>Use this link to S-Magic to help you find/check this information</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Does a Sales Unit Exist to supply this component?<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.salesExistFst" ng-options="m.Value as m.Text for m in GetSUExist">
+                    </select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">If YES - Enter SU Agi Code</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.suAGICode1">
+                </div>
+            </div>
+            <div class="row line_height_buttom"></div>
+        </div>
+
+        <!--second element-->
+        <div ng-show="showFirstPart">
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-12 Common_text2">Element 2</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Quantity=<span style="color:red">*</span></div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.elementConfiguration2" ng-change="mathDoforCollection('2')">
+                </div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X
+                </div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.elementQuantity2" ng-change="mathDoforCollection('2')">
+                </div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.GetUOMSelected2" ng-options="m.Value as m.Text for m in GetUOM" ng-change="mathDoforCollection('2')"></select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Fill Quantity (if part filled)</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.fillQuantity2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">LEAD AI<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-change="checkAIValue('2',newCombi.getLeaAISnd)" ng-model="newCombi.getLeaAISnd" ng-options="m.Value as m.Text for m in GetLeadAI"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Formulation<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-change="checkPackSizeFst('2',newCombi.checkFomulationSnd)" ng-model="newCombi.checkFomulationSnd" ng-options="m.Value as m.Text for m in GetFormulationSnd"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Pack Size <span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.checkPackSizeSnd" ng-options="m.Value as m.Text for m in GetPackSizeSnd">
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Do you require Syngenta Branded Pack<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.SYNBrandedPackSnd" ng-options="m.Value as m.Text for m in GetSUExist"></select>
+                </div>
+                <div class="col-md-5 line_height_buttom Common_text">
+                    <a>Presentation on Syngenta Branded packs</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Product Line<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.getProductLineSnd" ng-options="m.Value as m.Text for m in GetProductLine">
+                    </select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Tradename<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.tradeNameSnd">
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-11 col-xs-12 Common_text">Does an Su already exist for this country/presentation code for this combi pack element?</div>
+                <div class="col-md-11 col-xs-12 Common_text">For example, if you require 2x5 litres in your final combi pack - is there an SU set up for the 4x5 litres or if you require 3x1 litres in your combi pack - is there an SU set up for the 12x1 litres? </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-5 col-xs-12 line_height_buttom Common_text">
+                    <a>Use this link to S-Magic to help you find/check this information</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Does a Sales Unit Exist to supply this component?<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.salesExistSnd" ng-options="m.Value as m.Text for m in GetSUExist">
+                    </select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">If YES - Enter SU Agi Code</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.suAGICode2">
+                </div>
+            </div>
+            <div class="row line_height_buttom"></div>
+        </div>
+
+        <!--third element-->
+        <div ng-show="showSecondPart">
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-12 Common_text2">Element 3</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Quantity=<span style="color:red">*</span></div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.elementConfiguration3" ng-change="mathDoforCollection('3')">
+                </div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X
+                </div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.elementQuantity3" ng-change="mathDoforCollection('3')">
+                </div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.GetUOMSelected3" ng-options="m.Value as m.Text for m in GetUOM" ng-change="mathDoforCollection('3')"></select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Fill Quantity (if part filled)</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.fillQuantity3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">LEAD AI<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-change="checkAIValue('3',newCombi.getLeaAIThd)" ng-model="newCombi.getLeaAIThd" ng-options="m.Value as m.Text for m in GetLeadAI"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Formulation<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-change="checkPackSizeFst('3',newCombi.checkFomulationThd)" ng-model="newCombi.checkFomulationThd" ng-options="m.Value as m.Text for m in GetFormulationThd"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Pack Size <span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.checkPackSizeThd" ng-options="m.Value as m.Text for m in GetPackSizeThd">
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Do you require Syngenta Branded Pack<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.SYNBrandedPackThd" ng-options="m.Value as m.Text for m in GetSUExist">
+                    </select>
+                </div>
+                <div class="col-md-5 line_height_buttom Common_text">
+                    <a>Presentation on Syngenta Branded packs</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Product Line<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.getProductLineThd" ng-options="m.Value as m.Text for m in GetProductLine">
+                    </select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Tradename<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.tradeNameThd">
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-11 col-xs-12 Common_text">Does an Su already exist for this country/presentation code for this combi pack element?</div>
+                <div class="col-md-11 col-xs-12 Common_text">For example, if you require 2x5 litres in your final combi pack - is there an SU set up for the 4x5 litres or if you require 3x1 litres in your combi pack - is there an SU set up for the 12x1 litres? </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-5 col-xs-12 line_height_buttom Common_text">
+                    <a>Use this link to S-Magic to help you find/check this information</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Does a Sales Unit Exist to supply this component?<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.salesExistThd" ng-options="m.Value as m.Text for m in GetSUExist">
+                    </select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">If YES - Enter SU Agi Code</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.suAGICode3">
+                </div>
+            </div>
+            <div class="row line_height_buttom"></div>
+        </div>
+
+        <!--fouth element-->
+        <div ng-show="showThirdPart">
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-12 Common_text2">Element 4</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Quantity=<span style="color:red">*</span></div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.elementConfiguration4" ng-change="mathDoforCollection('4')">
+                </div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X
+                </div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.elementQuantity4" ng-change="mathDoforCollection('4')">
+                </div>
+                <div class="col-md-1 col-xs-2 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.GetUOMSelected4" ng-options="m.Value as m.Text for m in GetUOM" ng-change="mathDoforCollection('4')"></select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Fill Quantity (if part filled)</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.fillQuantity4">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">LEAD AI<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-change="checkAIValue('4',newCombi.getLeaAIFth)" ng-model="newCombi.getLeaAIFth" ng-options="m.Value as m.Text for m in GetLeadAI"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Formulation<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-change="checkPackSizeFst('4',newCombi.checkFomulationFth)" ng-model="newCombi.checkFomulationFth" ng-options="m.Value as m.Text for m in GetFormulationFth"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Pack Size <span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.checkPackSizeFth" ng-options="m.Value as m.Text for m in GetPackSizeFth">
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Do you require Syngenta Branded Pack<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.SYNBrandedPackFth" ng-options="m.Value as m.Text for m in GetSUExist">
+                    </select>
+                </div>
+                <div class="col-md-5 line_height_buttom Common_text">
+                    <a>Presentation on Syngenta Branded packs</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Product Line<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.getProductLineFth" ng-options="m.Value as m.Text for m in GetProductLine">
+                    </select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Tradename<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.tradeNameFth">
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-11 col-xs-12 Common_text">Does an Su already exist for this country/presentation code for this combi pack element?</div>
+                <div class="col-md-11 col-xs-12 Common_text">For example, if you require 2x5 litres in your final combi pack - is there an SU set up for the 4x5 litres or if you require 3x1 litres in your combi pack - is there an SU set up for the 12x1 litres? </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-5 col-xs-12 line_height_buttom Common_text">
+                    <a>Use this link to S-Magic to help you find/check this information</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Does a Sales Unit Exist to supply this component?<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-model="newCombi.salesExistFth" ng-options="m.Value as m.Text for m in GetSUExist">
+                    </select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">If YES - Enter SU Agi Code</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="newCombi.suAGICode4">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/ng-template" id="myModelContentscrr.html">
+        <!--/look up presentation code pop up-->
+        <div class="modal-header">
+            <h4 class="modal-title">LookUp Presentation Code</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row line_height_buttom">
+                <div class="col-md-12 col-xs-12 Common_text">Answer the following questions to enable the correct presentation code to be selected for this request.</div>
+            </div>
+            <div class="row ">
+                <div class="col-md-5 col-xs-6 Common_text">
+                    Is a Country specific label required?
+                </div>
+                <div class="col-md-6 col-xs-6 form-group">
+                    <select class="form-control Common_select" ng-model="CountryData" ng-change="Country(CountryData)" ng-options="m.Value as m.Text for m in CountryLabel">
+                        <!-- ng-options="m.name for m in CountryArray" -->
+                    </select>
+                </div>
+            </div>
+            <div class="row " ng-show="showSndLookUp">
+                <div class="col-md-5 col-xs-6 Common_text">
+                    Is a Customer specific label required?
+                </div>
+                <div class="col-md-6 col-xs-6 form-group">
+                    <select class="form-control Common_select" ng-change="SndCountry(CustomerData)" ng-model="CustomerData" ng-options="m.Value as m.Text for m in CusotmerLabel"></select>
+                </div>
+            </div>
+            <div class="row " ng-show="showSndLookUpSnd">
+                <div class="col-md-5 col-xs-6 Common_text">
+                    Select suitable INTL. Presentation Code.
+                </div>
+                <div class="col-md-6 col-xs-6 form-group">
+                    <select class="form-control Common_select" ng-model="PresDataSelect" ng-change="PresDataIntl(PresDataSelect)" ng-options="m.Value as m.Text for m in PresCode"></select>
+                </div>
+            </div>
+            <div class="row " ng-show="showThdLoopUp">
+                <div class="col-md-5 col-xs-6 Common_text">
+                    What is the Customer Name?
+                </div>
+                <div class="col-md-6 col-xs-6 form-group">
+                    <input type="text" size="20" name="upfile" id="upfile" ng-model="PresDataCustomer" ng-change="ChangePresData(PresDataCustomer)" class="form-control Small_input">
+                </div>
+            </div>
+            <div class="row " ng-show="showFthLoopUp">
+                <div class="col-md-5 col-xs-6 Common_text">
+                    Result
+                </div>
+                <div class="col-md-6 col-xs-6 form-group">
+                    <textarea class="form-control" rows="3" ng-model="PresData"></textarea>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn_style btn-default" ng-click="ok(PresData)">
+                <div class="btn_bg"></div>
+                Ok
+            </button>
+            <button type="button" class="btn_style btn-default" ng-click="cancel()">
+                <div class="btn_bg"></div>
+                Cancle
+            </button>
+        </div>
+    </script>
+</div>

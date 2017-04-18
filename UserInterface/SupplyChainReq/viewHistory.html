@@ -1,0 +1,267 @@
+﻿<div ng-include="'../UserInterface/loading.html'" ng-show="viewHis.showLoadingPage"></div>
+<div>
+    <style>
+        .BoldLabel {
+            font-size: 9pt;
+            width: 150px;
+            color: #000000;
+            font-style: normal;
+            font-family: Arial;
+            font-weight: bold;
+            height: 20px;
+        }
+        .Label {
+            font-size: 9pt;
+            width: 250px;
+            color: #000000;
+            font-style: normal;
+            font-family: Arial;
+            height: 20px;
+        }
+
+
+    </style>
+    <table  border="0" cellpadding="0" cellspacing="4" width="100%">
+        <!--Main Page-->
+        <tr>
+            <td class="ScreenHeading" valign="top" height="5%">
+                View History
+            </td>
+        </tr>
+        <tr>
+            <td id="MsgBar" class="MessageBar" colspan="2"></td>
+        </tr>
+    </table>
+    <!--<h3>
+        View History
+    </h3>-->
+    <table cellspacing=4 cellpadding=0 width="95%" border=1>
+        <tr>
+            <td width="25%"></td>
+            <td width="75%"></td>
+        </tr>	
+        <tr>
+            <td class=Label width="25%">Progress Statement for Request Number:</td>
+            <td>{{viewHistory.SetRequestId}}</td>
+        </tr>
+        <tr>
+            <td>Progress Statement for Request Type:</td>
+            <td>{{viewHistory.SetRequestType}}</td>
+        </tr>
+        <tr>
+            <td>Current Status:</td>
+            <td>{{viewHistory.SetStatus}}</td>
+        </tr>
+        <tr>
+            <td>Reason:</td>
+            <td>{{viewHistory.SetComments}}</td>
+        </tr>
+        <tr>
+            <td>Originator:</td>
+            <td>{{viewHistory.SetOriginator}}</td>
+        </tr>
+        <tr>
+            <td>Created:</td>
+            <td>{{viewHistory.SetCreatedDate}}</td>
+        </tr>
+        <tr>
+            <td>Submitted For Approval:</td>
+            <td>{{viewHistory.SetSubmittedDate}}</td>
+        </tr>
+    </table>
+    <table cellspacing=4 cellpadding=0 width="95%" border=1>
+        <tr ng-show="viewHistory.trFastShow">
+            <td class=BoldLabel colspan=2>FAST Team Approval</td>
+        </tr>
+        <tr ng-show="viewHistory.trFastMgrShow">
+            <td class="Label" rowspan="1" colspan="1">FAST Team Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetFastTeamMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trFastSignOffShow">
+            <td class="Label" rowspan="1" colspan="1">FAST Team Sign Off</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetFastTeamSignOff}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trFastTimeTakenShow">
+            <td class="Label" rowspan="1" colspan="1">FAST Team Time Taken(Days)</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetFastSignOffDays}}</td>
+        </tr>
+    </table>
+    <table cellspacing=4 cellpadding=0 width="95%" border=1>
+        <tr ng-show="viewHistory.trSCPShow">
+            <td class=BoldLabel colspan=2>SCP Approval</td>
+        </tr>
+        <tr ng-show="viewHistory.trSCPMgrShow">
+            <td class="Label" rowspan="1" colspan="1">SCP Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSCPMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trSCPSignOffShow">
+            <td class="Label" rowspan="1" colspan="1">SCP Sign Off</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSCPSignOff}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trSCPTimeTakenShow">
+            <td class="Label" rowspan="1" colspan="1">SCP Time Taken(Days)</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSCPSignOffDays}}</td>
+        </tr>
+    </table>
+
+    <table cellspacing=4 cellpadding=0 width="95%" border=1>
+        <tr ng-show="viewHistory.trPackTechShow">
+            <td class=BoldLabel colspan=2>PackTech Approval</td>
+        </tr>
+        <tr ng-show="viewHistory.trPackTechMgrShow">
+            <td class="Label" rowspan="1" colspan="1">PackTech Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetPackTechMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trPackTechSignOffShow">
+            <td class="Label" rowspan="1" colspan="1">PackTech enter EPC Sign Off</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetPackTechSignOff}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trPackTechTimeTakenShow">
+            <td class="Label" rowspan="1" colspan="1">PackTech enter EPC Time Taken(Days)</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetPackTechSignOffDays}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trPackCompleteMgrShow">
+            <td class="Label" rowspan="1" colspan="1">PackTech Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetPackTechCompleteMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trPackCompleteSignOffShow">
+            <td class="Label" rowspan="1" colspan="1">PackTech Test Complete Sign Off</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetPackCompletSignOff}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trPackTestCompleteTimeTakenShow">
+            <td class="Label" rowspan="1" colspan="1">PackTech Test Complete Time Taken(Days)</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetPackTestCompleteTimeTaken}}</td>
+        </tr>
+    </table>
+    <table cellspacing=4 cellpadding=0 width="95%" border=1>
+        <tr ng-show="viewHistory.trRDMShow">
+            <td class=BoldLabel colspan=2>RDM Approval</td>
+        </tr>
+        <tr ng-show="viewHistory.trRDMMgrShow">
+            <td class="Label" rowspan="1" colspan="1">RDM Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetRDMMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trRDMSignOffShow">
+            <td class="Label" rowspan="1" colspan="1">RDM raise PU Code Sign Off</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetRDMSignOff}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trRDMTimeTakenShow">
+            <td class="Label" rowspan="1" colspan="1">RDM raise PU Code Time Taken (Days)</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetRDMSignOffDays}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trSUCodeRaiseRDMMgrShow">
+            <td class="Label" rowspan="1" colspan="1">RDM Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSUCodeRaiseRDMMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trSUCodeRaiseSignOffShow">
+            <td class="Label" rowspan="1" colspan="1">RDM raise SU Code Sign Off</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSUCodeRaiseSignOff}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trSUCodeRaiseTimeTakenShow">
+            <td class="Label" rowspan="1" colspan="1">RDM raise SU Code Time Taken (Days)</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSUCodeRaiseTimeTake}}</td>
+        </tr>
+    </table>
+    <table cellspacing=4 cellpadding=0 width="95%" border=1>
+        <tr ng-show="viewHistory.trEBMShow">
+            <td class=BoldLabel colspan=2>EMB Approval</td>
+        </tr>
+        <tr ng-show="viewHistory.trEBMMgrShow">
+            <td class="Label" rowspan="1" colspan="1">EPM Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetEBMMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trEBMSignOffShow">
+            <td class="Label" rowspan="1" colspan="1">EPM 1st Sign Off</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetEBMSignOff}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trEBMTimeTakenShow">
+            <td class="Label" rowspan="1" colspan="1">EPM 1st Time Taken (Days)</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetEBMSignOffDays}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trEBM2ndManagerShow">
+            <td class="Label" rowspan="1" colspan="1">EPM Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetEBM2ndManager}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trEBM2ndSignOffShow">
+            <td class="Label" rowspan="1" colspan="1">EPM 2nd Sign Off</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetEBM2ndSignOff}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trEBM2ndTimeTakenShow">
+            <td class="Label" rowspan="1" colspan="1">EPM 2st Time Taken (Days)</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetEBM2ndTimeTaken}}</td>
+        </tr>
+    </table>
+    <table cellspacing=4 cellpadding=0 width="95%" border=1>
+        <tr ng-show="viewHistory.trSCTeamShow">
+            <td class=BoldLabel colspan=2>SC Team Approval</td>
+        </tr>
+        <tr ng-show="viewHistory.trSCTeamPackTechShow">
+            <td class="Label" rowspan="1" colspan="1">Pack Tech Head</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSCTeamPackTechMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trSCTeamPackTechHeadShow">
+            <td class="Label" rowspan="1" colspan="1">Packaging Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSCTeamPackTechHead}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trSCTeamPackPurchasingMgrShow">
+            <td class="Label" rowspan="1" colspan="1">Pack Purchasing Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSCTeamPackPuchasingMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trSCTeamFastMgrShow">
+            <td class="Label" rowspan="1" colspan="1">F&amp;P Sourcing Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSCTeamFastMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trSCTeamGSCMMgrShow">
+            <td class="Label" rowspan="1" colspan="1">GSCM Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSCTeamGSCMMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trSCTeamRDMMgrShow">
+            <td class="Label" rowspan="1" colspan="1">RDM Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSCTeamRDMMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trSCTeamGTPMgrShow">
+            <td class="Label" rowspan="1" colspan="1"> Global Transfer Pricing Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSCTeamGTPMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trSCTeamSignOffShow">
+            <td class="Label" rowspan="1" colspan="1"> SC Team Sign Off</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSCTeamSignOff}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trSCTeamTimeTakenShow">
+            <td class="Label" rowspan="1" colspan="1">SC Team Time Taken (Days)</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetSCTeamSignOffDays}}</td>
+        </tr>
+    </table>
+
+    <table cellspacing=4 cellpadding=0 width="95%" border=1>
+        <tr ng-show="viewHistory.trGSCMShow">
+            <td class=BoldLabel colspan=2>GSCM Approval</td>
+        </tr>
+        <tr ng-show="viewHistory.trGSCMMgrShow">
+            <td class="Label" rowspan="1" colspan="1">GSCM Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetGSCMMgr}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trGSCMSignOffShow">
+            <td class="Label" rowspan="1" colspan="1">GSCM 1st Sign Off</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetGSCMSignOff}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trGSCMTimeTakenShow">
+            <td class="Label" rowspan="1" colspan="1">GSCM 1st Time Taken (Days)</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetGSCMSignOffDays}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trGSCM2ndManagerShow">
+            <td class="Label" rowspan="1" colspan="1">GSCM Manager</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetGSCM2ndManager}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trGSCM2ndSignOffShow">
+            <td class="Label" rowspan="1" colspan="1">GSCM 2nd Sign Off</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetGSCM2ndSignOff}}</td>
+        </tr>
+        <tr ng-show="viewHistory.trGSCM2ndTimeTakenShow">
+            <td class="Label" rowspan="1" colspan="1">GSCM 2nd Time Taken (Days)</td>
+            <td class="Label" rowspan="1" colspan="1">{{viewHistory.SetGSCM2ndTimeTaken}}</td>
+        </tr>
+    </table>
+
+   
+</div>

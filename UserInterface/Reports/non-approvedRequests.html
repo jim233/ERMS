@@ -1,0 +1,1553 @@
+﻿<div>
+    <div class="Search_text" style="margin-bottom:10px;">
+    ERMS Reports
+    </div>
+    <div class="first_contain">
+        <div class="row col-md-12 col-xs-12">
+            <button type="button" class="btn_style btn-default" ng-click="goState()">
+                <div class="btn_bg1"></div>
+                &nbsp;&nbsp;Back
+            </button>
+        </div>
+    </div>
+    <div class="CoreRange_contain">
+        <!--type One-->
+        <div class="Common_textUnder" ng-show="typeOne">Report shows the current status of Range requests with RDM</div>
+        <div class="row line_height_buttom" ng-show="typeOne" style="overflow-x:auto">
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            OverDue
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Country Of Sale
+                        </th>
+                        <th>
+                            Area
+                        </th>
+                        <th>
+                            SU Code
+                        </th>
+                        <th>
+                            SU Raised On
+                        </th>
+                        <th>
+                            Current Due Date
+                        </th>
+                        <th>
+                            Days Overdue
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Overdue"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CountryOfSale"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Area"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SUCode"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SuRaisedOn"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CurrentDueDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DaysOverdue"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--type two-->
+        <div class="Common_textUnder" ng-show="typeTwo">Report shows approval status for non-approved requests</div>
+        <div class="row line_height_buttom" ng-show="typeTwo" style="overflow-x:auto">
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Date Submitted
+                        </th>
+                        <th>
+                            EPM
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            EPM Received Date
+                        </th>
+                        <th>
+                            Comments
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DateSubmitted"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.EPM"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.EPMreceiveDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Comments"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Date Submitted
+                        </th>
+                        <th>
+                            FAST
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            FAST Received Date
+                        </th>
+                        <th>
+                            Comments
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DateSubmitted"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.FAST"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.FASTReceiveDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Comments"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Date Submitted
+                        </th>
+                        <th>
+                            Supply Chain Planner
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            SCP Received Date
+                        </th>
+                        <th>
+                            Comments
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DateSubmitted"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SCP"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SCPreceiveDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Comments"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Date Submitted
+                        </th>
+                        <th>
+                            Supply Chain Team
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            SCTeam Received Date
+                        </th>
+                        <th>
+                            Comments
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DateSubmitted"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SCTeam"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SCTeamreceiveDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Comments"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Date Submitted
+                        </th>
+                        <th>
+                            GSCM
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            GSCM Received Date
+                        </th>
+                        <th>
+                            Comments
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DateSubmitted"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.GSCM"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.GSCMreceiveDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Comments"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Date Submitted
+                        </th>
+                        <th>
+                            Purchasing
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            PP Received Date
+                        </th>
+                        <th>
+                            Comments
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DateSubmitted"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.PP"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.PPreceiveDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Comments"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Date Submitted
+                        </th>
+                        <th>
+                            F&P Sourcing
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            FP Received Date
+                        </th>
+                        <th>
+                            Comments
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DateSubmitted"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.FP"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SCTeamreceiveDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Comments"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Date Submitted
+                        </th>
+                        <th>
+                            Packaging
+                        </th>
+                        <th>
+                            Pack Technologist
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Pack Received Date
+                        </th>
+                        <th>
+                            Comments
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DateSubmitted"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Pack"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.packtech"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.PackreceiveDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Comments"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--type Three-->
+        <div class="Common_textUnder" ng-show="typeThree">Report shows requests found with status: All in Progress OR Complete</div>
+        <div class="row line_height_buttom" ng-show="typeThree" style="overflow-x:auto">
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Date sent to packaging
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Lead AI
+                        </th>
+                        <th>
+                            Country
+                        </th>
+                        <th>
+                            Pack
+                        </th>
+                        <th>
+                            Date required for sale
+                        </th>
+                        <th>
+                            Year1 Sales
+                        </th>
+                        <th>
+                            Current Status
+                        </th>
+                        <th>
+                            Packaging Completion Date
+                        </th>
+                        <th>
+                            Est. Packaging Completion Date
+                        </th>
+                        <th>
+                            Pack Tech.
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.PackSentDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.LeadAI"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Country"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.PackConfig"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SaleDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Year1Sales"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CurrentStatus"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.PackCompDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.EstPackCompDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.PackTech"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--type Four-->
+        <div class="Common_textUnder" ng-show="typeFour">Product Line Seller report</div>
+        <div class="row line_height_buttom" ng-show="typeFour" style="overflow-x:auto">
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Range Request Number
+                        </th>
+                        <th>
+                            Country Of Sale
+                        </th>
+                        <th>
+                            Request Type
+                        </th>
+                        <th>
+                            Lead AI
+                        </th>
+                        <th>
+                            Creation Date
+                        </th>
+                        <th>
+                            Trade Name
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            SU AGI Created
+                        </th>
+                        <th>
+                            Local Or Regional
+                        </th>
+                        <th>
+                            Is SPAC Packaging Required ?
+                        </th>
+                        <th>
+                            Date Of First Sale
+                        </th>
+                        <th>
+                            Pack Size
+                        </th>
+                        <th>
+                            Completed Date
+                        </th>
+                        <th>
+                            Product Line Seller
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Country"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Lead AI"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Creation Date"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Trade Name"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SU AGI Created"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Local Or Regional"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Date Of First Sale"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Is SPAC Packaging Required ?"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Pack Size"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Completed Date"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Product Line Seller"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--type Five-->
+        <div class="Common_textUnder" ng-show="typeFive">Report shows summary of Range Requests in Progress and Completed Range Requests in the previous 6 months</div>
+        <div class="row line_height_buttom" ng-show="typeFive" style="overflow-x:auto">
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Country/Area
+                        </th>
+                        <th>
+                            In Progress
+                        </th>
+                        <th>
+                            Jul
+                        </th>
+                        <th>
+                            Jun
+                        </th>
+                        <th>
+                            May
+                        </th>
+                        <th>
+                            Apr
+                        </th>
+                        <th>
+                            Mar
+                        </th>
+                        <th>
+                            Feb
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <span ng-bind="r.Country"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.ProgressCount"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Month1"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Month2"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Month3"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Month4"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Month5"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Month6"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--type Six-->
+        <div class="Common_textUnder" ng-show="typeSix">Report shows the current status of Range requests in progress</div>
+        <div class="row line_height_buttom" ng-show="typeSix" style="overflow-x:auto">
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Overdue
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Country Of Sale
+                        </th>
+                        <th>
+                            Area
+                        </th>
+                        <th>
+                            Current Due Date
+                        </th>
+                        <th>
+                            Days Overdue
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Overdue"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CountryOfSale"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Area"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CurrentDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DaysOverdue"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--type Seven-->
+        <div class="Common_textUnder" ng-show="typeSeven">Report shows time taken by role</div>
+        <div class="row line_height_buttom" ng-show="typeSeven" style="overflow-x:auto">
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Local Or Regional
+                        </th>
+                        <th>
+                            EBM Approval
+                        </th>
+                        <th>
+                            Fast Approval
+                        </th>
+                        <th>
+                            SC Team
+                        </th>
+                        <th>
+                            SCP
+                        </th>
+                        <th>
+                            Pack Est
+                        </th>
+                        <th>
+                            Total with Packaging
+                        </th>
+                        <th>
+                            RDM raise PU code
+                        </th>
+                        <th>
+                            RDM raise SU code
+                        </th>
+                        <th>
+                            Total
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.LocalRegional"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.EBMApproval"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.FASTApproval"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SCTeam"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SCP"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.PackEst"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Packaging"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.EDM"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.EDM1"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Total"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            EBM Approval
+                        </th>
+                        <th>
+                            SCP
+                        </th>
+                        <th>
+                            RDM
+                        </th>
+                        <th>
+                            Total
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.EBMApproval"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SCP"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.EDM"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Total"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--type Eight-->
+        <div class="Common_textUnder" ng-show="typeEight">Report shows New Production Introduction KPI</div>
+        <div class="row line_height_buttom" ng-show="typeEight" style="overflow-x:auto">
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Country
+                        </th>
+                        <th>
+                            Submitted On
+                        </th>
+                        <th>
+                            Date of First Sale
+                        </th>
+                        <th>
+                            Date To EDM
+                        </th>
+                        <th>
+                            SU Raised On
+                        </th>
+                        <th>
+                            SU Code
+                        </th>
+                        <th>
+                            Completed On
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.requestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.OverDue"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Country"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Area"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SUCode"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SURaised"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CurrentDueDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DaysOverdue"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--type Nine-->
+        <div class="Common_textUnder" ng-show="typeNine">Report shows Add to Core Range (New Pack and Country Add RR)</div>
+        <div class="row line_height_buttom" ng-show="typeNine" style="overflow-x:auto">
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Date submited
+                        </th>
+                        <th>
+                            Add To Core Range ??
+                        </th>
+                        <th>
+                            EPM name
+                        </th>
+                        <th>
+                            Current Status
+                        </th>
+                        <th>
+                            Country
+                        </th>
+                        <th>
+                            Lead AI
+                        </th>
+                        <th>
+                            A Number
+                        </th>
+                        <th>
+                            UC Code
+                        </th>
+                        <th>
+                            Pack Size
+                        </th>
+                        <th>
+                            FAST confirm source
+                        </th>
+                        <th>
+                            SC team confirm pack responsibility
+                        </th>
+                        <th>
+                            NSU Code
+                        </th>
+                        <th>
+                            BPS Code
+                        </th>
+                        <th>
+                            SU Code
+                        </th>
+                        <th>
+                            Date completed
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.RequestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DateSubmited"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CoreRange"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.EPMName"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CurrentStatus"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Country"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.LeadAI"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.ANumber"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.UCCode"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.PackSize"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.FASTSource"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SCteamResponsibility"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.NSUCode"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.BPSCode"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SUCode"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DateCompleted"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--type Ten-->
+        <div class="Common_textUnder" ng-show="typeTen">PackTech Report</div>
+        <div class="row line_height_buttom" ng-show="typeTen" style="overflow-x:auto">
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Packaging
+                        </th>
+                        <th>
+                            PackTechnologist
+                        </th>
+                        <th>
+                            EstPackCompDate
+                        </th>
+                        <th>
+                            SubmittedtoPackagingApprover
+                        </th>
+                        <th>
+                            PackaginApproverapprovedonDate
+                        </th>
+                        <th>
+                            ApprovedWithindays
+                        </th>
+                        <th>
+                            SubmittedtoPackTechnologistforApprovalDate
+                        </th>
+                        <th>
+                            EstPackSubmittedDate
+                        </th>
+                        <th>
+                            PackCompDate
+                        </th>
+                        <th>
+                            EstPackSubmittedBy
+                        </th>
+                        <th>
+                            BPSDesignCode
+                        </th>
+                        <th>
+                            IsADRCompatible
+                        </th>
+                        <th>
+                            EstWorkInvolved
+                        </th>
+                        <th>
+                            BPSAgiCode
+                        </th>
+                        <th>
+                            NSUCode
+                        </th>
+                        <th>
+                            PackModifiedBy
+                        </th>
+                        <th>
+                            PackModifiedDate
+                        </th>
+                        <th>
+                            PackTestSubmittedBy
+                        </th>
+                        <th>
+                            FinalSubmittedBy
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.requestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.OverDue"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Country"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Area"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SUCode"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SURaised"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CurrentDueDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DaysOverdue"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Country"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Area"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SUCode"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SURaised"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CurrentDueDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DaysOverdue"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Country"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Area"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SUCode"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            PackTechnologist
+                        </th>
+                        <th>
+                            EstPackCompDate
+                        </th>
+                        <th>
+                            SubmittedtoPacktechheadforapprovalDate
+                        </th>
+                        <th>
+                            PackTechHeadApprovedDate
+                        </th>
+                        <th>
+                            SubmittedtoPackTechnologistDate
+                        </th>
+                        <th>
+                            EstPackSubmittedDate
+                        </th>
+                        <th>
+                            PackCompDate
+                        </th>
+                        <th>
+                            ReceivedEstcompletiondatewithindays
+                        </th>
+                        <th>
+                            ApprovedByPackTechnologistwithindays
+                        </th>
+                        <th>
+                            EstPackSubmittedBy
+                        </th>
+                        <th>
+                            BPSDesignCode
+                        </th>
+                        <th>
+                            IsADRCompatible
+                        </th>
+                        <th>
+                            EstWorkInvolved
+                        </th>
+                        <th>
+                            BPSAgiCode
+                        </th>
+                        <th>
+                            NSUCode
+                        </th>
+                        <th>
+                            PackModifiedBy
+                        </th>
+                        <th>
+                            PackModifiedDate
+                        </th>
+                        <th>
+                            PackTestSubmittedBy
+                        </th>
+                        <th>
+                            FinalSubmittedBy
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.requestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.OverDue"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Country"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Area"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SUCode"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SURaised"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CurrentDueDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DaysOverdue"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Country"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Area"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SUCode"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SURaised"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CurrentDueDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DaysOverdue"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Country"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Area"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SUCode"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover" style="width:980px; margin-left:15px;margin-top:15px;" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            Request Id
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            PackTechnologist
+                        </th>
+                        <th>
+                            EstPackCompDate
+                        </th>
+                        <th>
+                            EstPackSubmittedDate
+                        </th>
+                        <th>
+                            PackcompletedwithinEstPackCompletiondays
+                        </th>
+                        <th>
+                            PackCompDate
+                        </th>
+                        <th>
+                            EstPackSubmittedBy
+                        </th>
+                        <th>
+                            BPSDesignCode
+                        </th>
+                        <th>
+                            IsADRCompatible
+                        </th>
+                        <th>
+                            EstWorkInvolved
+                        </th>
+                        <th>
+                            BPSAgiCode
+                        </th>
+                        <th>
+                            NSUCode
+                        </th>
+                        <th>
+                            PackModifiedBy
+                        </th>
+                        <th>
+                            PackModifiedDate
+                        </th>
+                        <th>
+                            PackTestSubmittedBy
+                        </th>
+                        <th>
+                            FinalSubmittedBy
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in tableListBig">
+                        <td>
+                            <a ng-bind="r.requestId"></a>
+                        </td>
+                        <td>
+                            <span ng-bind="r.type"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.OverDue"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Country"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Area"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SUCode"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SURaised"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CurrentDueDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DaysOverdue"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Status"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Country"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.Area"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SUCode"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.SURaised"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.CurrentDueDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="r.DaysOverdue"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

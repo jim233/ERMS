@@ -1,0 +1,141 @@
+<div>
+	<div class="row_block line_height_buttom" ng-show="false">
+		<h3><span ng-bind="SupplyChain.titleTypeName"></span><span ng-bind='SupplyChain.titleName'></span></h3>
+		<!--<p>Fields marked <span style="color:red">*</span> are Mandatory</p>-->
+	</div>
+	<div class="row_block line_height_buttom" ng-show="true">
+		<h3><span ng-bind="SupplyChain.titleTypeName"></span> - <span ng-bind='SupplyChain.titleName'></span></h3>
+	</div>
+    <br>
+        <div class="table_contain3">
+            <table class="table_1 table_1_1" style="background-color: rgb(220, 220, 220); border-spacing:3px;" bordercolor="white" cellpadding="3" cellspacing="3">
+                <tbody style="padding:2px;">
+                    <tr>
+                        <td rowspan="1" colspan="1" style="max-width:125px">
+                            <div class="table_body">Range Request Number</div>
+                        </td>
+                        <td rowspan="1" colspan="1" style="max-width:180px;min-width:100px">
+                            <div class="" ng-show="showRangeFirst" ng-bind="SupplyChain.GetRangeRequestNumber"></div>
+                            <div class="" ng-hide="showRangeFirst"><span ng-bind="SupplyChain.GetRangeRequestNumberFst"></span><a ng-click="getRedirectFromRRNF(SupplyChain.GetRangeRequestNumberSnd,SupplyChain.GetRangeRequestNumberThd)">{{SupplyChain.GetRangeRequestNumberSnd}}</a></div>
+                        </td>
+                        <td rowspan="1" colspan="1" style="max-width:125px">
+                            <div class="table_body">Range Request Type</div>
+                        </td>
+                        <td rowspan="1" colspan="1" style="max-width:180px;min-width:100px">
+                            <div class="">{{SupplyChain.GetRangeRequestType}}</div>
+                        </td>
+                        <td colspan="2">
+                            <div class="table_body">
+                                <a ng-click="SupplyChain.getNewViewHistory()">View History</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table_body">Originator</div>
+                        </td>
+                        <td>
+                            <div class="">{{SupplyChain.GetOriginator}}</div>
+                        </td>
+                        <td>
+                            <div class="table_body">Created Date</div>
+                        </td>
+                        <td>
+                            <div class="">{{SupplyChain.GetCreatedDate}}</div>
+                        </td>
+                        <td colspan="2">
+                            <div class="table_body"><a ng-click="SupplyChain.goBack()">Back to New Code Requests</a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table_body">Lead AI</div>
+                        </td>
+                        <td>
+                            <div class="">{{SupplyChain.GetLeadAI}}</div>
+                        </td>
+                        <td>
+                            <div class="table_body">Country</div>
+                        </td>
+                        <td>
+                            <div class="">{{SupplyChain.GetCountry}}</div>
+                        </td>
+                        <td rowspan="1" colspan="1" style="max-width:100px">
+                            <div class="table_body">Date Of First Sale</div>
+                        </td>
+                        <td>
+                            <div style="min-width:100px">{{SupplyChain.GetFirstCodeDate}}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table_body">Trade Name</div>
+                        </td>
+                        <td>
+                            <div class="">{{SupplyChain.GetTradeName}}</div>
+                        </td>
+                        <td>
+                            <div class="table_body">Pack</div>
+                        </td>
+                        <td>
+                            <div class="">{{SupplyChain.GetPack}}</div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <span class="table_body">Date Code Due</span>
+                        </td>
+                        <td>
+                            <div style="min-width:100px">{{SupplyChain.GetCodeDueDate}}</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+	<div class="row_block" style="margin-top:20px;">
+		<div class="table_tdS">Status</div>
+		<div class="table_tdS">{{SupplyChain.GetStatus}}</div>
+		<div class="table_tdS">Status Last Changed on</div>
+		<div class="table_tdS">{{SupplyChain.GetStatusLastChanged}}</div>
+	</div>
+
+	<div class="row_block">
+		<ul class="ul_list_style">
+            <a class="ul_list_floatLeft"
+               ng-repeat="m in SupplyChain.subTabSCRs" ng-href="{{m.url}}" ng-bind="m.printName"
+               ng-class="{true:'Tabactive2',false:''}[header.subTabActive('SupplyChainRequest.' + m.name)]">
+            </a>
+
+			<!--<a class="ul_list_floatLeft" ng-href="{{SupplyChain.hreftest}}" ng-class="{true:'Tabactive2',false:''}[SupplyChain.subTabActive('SupplyChainRequest.request')]">
+				Request
+			</a>
+			<a class="ul_list_floatLeft" ui-sref=".EPM" ng-class="{true:'Tabactive2',false:''}[SupplyChain.subTabActive('SupplyChainRequest.EPM')]">
+				EPM
+			</a>
+			<a class="ul_list_floatLeft" ui-sref=".Fast" ng-class="{true:'Tabactive2',false:''}[SupplyChain.subTabActive('SupplyChainRequest.Fast')]">
+				Fast
+			</a>
+			<a class="ul_list_floatLeft" ui-sref=".FirstGSCM" ng-class="{true:'Tabactive2',false:''}[SupplyChain.subTabActive('SupplyChainRequest.FirstGSCM')]">
+				First GSCM
+			</a>
+			<a class="ul_list_floatLeft" ui-sref=".SCTeam" ng-class="{true:'Tabactive2',false:''}[SupplyChain.subTabActive('SupplyChainRequest.SCTeam')]">
+				SC Team
+			</a>
+			<a class="ul_list_floatLeft" ui-sref=".FinalGSCM" ng-class="{true:'Tabactive2',false:''}[SupplyChain.subTabActive('SupplyChainRequest.FinalGSCM')]">
+				Final GSCM
+			</a>
+			<a class="ul_list_floatLeft" ui-sref=".SCP" ng-class="{true:'Tabactive2',false:''}[SupplyChain.subTabActive('SupplyChainRequest.SCP')]">
+				SCP
+			</a>
+			<a class="ul_list_floatLeft" ui-sref=".PackEngineer" ng-class="{true:'Tabactive2',false:''}[SupplyChain.subTabActive('SupplyChainRequest.PackEngineer')]">
+				Pack Engineer
+			</a>
+			<a class="ul_list_floatLeft" ui-sref=".RDM" ng-class="{true:'Tabactive2',false:''}[SupplyChain.subTabActive('SupplyChainRequest.RDM')]">
+				RDM
+			</a>-->
+		</ul>
+	</div>
+
+	<br>
+	<div ui-view="lazyLoadView" class="ng_tpls">
+	</div>
+
+</div>

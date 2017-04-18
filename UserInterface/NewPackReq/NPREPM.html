@@ -1,0 +1,81 @@
+<div ng-include="'../UserInterface/loading.html'" ng-show="EPM.showLoadingPage"></div>
+<div>
+	<form>
+		<div class="SCRtitle_contain">
+			<div class="row">
+				<div class="col-md-7 col-xs-12">
+                    <button type="button" class="btn_style btn-default" ng-click="EPM.saveEPM()" ng-disabled="EPM.SaveDisabled">
+                        <div class="btn_bg"></div>
+                        Save
+                    </button>
+                    <button type="submit" class="btn_style btn-default" ng-click="EPM.submitEPM()" ng-disabled="EPM.SubmitDisabled">
+                        <div class="btn_bg"></div>
+                        Submit
+                    </button>
+				</div>
+			</div>
+		</div>
+		<div class="second_contain">
+			<div class="row reserve_height">
+                <div class="col-md-12 col-xs-12 Special_text1" ng-show="EPM.showOperationMsg">
+                    {{EPM.operationMsg}}
+                </div>
+			</div>
+            <div class="row line_height_buttom" ng-show="EPM.showFirstAppvoalMsg">
+                <div class="col-md-3 col-xs-4 Common_text" ng-bind="EPMTitle"></div>
+            </div>
+            <div class="row line_height_buttom" ng-show="EPM.showFinalAppvoalMsg">
+                <div class="col-md-3 col-xs-4 Common_text" ng-bind="FinalEPMTitle"></div>
+            </div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text" ng-bind="FieldName"></div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="EPM.epmName" ng-disabled="EPM.EpmNameDisabled">
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Request Approved<span style="color:red">*</span></div>
+				<div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" ng-options="m.Value as m.Text for m in EPM.requestApproved" ng-change="EPM.changeForComment()" 
+                            ng-model="EPM.requestApprovedSelected" ng-disabled="EPM.RequestApprovedDisabled"></select>
+                    <div class="input-error-messages" ng-show="EPM.isReqAprv">
+                        <div>Please select Request Approved</div>
+                        <div class="input-error-messages-arrow"></div>
+                    </div> 
+                </div>
+			</div>
+            <div class="row line_height_buttom" ng-show="EPM.AddToCoreRangeShow">
+                <div class="col-md-3 col-xs-4 Common_text">Add To Core Range</div>
+                <div class="radio_style">
+                    <label style="font-weight: normal;">
+                        <input type="radio" name="optionsRadios" value="1" ng-checked="EPM.coreRange == 1" ng-model="EPM.coreRange" ng-disabled="EPM.CoreRangeDisabled">
+                        Yes
+                    </label>
+                </div>
+                <div class="radio_style">
+                    <label style="font-weight: normal;">
+                        <input type="radio" name="optionsRadios" value="0" ng-checked="EPM.coreRange == 0" ng-model="EPM.coreRange" ng-disabled="EPM.CoreRangeDisabled">
+                        No
+                    </label>
+                </div>
+            </div>
+			<div class="row">
+				<div class="col-md-3 col-xs-4 Common_text line_height_buttom">Comments</div>
+				<div class="col-md-4 col-xs-8 line_height_buttom">
+                    <textarea class="form-control" rows="3" ng-model="EPM.comments" ng-readonly="EPM.CommentsReadOnly"></textarea>
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Completed Date</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="date" size="20" class="form-control Small_input" ng-model="EPM.completedDate" ng-disabled="EPM.CompleteDateDisabled">
+                </div>
+			</div>
+            <div>
+                <input type="hidden" ng-model="EPM.otherData" />
+                <input type="hidden" ng-model="EPM.getEBMId" />
+                <input type="hidden" ng-model="EPM.username" />
+            </div>
+		</div>
+	</form>
+</div>

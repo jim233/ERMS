@@ -1,0 +1,50 @@
+<div>
+	<form>
+		<div class="SCRtitle_contain">
+			<div class="row">
+				<div class="col-md-7 col-xs-12">
+                    <button type="button" class="btn_style btn-default" ng-click="FirstGSCM.showSubmenu()" ng-disabled="FirstGSCM.SaveDisabledGSCM">
+                        <div class="btn_bg"></div>
+                        Save
+                    </button>
+                    <button type="submit" class="btn_style btn-default" ng-click="FirstGSCM.GSCMSubmit()" ng-disabled="FirstGSCM.SubmitDisabledGSCM">
+                        <div class="btn_bg"></div>
+                        Submit
+                    </button>
+				</div>
+			</div>
+		</div>
+		<div class="second_contain">
+			<div class="row reserve_height">
+				<div class="col-md-12 col-xs-12 Special_text1" ng-show="FirstGSCM.subMenu">Data saved successfully.Please click on submit, if you wish to complete the screen.</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-12 col-xs-12 Special_text">Global Supply Chain Manager First Approval</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Global Supply Chain Manager</div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="FirstGSCM.GSCMgr" ng-readonly="FirstGSCM.MgrReadOnly">
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Global Supply Chain Manager First Approval<span style="color:red">*</span></div>
+				<div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" ng-options="m.Value as m.Text for m in GSCMgrApproval" ng-model="FirstGSCM.GSCMgrAprrovalSel" ng-disabled="FirstGSCM.GSCMApproval" ng-change="FirstGSCM.changeForComment()"></select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-xs-4 Common_text line_height_buttom">Global Supply Chain Manager Comments</div>
+				<div class="col-md-4 col-xs-8 line_height_buttom">
+                    <textarea class="form-control" rows="3" ng-model="FirstGSCM.GSCMgrCmts" ng-readonly="FirstGSCM.MgrComments"></textarea>
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Completed Date</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" ng-model="FirstGSCM.getMgrTime" class="form-control Small_input" ng-disabled="FirstGSCM.MgrDateDisabled">
+                </div>
+			</div>
+		</div>
+	</form>
+</div>

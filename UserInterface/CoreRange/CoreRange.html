@@ -1,0 +1,127 @@
+<div ng-include="'../UserInterface/loading.html'" ng-show="coreRange.showLoadingPage"></div>
+<div class="Search_text">Core Range</div>
+<form>
+    <div class="CoreRange_contain">
+        <div class="row ">
+            <div class="col-md-2 col-xs-4 Common_text">Lead AI:</div>
+            <div class="col-md-4 col-xs-8">
+                <select class="form-control Common_select" ng-change="coreRange.getFormulation()" ng-model="coreRange.selectedLeadAI" ng-options="m.Text for m in coreRange.leadAI track by m.Value"></select>
+            </div>
+            <a class="col-sm-12 col-md-6 Common_text" ng-show="coreRange.LinkShow" ng-click="coreRange.getCombiPackForLeadAI()">Click here to see combi pack range for this Lead AI</a>
+        </div>
+        <div ng-show="coreRange.thirdPartyNote">
+            If the Third party formulation you require is not on the drop down list - click on the 'Add new pack to the range' button to create a new pack request. You must provide MSDS/technical specifications to IDS Data Management to obtain A No/UC code which you will need to complete the request form
+        </div>
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+        <div class="row">
+            <div class="col-md-2 col-xs-4 Common_text">Formulation:</div>
+            <div class="col-md-4 col-xs-8">
+                <select class="form-control Common_select" ng-disabled="coreRange.showSelect" ng-change="coreRange.getCoreRangeDetails()" ng-model="coreRange.selectedFormulation" ng-options="m.Text for m in coreRange.formulation track by m.Value"></select>
+            </div>
+        </div>
+        <div class="row" ng-show="coreRange.note">
+            <div class="col-xs-12 col-lg-12 Common_text1">
+                Note - This is a new product launch - talk to the European Portfolio Team if you wish to sell a pack not displayed on the list.
+            </div>
+
+        </div>
+        
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+        <div class="row">
+            <div class="col-md-2 col-xs-4 Common_text">PLS:</div>
+            <div class="col-md-4 col-xs-8">
+                <input class="form-control Common_input1" id="disabledInput" type="text" placeholder="" ng-model="coreRange.PLS">
+            </div>
+        </div>
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+        <div class="row">
+            <div class="col-md-2 col-xs-4 Common_text">Sector:</div>
+            <div class="col-md-4 col-xs-8">
+                <input class="form-control Common_input1" id="disabledInput" type="text" placeholder="" ng-model="coreRange.sector">
+            </div>
+        </div>
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+        <div class="row">
+            <div class="col-md-2 col-xs-4 Common_text">Category:</div>
+            <div class="col-md-4 col-xs-8">
+                <input class="form-control Common_input1" id="disabledInput" type="text" placeholder="" ng-model="coreRange.category">
+            </div>
+            <div><button ng-show="coreRange.btnAddNewPack" ng-click="coreRange.addNewPackRequest()">Add new pack to the range</button> </div>
+        </div>
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+        <div class="row">
+            <div class="col-md-2 col-xs-4 Common_text">Phase Out Date:</div>
+            <div class="col-md-4 col-xs-8">
+                <input class="form-control Common_input1" id="disabledInput" type="text" placeholder="" ng-model="coreRange.phaseOutDate">
+            </div>
+        </div>
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+        <a class="col-xs-12 col-lg-4 Common_text1">Presentation on Syngenta Branded packs</a>
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+        <div ng-show="coreRange.packSizeNote">
+            <font color="blue" face="Verdana" size="2">**</font> Click on Pack and Collation link to create request for the pack size
+        </div>
+    </div>
+    <br>
+    <div class="second_contain" ng-show="coreRange.NoResult"> No Result! </div>
+    <br>
+    <div class="first_contain" id="dvCRResults" ng-show="coreRange.showSearchResult">
+        <div style="float:left; width:200px;height:30px"><span>No. of items found:</span> <span ng-bind="coreRange.records"></span></div>
+        <div style="float:left; width:100%; height:auto;clear:both; margin-top:20px;">
+            <table border="1" cellpadding="3%" width="95%">
+                <tr style="background-color: #ffec8b">
+                    <th colspan="1">Pack and Collation</th>
+                    <th colspan="1">Pack Description</th>
+                    <th colspan="1">Ancillaries/Special Requirements</th>
+                    <th colspan="1">Syngenta Branded Pack<br><a class="a_link_class" style="margin-left: 85px;">?</a></th>
+                    <th colspan="1">Comments</th>
+                    <th colspan="1">Status</th>
+                    <th colspan="1">NSU Code</th>
+                </tr>
+                <tr ng-repeat="col in coreRange.pageTableRepeat">
+                    
+                        <td ng-bind="col.CONFIGURATION" ng-show="coreRange.PackCollation"></td>
+                    <td ng-hide="coreRange.PackCollation"> <button ng-bind="col.CONFIGURATION" ng-click="coreRange.NewPackCollationReq(col)"></button>**</td>
+                        <td ng-bind="col.PACKDESC"></td>
+                        <td ng-bind="col.ANCILLARIES"></td>
+                        <td ng-bind="col.IsSynBrdPack"></td>
+                        <td ng-bind="col.COMMENT"></td>
+                        <td ng-bind="col.STATUS"></td>
+                        <td ng-bind="col.NSU"></td>
+                </tr>
+            </table>
+            <nav>
+                <ul class="pagination">
+                    <li>
+                        <a ng-click="Previous()">
+                            <span>pre</span>
+                        </a>
+                    </li>
+                    <li ng-repeat="page in coreRange.pageList" ng-class="{active: coreRange.isActivePage(page)}">
+                        <a ng-click="coreRange.selectPage(page)">{{ page }}</a>
+                    </li>
+                    <li>
+                        <a ng-click="Next()">
+                            <span>next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="first_contain" id="dvCombiPackDetails" ng-show="coreRange.showCombiPackResults">
+       
+        <div style="float:left; width:100%; height:auto;clear:both; margin-top:20px;">
+            <table border="1" cellpadding="3%" width="95%">
+                <tr style="background-color: #ffec8b">
+                    <th colspan="1">Combi Pack Details:</th>                    
+                </tr>
+                <tr ng-repeat="col in coreRange.combiPackRepeat">
+                    <td ng-bind="col.COMBIPACKCONFIG"></td>                    
+                </tr>
+            </table>           
+        </div>
+    </div>
+    <div ng-show="coreRange.newCombiPack">Please &nbsp;<a ng-click="coreRange.newCombiPackRequest()"> click here </a>&nbsp; for creating a new combi pack request</div>
+</form>

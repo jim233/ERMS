@@ -1,0 +1,93 @@
+﻿<div>
+    <div class="Search_text">Manage PLS Contacts</div>
+    <div class="CoreRange_contain">
+        <div class="row line_height_buttom">
+            <table class="table table-hover" style="width:1000px; margin-left:15px" border="1" cellpadding="3%" width="95%">
+                <thead>
+                    <tr style="background-color: #ffec8b;">
+                        <th>
+                            <div>
+                                PLS
+                            </div>
+                        </th>
+                        <th>
+                            <div>
+                                Description
+                            </div>
+                        </th>
+                        <th>
+                            <div>
+                                GSCM
+                            </div>
+                        </th>
+                        <th>
+                            <div>
+                                1st Approval
+                            </div>
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pls in ctrlPLSContacts.PLSContacts">
+                        <td>
+                            <div ng-bind="pls.ProductLine_Name">
+
+                            </div>
+                        </td>
+                        <td>
+                            <div ng-bind="pls.PLSContact_Description">
+
+                            </div>
+                        </td>
+                        <td>
+                            <div style="float:left" ng-hide="!EditPart && UserName == $index" ng-bind="pls.GSCM_Name">
+
+                            </div>
+                            <div style="float:left" ng-show="!EditPart && UserSelect == $index">
+                                <div class="table_btn">
+                                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input1" ng-model="InputText1" ng-readonly="true">
+                                    <input type="button" value="..." class="btn btn-default file_btn1" ng-click="ctrlPLSContacts.openFirst()">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="float:left" ng-hide="!EditPart && UserName == $index" ng-bind="pls.UserName">
+
+                            </div>
+                            <div style="float:left" ng-show="!EditPart && UserSelect == $index">
+                                <div class="table_btn">
+                                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input1" ng-model="InputText2" ng-readonly="true">
+                                    <input type="button" value="..." class="btn btn-default file_btn1" ng-click="ctrlPLSContacts.openSecond()">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="float:left" ng-click="EditClick($index)" ng-hide="!EditPart && hideSingleRow == $index">
+                                <a>Edit</a>
+                            </div>
+                            <div ng-show="!EditPart && UpdatePart == $index" class="Edit_col">
+                                <div style="float:left; margin-right:10px;" ng-click="UpdateClick($index,pls)">
+                                    <a>Update</a>
+                                </div>
+                                <div style="float:left" ng-click="CancelClick($index)">
+                                    <a>Cancel</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="first_contain">
+        <div class="row col-md-12 col-xs-12" style="float:left">
+            <button type="button" class="btn_style btn-default" ng-click="goState()">
+                <div class="btn_bg1"></div>
+                &nbsp;&nbsp;Back
+            </button>
+        </div>
+    </div>
+</div>

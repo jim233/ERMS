@@ -1,0 +1,68 @@
+﻿
+<div class="big_contain">
+    <div class="background_part" style="position:relative">       
+        <img src="../../Images/5566.jpg" style="width:1024px" />
+        <div style="position: absolute; left: 51px; top: 14px; width:500px; font-size: 30px; color: white; font-family: initial; font-weight:bold;">
+            <label style=" font-size: 38px;" ng-bind="Title"></label>&nbsp;&nbsp;&nbsp;&nbsp;<label>R A N G E</label>
+            </br>
+            <span>M A N A G E M E N T&nbsp;&nbsp;&nbsp;&nbsp; S Y S T E M</span>
+        </div>
+        <div class="home_part2">
+            <span ng-bind="WelcomeNote"></span>
+        </div>
+        <div class="home_part2 home_part2_copy">
+            <span ng-bind="WelcomeNote"></span>
+        </div>
+        <div class="bg_color home_part3">
+            <span style="font-size:22px" ng-bind="TrainingText"></span>
+            </br>
+            <span ng-bind="TrainingNote"> <a>Training Material</a></span>
+            </br>
+            <span>For specific help and queries please contact your Key User if your Key User is not able to support you please ask him/her to contact the <a>ServiceDesk SustEx</a></span>
+        </div>
+    </div>
+    <style>
+     body, html {
+        margin: 0px;
+        height: 100%;
+    }
+
+    .home_part2 {
+        position: absolute;
+        right: 20px;
+        top: 4%;
+        width: 500px;
+        font-size: 22px;
+        color: white;
+        font-family: initial;
+        font-weight: bold;
+        z-index: 1;
+    }
+    .home_part2_copy {
+        right: 18px;
+        color: black;
+        z-index: 0;
+    }
+
+    .home_part3 {
+        position: absolute;
+        right: 18px;
+        bottom: 15%;
+        width: 300px;
+        font-size: 18px;
+        color: #606060;
+        font-family: initial;
+        background: none;
+    }
+
+    .autoHeight {
+        width: 100px;
+        height: 100%;
+        background: red;
+    }
+
+    .bg_color a {
+        color: #F0C82A;
+    }
+    </style>
+</div>

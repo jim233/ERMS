@@ -1,0 +1,219 @@
+<script src="../../Scripts/Excel.js"></script>
+<div ng-include="'../UserInterface/loading.html'" ng-show="reports.showLoadingPage"></div>
+<div>
+	<div class="Search_text">Reports</div>
+	<form>
+		<div class="CoreRange_contain">
+			<div class="row line_height_buttom">
+				<table class="table table-hover">
+					<thead>
+						<tr style="background-color: #ffec8b;">
+							<th>
+								<div>
+									Reports
+								</div>
+							</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<div class="radio">
+									<label>
+                                        <input type="radio" name="optionsRadios" value="StatusRDM" ng-model="reports.getRadioValue" ng-checked="reports.getRadioValue == 'StatusRDM'">
+    								    Status of Range Request with RDM
+  									</label>
+								</div>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<div style="float: left;"> 
+									<div class="radio">
+										<label>
+                                            <input type="radio" name="optionsRadios" value="viewSummary" ng-model="reports.getRadioValue" ng-checked="reports.getRadioValue == 'viewSummary'">
+    									View summary of approval status for non-approved requests
+  										</label>
+									</div>
+								</div>		
+							</td>
+							<td>
+								<div style="float: left;">
+                                    <select class="form-control Common_select1" ng-model="reports.selectedPackTech" ng-options="m.Value as m.Text for m in reports.Roles"></select>
+								</div>
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<div style="float: left;"> 
+									<div class="radio">
+										<label>
+                                            <input type="radio" name="optionsRadios" value="selectPackStatus" ng-model="reports.getRadioValue" ng-checked="reports.getRadioValue == 'selectPackStatus'">
+    									Select Pack Technologist & Status
+  										</label>
+									</div>
+								</div>
+							</td>
+							<td>
+								<div style="float: left;">
+                                    <select class="form-control Common_select1" ng-model="reports.selectedRoles" ng-options="m.Value as m.Text for m in reports.PackTech"></select>
+								</div>
+							</td>
+							<td>
+								<div style="float: left;">
+                                    <select class="form-control Common_select1" ng-model="reports.selectedPackTechStatus" ng-options="m.Value as m.Text for m in reports.PackTechStatus"></select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div style="float: left;"> 
+									<div class="radio">
+										<label>
+                                            <input type="radio" name="optionsRadios" value="lineReport" ng-model="reports.getRadioValue" ng-checked="reports.getRadioValue == 'lineReport'">
+    									Product Line Seller report
+  										</label>
+									</div>
+								</div>
+							</td>
+							<td>
+								<div style="float: left;">
+                                    <select class="form-control Common_select1" ng-model="reports.selectedPLSMonth" ng-options="m.Value as m.Text for m in reports.month"></select>
+								</div>
+							</td>
+							<td>
+								<div style="float: left;">
+                                    <select class="form-control Common_select1" ng-model="reports.selectedPLSYear" ng-options="m.Value as m.Text for m in reports.Year"></select>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+					<thead>
+						<tr style="background-color: #ffec8b;">
+							<th>
+								<div>
+									 KPI's 
+								</div>
+							</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<div class="radio">
+									<label>
+                                        <input type="radio" name="optionsRadios" value="summaryProgress" ng-model="reports.getRadioValue" ng-checked="reports.getRadioValue == 'summaryProgress'">
+    								Summary of completed Range Requests and Range Requests in Progress 
+  									</label>
+								</div>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<div class="radio">
+									<label>
+                                        <input type="radio" name="optionsRadios" value="rangeProgress" ng-model="reports.getRadioValue" ng-checked="reports.getRadioValue == 'rangeProgress'">
+    								Status of Range Requests in Progress
+  									</label>
+								</div>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<div style="float: left;"> 
+									<div class="radio">
+										<label>
+                                            <input type="radio" name="optionsRadios" value="timeTakenStages" ng-model="reports.getRadioValue" ng-checked="reports.getRadioValue == 'timeTakenStages'">
+    									Time taken for Approval stages
+  										</label>
+									</div>
+								</div>
+							</td>
+							<td>
+								<div style="float: left;">
+                                    <select class="form-control Common_select1" ng-model="reports.selectedApprovalMonth" ng-options="m.Value as m.Text for m in reports.month"></select>
+								</div>
+							</td>
+							<td>
+								<div style="float: left;">
+                                    <select class="form-control Common_select1" ng-model="reports.selectedApprovalYear" ng-options="m.Value as m.Text for m in reports.Year"></select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="radio">
+									<label>
+                                        <input type="radio" name="optionsRadios" value="viewKPI" ng-model="reports.getRadioValue" ng-checked="reports.getRadioValue == 'viewKPI'">
+    								View New Production Introduction KPI 
+  									</label>
+								</div>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<div class="radio">
+									<label>
+                                        <input type="radio" name="optionsRadios" value="addCoreRange" ng-model="reports.getRadioValue" ng-checked="reports.getRadioValue == 'addCoreRange'">
+    								Add to Core Range (New Pack and Country Add RR)
+  									</label>
+								</div>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<div style="float: left;"> 
+									<div class="radio">
+										<label>
+                                            <input type="radio" name="optionsRadios" value="packReport" ng-model="reports.getRadioValue" ng-checked="reports.getRadioValue == 'packReport'">
+    									Pack Tech Report
+  										</label>
+									</div>
+								</div>
+								
+							</td>
+							<td>
+								<div style="float: left; margin-top: 10px;">From Date:&nbsp;</div>
+                                <div style="float: left;" id='sandbox-container-from'>
+                                    <input type="date" size="20" name="upfile" id="upfile" class="form-control Common_select1" ng-model="reports.DateFrom">
+                                </div>
+								
+							</td>
+							<td>
+								<div style="float: left; margin-top: 10px;">To Date:&nbsp;</div>
+                                <div style="float: left;" id='sandbox-container-to'>
+                                    <input type="date" size="20" name="upfile" id="upfile" class="form-control Common_select1" ng-model="reports.DateTo">
+                                </div>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+                                <a class="a_link_class" style="float: left; margin-right: 30px;" ng-click="reports.getReport(reports.getRadioValue)">View</a>
+                                <a class="a_link_class" style="float: left;" ng-click="reports.getReportinExcel(reports.getRadioValue)">Export to Excel</a>
+							</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+
+	</form>
+</div>

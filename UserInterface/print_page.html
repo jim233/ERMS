@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html ng-app="ERMS_print">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>print preview</title>
+    <link href="../Content/Bootstrap-3.0.0/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/datepicker.css" rel="stylesheet" />
+    <link href="../Content/Layout.css" rel="stylesheet" />
+    <link href="../Content/fix.css" rel="stylesheet" />
+    <link href="../Content/Bootstrap-3.0.0/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="../Content/Bootstrap-3.0.0/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="../Content/Bootstrap-3.0.0/bootstrap-datepicker.css.map" rel="stylesheet" />
+    <link href="../Content/Bootstrap-3.0.0/bootstrap-datepicker.min.css.map" rel="stylesheet" />
+    <script src="../Scripts/Framework/jquery-1.9.1.js"></script>
+    <script src="../Scripts/Framework/datepicker.js"></script>
+    <script src="../Scripts/Framework/angular-1.3.0.14/angular.js"></script>
+    <script src="../Scripts/Framework/angular-1.3.0.14/angular-route.js"></script>
+    <script src="../Scripts/Framework/angular-ui-router.js"></script>
+    <script src="../Scripts/Framework/bootstrap-3.0.0/bootstrap.js"></script>
+    <script src="../Scripts/Framework/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="../Scripts/Framework/dist/ocLazyLoad.js"></script>
+    <script src="../Scripts/Framework/angular-file-upload.min.js"></script>
+    <script src="../Scripts/Framework/bootstrap-datepicker.js"></script>
+    <script src="../Scripts/print_preview.js"></script>
+</head>
+<body ng-controller="printCtrl as search" style="width:1500px; overflow-x:auto">
+    <style media="print">
+        .Noprint {
+            DISPLAY: none;
+        }
+
+        .PageNext {
+            PAGE-BREAK-AFTER: always;
+        }
+    </style>
+    <form>
+        <div class="first_contain" id="dvSearchResults">
+            <div style="float:left; width:200px;height:20px"></div>
+            <div class="row col-md-12 col-xs-12 Noprint" style="float:left">
+                <button type="button" class="btn_style btn-default" onclick="window.close()">
+                    <div class="btn_bg1"></div>
+                    &nbsp;&nbsp;Close
+                </button>
+                <button type="button" class="btn_style btn-default" ng-click='search.print()'>
+                    <div class="btn_bg1"></div>
+                    &nbsp;&nbsp;print
+                </button>
+            </div>
+                <table class="PageNext" border="1" cellpadding="4%" width="100%" style="float:left;margin-top:20px;">
+                    <tr style="background-color: #ffec8b; text-align:center">
+                        <th colspan="1">Request Id</th>
+                        <th colspan="1">Request Type</th>
+                        <th colspan="1">Originator</th>
+                        <th colspan="1">Date</th>
+                        <th colspan="1">Lead AI</th>
+                        <th colspan="1">Country</th>
+                        <th colspan="1">Code Due Date</th>
+                        <th colspan="1">TradeName</th>
+                        <th colspan="1">Pack Size</th>
+                        <th colspan="1">Status</th>
+                        <th colspan="1">First sale</th>
+                        <th colspan="1">Combi</th>
+                        <th colspan="1">Status Changed on</th>
+                        <th colspan="1">Region</th>
+                        <th colspan="1">Area</th>
+                        <th colspan="1">Sub Area</th>
+                        <th colspan="1">Plant Code</th>
+                        <th colspan="1">Y1 Sales</th>
+                        <th colspan="1">Y1 Volume</th>
+                        <th colspan="1">Y2 Sales</th>
+                        <th colspan="1">Y2 Volume</th>
+                    </tr>
+                    <tr ng-repeat="col in search.getTableReturn">
+                        <td ng-bind="col.RequestId"></td>
+                        <td ng-bind="col.ReqType"></td>
+                        <td ng-bind="col.Originator"></td>
+                        <td ng-bind="col.Date"></td>
+                        <td ng-bind="col.LeadAI"></td>
+                        <td ng-bind="col.Country"></td>
+                        <td ng-bind="col.CodeDueDate"></td>
+                        <td ng-bind="col.TradeName"></td>
+                        <td ng-bind="col.PackSize"></td>
+                        <td ng-bind="col.Status"></td>
+                        <td ng-bind="col.FirstSale"></td>
+                        <td ng-bind="col.Combi"></td>
+                        <td ng-bind="col.StatusChangedon"></td>
+                        <td ng-bind="col.Region"></td>
+                        <td ng-bind="col.Area"></td>
+                        <td ng-bind="col.SubArea"></td>
+                        <td ng-bind="col.PlantCode"></td>
+                        <td ng-bind="col.yearOneSales"></td>
+                        <td ng-bind="col.yearOneVolume"></td>
+                        <td ng-bind="col.yearTwoSales"></td>
+                        <td ng-bind="col.yearTwoVolume"></td>
+                    </tr>
+                </table>
+            <br>
+        </div>
+    </form>
+</body>
+</html>

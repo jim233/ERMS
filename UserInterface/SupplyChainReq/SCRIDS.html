@@ -1,0 +1,42 @@
+﻿<div>
+    <form>
+        <div class="SCRtitle_contain">
+            <div class="row">
+                <div class="col-md-7 col-xs-12">
+                    <button type="button" class="btn_style btn-default" ng-click="SCRIDS.SaveIDSmenu()" ng-disabled="SCRIDS.SaveEnableIDS">
+                        <div class="btn_bg"></div>
+                        Save
+                    </button>
+                    <button type="submit" class="btn_style btn-default" ng-click="SCRIDS.submitIDSMenu()" ng-disabled="SCRIDS.SubmitEnableIDS">
+                        <div class="btn_bg"></div>
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="second_contain">
+            <div class="row reserve_height">
+                <div class="col-md-12 col-xs-12 Special_text1" ng-show="SCRIDS.RectivationReq">It is a Reactivation Request.</div>
+            </div>
+            <div class="row reserve_height">
+                <div class="col-md-12 col-xs-12 Special_text1" ng-show="SCRIDS.subMenu">Data saved successfully.</div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-12 Common_text2">STEP 1</div>
+            </div>
+
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Combi Design Code Variant No.<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCRIDS.designcode" ng-disabled="SCRIDS.designcodeEnable">
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Combi UC Agi Code<span style="color: red">*</span></div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCRIDS.ucagicode" ng-disabled="SCRIDS.ucagicodeEnable">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

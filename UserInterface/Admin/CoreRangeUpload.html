@@ -1,0 +1,30 @@
+﻿<div>
+    <div class="Search_text">Core Range Upload</div>
+    <div class="CoreRange_contain">
+        <div class="row line_height_buttom">
+            <div class="col-md-2 col-xs-4 Common_text">NSU Upload</div>
+            <div class="col-md-4 col-xs-8">
+                <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="CoreRangeUpload.selected">
+                <input type="button" value="..." class="btn btn-default file_btn" onclick="path.click()">
+                <input type="file" id="path" style="display:none" onchange="upfile.value=this.value" ng-model="CoreRangeUpload.fileValue">
+            </div>
+        </div>
+    </div>
+    <div class="CoreRange_contain">
+        <a class="a_link a_link_class" ng-click="uploadfile()">Core Range Upload</a>
+        <div class="row line_height_buttom">
+            <div class="col-md-12 col-xs-12 Common_text" style=" color:blue; font-weight:bold;" ng-show="getSuccessValue" ng-bind="CoreRangeUploadMess">Test</div>
+        </div>
+        <div class="row line_height_buttom">
+            <div class="col-md-12 col-xs-12 Common_text" style="color:blue; font-weight:bold;" ng-bind="CoreRangeUploadMessageonLoad">Core Range last updated by Amy Chen on 17/7/2014 12:52.</div>
+        </div>
+    </div>
+    <div class="first_contain">
+        <div class="row col-md-12 col-xs-12" style="float:left">
+            <button type="button" class="btn_style btn-default" ng-click="goState()">
+                <div class="btn_bg1"></div>
+                &nbsp;&nbsp;Back
+            </button>
+        </div>
+    </div>
+</div>

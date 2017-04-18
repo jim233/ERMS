@@ -1,0 +1,97 @@
+﻿<div>
+    <form>
+        <div class="SCRtitle_contain">
+            <div class="row">
+                <div class="col-md-7 col-xs-12">
+                    <button type="button" class="btn_style btn-default" ng-click="SCTeam.saveSCTeam()" ng-disabled="SCTeam.SaveDisabled">
+                        <div class="btn_bg"></div>
+                        Save
+                    </button>
+                    <button type="submit" class="btn_style btn-default" ng-click="SCTeam.submitSCTeam()" ng-disabled="SCTeam.SubmitDisabled">
+                        <div class="btn_bg"></div>
+                        Submit
+                    </button>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="second_contain">
+            <div class="row reserve_height">
+                <div class="col-md-12 col-xs-12 Special_text1" ng-show="SCTeam.showOperationMsg">
+                    {{SCTeam.operationMsg}}
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Pack Technology Head</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCTeam.PackHeadName" ng-disabled="SCTeam.PackHeadNameDisabled">
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Approved</div>
+                <div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" ng-options="m.Value as m.Text for m in SCTeam.Approved" ng-model="SCTeam.ApprovedSelected" ng-disabled="SCTeam.ApprovedDisabled" ></select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Pack Responsibility</div>
+                <div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" ng-options="m.Value as m.Text for m in SCTeam.PackRes" ng-model="SCTeam.PackResSelected" ng-disabled="SCTeam.PackResDisabled">
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Comments</div>
+                <div class="col-md-4 col-xs-8 line_height_buttom">
+                    <textarea class="form-control" rows="8" maxlength="1000" ng-model="SCTeam.comments" ng-readonly="SCTeam.CommentsReadOnly"></textarea>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Administrator</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="SCTeam.Administrator" ng-disabled="SCTeam.AdministratorDisabled">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Outcome</div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-options="m.Value as m.Text for m in SCTeam.Outcome" ng-model="SCTeam.OutcomeSelected" ng-disabled="SCTeam.OutcomeDisabled">
+                    </select>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">View Issue Log</div>
+                <div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <a>Update Concerns Issue Log</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Resolution Comments</div>
+                <div class="col-md-4 col-xs-8 line_height_buttom">
+                    <textarea class="form-control" rows="8" maxlength="1000 " ng-model="SCTeam.resolutionComments" ng-readonly="SCTeam.resolutionCommentsReadOnly"></textarea>
+                </div>
+            </div>
+            <div class="row line_height_buttom"></div>
+            <div class="row line_height_buttom"></div>
+
+            <input type="hidden" ng-model="SCTeam.requestid" />
+            <input type="hidden" ng-model="SCTeam.hdnPackId" />
+            <input type="hidden" ng-model="SCTeam.username" />
+        </div>
+    </form>
+    <!--NPR 3-->
+    <div class="fix_banner" >
+        <div class="banner_style" ng-model="SCTeam.Message1" ng-show="SCTeam.Message1Show">
+            {{SCTeam.Message1}}
+        </div>
+       
+        <div class="banner_style" ng-model="SCTeam.Message2" ng-show="SCTeam.Message2Show">
+            {{SCTeam.Message2}}
+        </div>
+        <div class="banner_style" ng-show="SCTeam.Message3Show">
+            It is a Reactivation Request
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,59 @@
+<div>
+	<form>
+		<div class="Search_text">Combi Pack Home</div>
+        <div>
+            <a>If you have not yet used the system for Combi pack requests please read this instructions.</a>
+        </div>
+		<div class="CoreRange_contain">
+			<div class="row ">
+				<div class="col-md-12 col-xs-12 Common_text2">The Combi Pack Lead is a key field in the coding set up so here are some guidelines to help you.</div>
+				<div class="col-md-12 col-xs-12 Common_text2">Syngenta AI before 3rd party AI,Blockbuster before Core AI,Growth before supplymentary etc.</div>
+				<div class="col-md-12 col-xs-12 Common_text2">If you have any doubts which should be Lead AI, Please discuss this with the European Business Manager</div>
+			</div>
+			<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+			<div class="row">
+				<div class="col-md-3 col-xs-5 Common_text">Lead AI<span style="color:red">*</span></div>
+				<div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" ng-model="combiHome.LeadAIValue" ng-options="m.Value as m.Text for m in GetLeadAI">
+                    </select>
+				</div>
+			</div>
+			<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 line_height"></div>
+			<div class="row">
+				<div class="col-md-3 col-xs-5 Common_text">This Combi-pack will contain<span style="color:red">*</span></div>
+				<div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" ng-model="combiHome.requestSelected" ng-options="m.Value as m.Text for m in GetFormulation">
+                    </select>
+                </div>
+			</div>
+		</div>
+		<div class="second_contain">
+			<div class="row">
+				<div class="col-md-7 col-xs-12">
+					<!--<button type="button" class="btn_style btn-default" ng-click="NewCodeSC.goState()">-->
+					<button type="button" class="btn_style btn-default" ng-click="open()" style="width: 140px;">
+					<div class="btn_bg"></div>
+					Next
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+	
+	<script type="text/ng-template" id="myModelContent.html">
+		<!--//创建一个局部视图，需要的时候引用它， 下面会用到-->
+		<div class="modal-header">
+			<!--// modal头部 。body footer 类推-->
+			<div class="modal-title"><img src="../Images/ic_warn.gif" style="width: 32px; height: 32px;">&nbsp;&nbsp;Message from webpage</div>
+		</div>
+		<div class="modal-body">
+			<div>LeadAI need to be selected or typed.</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn_style btn-default" ng-click="ok()">
+					<div class="btn_bg"></div>
+					Ok
+			</button>
+		</div>
+	</script>
+</div>

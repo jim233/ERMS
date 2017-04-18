@@ -1,0 +1,296 @@
+﻿<div>
+	<form>
+		<div class="SCRtitle_contain">
+			<!--<div class="row">
+			</div>-->
+		</div>
+		<div class="second_contain">
+			<div class="row reserve_height">
+                <div class="col-md-12 col-xs-12 Special_text1" ng-show="PackEngineer.showOperationMsg">
+                    {{PackEngineer.operationMsg}}
+                </div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-12 Common_text2">STEP 1</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Pack Tech Name<span style="color:red">*</span></div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="PackEngineer.packTechName"
+                           ng-disabled="PackEngineer.packTechNameDisabled" ng-change="PackEngineer.PkTechNme()">
+                    <input type="button" value="..." class="btn btn-default file_btn" ng-click="PackEngineer.open()">
+                    <div class="input-error-messages" ng-show="PackEngineer.isPkTechNme">
+                        <div>Please select Pack Tech Name</div>
+                        <div class="input-error-messages-arrow"></div>
+                    </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-xs-12 Common_text line_height_buttom">If you wish to e-mail this request to another member of your team for action, select their name from the GAL and then click the save button</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-12 Common_text2">STEP 1</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">EST Pack Comp Date<span style="color:red">*</span></div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="date" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="PackEngineer.ESTPackCompDate" 
+                     ng-disabled="PackEngineer.ESTPackCompDateDisabled">
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-2 col-xs-4 col-md-offset-3">
+                    <button type="submit" class="btn_style btn-default" ng-click="PackEngineer.submitStep1()" ng-disabled="PackEngineer.submitStep1Disabled">
+                        <div class="btn_bg"></div>
+                        Submit
+                    </button>
+				</div>
+				<div class="col-md-6 col-xs-8">(This will save and submit entry which completes stage 1) </div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-2 col-xs-4 col-md-offset-3">
+                    <button type="button" class="btn_style btn-default" ng-click="PackEngineer.saveStep1()" ng-disabled="PackEngineer.saveStep1Disabled">
+                        <div class="btn_bg"></div>
+                        Save
+                    </button>
+				</div>
+				<div class="col-md-6 col-xs-8">(Click here to save any changes to the Est Pack Comp date)</div>
+			</div>
+			<!--<div class="row reserve_height">
+				<div class="col-md-12 col-xs-12 Special_text1 col-md-offset-3 line_height_buttom" ng-show="PackEngineer.subMenu1">Data saved successfully.</div>
+			</div>-->
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-12 Common_text2">STEP 2</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-xs-4 Common_text line_height_buttom">Packaging Comments</div>
+				<div class="col-md-4 col-xs-8 line_height_buttom">
+                    <textarea class="form-control" rows="8" maxlength="2500" ng-model="PackEngineer.packagingComments" ng-readonly="PackEngineer.packagingCommentsReadOnly"></textarea>
+				</div>
+				<div class="col-md-4 col-xs-7 Common_text line_height_buttom">Maximum 2500 letters</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">BPS Design Code</div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="PackEngineer.BPSDesignCode" ng-disabled="PackEngineer.BPSDesignCodeDisabled">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-xs-4 Common_text line_height_buttom">Is bottle/Formulation ADR Compatible</div>
+				<div class="col-md-4 col-xs-8 line_height_buttom1">
+                    <select class="form-control Common_select" ng-options="m.Value as m.Text for m in PackEngineer.BottleFormulation" ng-model="PackEngineer.BottleFormulationSelected" ng-disabled="PackEngineer.BottleFormulationDisabled">
+                    </select>
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">EST Work Involved(Man Hours)</div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="PackEngineer.ESTWorkInvolved" ng-disabled="PackEngineer.ESTWorkInvolvedDisabled">
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-2 col-xs-4 col-md-offset-3">
+                    <button type="button" class="btn_style btn-default" ng-click="PackEngineer.saveStep2()" ng-disabled="PackEngineer.saveStep2Disabled">
+                        <div class="btn_bg"></div>
+                        Save
+                    </button>
+				</div>
+				<div class="col-md-6 col-xs-8">(This will save step2 details only)</div>
+			</div>
+			<div class="row reserve_height">
+				<div class="col-md-12 col-xs-12 col-md-offset-3 line_height_buttom Special_text1" ng-show="PackEngineer.subMenu2">Data saved successfully.</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-12 Common_text2">STEP 3</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-xs-12 Common_text line_height_buttom">Testing is complete - enter details of final BPS/NSU codes together with date Completed</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">BPS Agi Code</div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="PackEngineer.BPSAgiCode" ng-disabled="PackEngineer.BPSAgiCodeDisabled">
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">NSU Code</div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="PackEngineer.NSUCode" ng-disabled="PackEngineer.NSUCodeDisabled">
+				</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-2 col-xs-4 col-md-offset-3">
+                    <button type="submit" class="btn_style btn-default" ng-click="PackEngineer.submitStep3()" ng-disabled="PackEngineer.submitStep3Disabled">
+                        <div class="btn_bg"></div>
+                        Submit
+                    </button>
+				</div>
+				<div class="col-md-6 col-xs-8">(This will save and submit entry which completes stage 3)</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-2 col-xs-4 col-md-offset-3">
+                    <button type="button" class="btn_style btn-default" ng-click="PackEngineer.saveStep3()" ng-disabled="PackEngineer.saveStep3Disabled">
+                        <div class="btn_bg"></div>
+                        Save
+                    </button>
+				</div>
+				<div class="col-md-6 col-xs-8">(Click here to save any changes to the NSU code and BPS Agi code)</div>
+			</div>
+			<div class="row reserve_height">
+				<div class="col-md-12 col-xs-12 Special_text1 col-md-offset-3 line_height_buttom" ng-show="PackEngineer.subMenu3">Data saved successfully.</div>
+			</div>
+			<div class="row line_height_buttom">
+				<div class="col-md-3 col-xs-4 Common_text">Completed Date</div>
+				<div class="col-md-4 col-xs-8">
+                    <input type="date" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="PackEngineer.completedDate" ng-disabled="PackEngineer.completedDateDisabled">
+				</div>
+			</div>
+			<div class="row line_height_buttom"></div>
+            <input type="hidden" ng-model="PackEngineer.requestid" />
+            <input type="hidden" ng-model="PackEngineer.hdnOtherData" />
+         
+		</div>
+	</form>
+	<!--NPR 3-->
+	<div class="fix_banner" >
+        <div class="banner_style" ng-model="PackEngineer.EPMMessage" ng-show="PackEngineer.EPMMessageShow">
+            {{PackEngineer.EPMMessage}}
+        </div>
+        <div class="banner_style" ng-show="PackEngineer.packTech_EPTMessageShow">
+            It is a Reactivation Request
+        </div>
+        <div class="banner_style" ng-model="PackEngineer.FASTMessage" ng-show="PackEngineer.FASTMessageShow">
+            {{PackEngineer.FASTMessage}}
+        </div>
+        <div class="banner_style" ng-model="PackEngineer.SCTeamMessage" ng-show="PackEngineer.SCTeamMessageShow">
+           {{PackEngineer.SCTeamMessage}}
+        </div>
+	</div>
+
+    <script type="text/ng-template" id="myModelContent.html">
+        <!--//创建一个局部视图，需要的时候引用它， 下面会用到-->
+        <div class="modal-header">
+            <!--// modal头部 。body footer 类推-->
+            <h4 class="modal-title">Populate your details</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row line_height_buttom">
+                <div class="col-md-2 col-xs-2 Common_text">Search:</div>
+                <div class="radio_style col-md-4 col-xs-4">
+                    <label style="font-weight: normal;">
+                        <input type="radio" name="optionsRadios" value="0" ng-checked="Rchecked0" ng-change="radioCheckedFunc1(true)" ng-model="radioChecked0">
+                        Name Only&nbsp;
+                    </label>
+                </div>
+                <div class="radio_style col-md-4 col-xs-4">
+                    <label style="font-weight: normal;">
+                        <input type="radio" name="optionsRadios" value="1" ng-checked="Rchecked1" ng-change="radioCheckedFunc1(false)" ng-model="radioChecked0">
+                        More Columns
+                    </label>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-6 col-xs-4 Common_text">
+                    <input class="form-control Common_input1" type="text" ng-model="selected.item">
+                </div>
+                <div class="col-md-1 col-xs-2 form-group">
+                    <input type="button" value="Go" class="btn btn-default select_btn" ng-disabled="disabled">
+                </div>
+                <a class="col-md-4 col-xs-6 col-md-offset-1 Common_text" ng-click="open1()"> Advance Find</a>
+            </div>
+            <div class="Select_User_Form">
+                <ul>
+                    <div ng-show="disabled">
+                        <li ng-repeat="item in items | filter:selected.item">
+                            <a ng-click="selected.item = item">{{item}}</a>
+                            <!--//显示当前点击的item-->
+                        </li>
+                    </div>
+                    <br> 当前选择：
+                    <b>{{selected.item}}</b>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn_style btn-default" ng-click="ok()">
+                <div class="btn_bg"></div>
+                Ok
+            </button>
+            <button type="button" class="btn_style btn-default" ng-click="cancel()">
+                <div class="btn_bg"></div>
+                Cancle
+            </button>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="myModelContent1.html">
+        <!--//创建一个局部视图，需要的时候引用它， 下面会用到-->
+        <div class="modal-header">
+            <!--// modal头部 。body footer 类推-->
+            <h4 class="modal-title">Find</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row line_height_buttom">
+                <div class="col-md-2 col-xs-2 Common_text2">General</div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-6 Common_text">Display name:</div>
+                <div class="col-md-9 col-xs-6 Common_text">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">Frist name:</div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">Last name:</div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">Title:</div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">Alias:</div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">Company:</div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">Department:</div>
+                <div class="col-md-3 col-xs-6 Common_text line_height_buttom">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-6 Common_text">Office:</div>
+                <div class="col-md-3 col-xs-6 Common_text">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-6 Common_text">City:</div>
+                <div class="col-md-3 col-xs-6 Common_text">
+                    <input class="form-control Common_input1" type="text" ng-model="test">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn_style btn-default" ng-click="ok()">
+                <div class="btn_bg"></div>
+                Ok
+            </button>
+            <button type="button" class="btn_style btn-default" ng-click="cancel()">
+                <div class="btn_bg"></div>
+                Cancle
+            </button>
+        </div>
+    </script>
+</div>

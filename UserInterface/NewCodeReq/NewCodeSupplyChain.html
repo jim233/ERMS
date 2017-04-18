@@ -1,0 +1,58 @@
+<div>
+	<form>
+		<div class="first_contain">
+			<div class="radio">
+				<label>
+    				<input type="radio" name="optionsRadios" ng-model="radioChecked.qqq" ng-change="radioCheckedFunc()" value="0">
+    				Start Supply Chain Driven change(formulation/source/pack - old Form C)
+  				</label>
+			</div>
+		</div>
+		<div class="first_contain">
+			<div class="radio">
+				<label ng-show="showERMS">
+    				<input type="radio" name="optionsRadios" ng-model="radioChecked.qqq" ng-change="radioCheckedFunc()" value="1">
+    				Start European Portfolio Team(EPT) request for brand new formulation/pack launch(only for use by EPT representatives)
+  				</label>
+                <label ng-show="showLRMS">
+                    <input type="radio" name="optionsRadios" ng-model="radioChecked.qqq" ng-change="radioCheckedFunc()" value="1">
+                    Start LATAM Portfolio Team(LPT) request for brand new formulation/pack launch(only for use by LPT representatives)
+                </label>
+			</div>
+		</div>
+		<div class="second_contain">
+			<div class="row">
+				<div class="col-md-7 col-xs-12">
+					<!--<button type="button" class="btn_style btn-default" ng-click="NewCodeSC.goState()">-->
+					<button type="button" class="btn_style btn-default" ng-click="open()">
+					<div class="btn_bg"></div>
+					Next&nbsp;
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<script type="text/ng-template" id="myModelContent.html">
+		<!--//创建一个局部视图，需要的时候引用它， 下面会用到-->
+		<div class="modal-header">
+			<!--// modal头部 。body footer 类推-->
+			<div class="modal-title"><img src="../Images/ic_help.gif" style="width: 32px; height: 32px;">&nbsp;&nbsp;Message from webpage</div>
+		</div>
+		<div class="modal-body">
+			<div>Please ensere that you have selected the correct button as originator of this request.</div>
+			<div>Choose Supply Chain Request if you are working in the EAME Supply Chain & wish to raise a request which is initated by the EAME Supply Chain.</div>
+			<div>Choose IMC/Country if you are working in an IMC/Country or are raising a request on behalf of an IMC/Country.</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn_style btn-default" ng-click="ok()">
+					<div class="btn_bg"></div>
+					Ok
+			</button>
+			<button type="button" class="btn_style btn-default" ng-click="cancel()">
+					<div class="btn_bg"></div>
+					Cancle
+			</button>
+		</div>
+	</script>
+</div>

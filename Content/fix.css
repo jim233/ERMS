@@ -1,0 +1,163 @@
+	@media screen and (max-width:1097px) {
+		.title_tab {
+			height: 52px;
+		}
+	}
+	
+	@media screen and (max-width:770px) {
+		.ul_list_style {
+			height: 50px;
+		}
+	}
+	
+	@media screen and (max-width:600px) {
+		.tab_button {
+			clear: both;
+		}
+		.big_screen_hidden {
+			display: none;
+		}
+		.title_head {
+			background-color: #fff;
+			height: 57px;
+			border-bottom: 3px solid rgba(0, 0, 0, 0.62);
+		}
+		.show_menuButton {
+			display: block;
+		}
+		.head_logo2 {
+			display: none;
+		}
+		.head_logo1 {
+			float: left;
+			width: 100%;
+			height: auto;
+			text-align: center;
+			/*clear: both;*/
+		}
+		.head_logo1 img {
+			margin: 10px auto;
+		}
+		.title_tab {
+			position: absolute;
+			left: -60%;
+			top: 0;
+			height: 100%;
+			width: 60%;
+			background-color: white;
+			z-index: 999;
+			border-top: 10px solid #AAB400;
+		}
+		.title_tab_new {
+			left:0;
+			animation: fade-in;  
+    		animation-duration: 0.2s;  
+    		-webkit-animation:fade-in 0.2s;  
+		}
+		@-webkit-keyframes fade-in {/*针对webkit内核*/  
+		    0% {left: -60%;}
+		    20% {left: -50%;}  
+		    40% {left: -20%;}
+		    60% {left: -10%;}  
+		    100% {left: 0;}  
+		}  
+		.title_tab .tab_button {
+			border: none;
+			float: left;
+			width: 100%;
+			height: 55px;
+			border-bottom: 1px solid gray;
+		}
+		.title_tab .tab_button:hover {
+			background-color: #AAB400;
+		}
+		.title_tab .tab_button:active {
+			background-color: #AAB400;
+		}
+		.title_tab .button_text {
+			font-size: 16px;
+			line-height: 55px;
+			text-align: left;
+		}
+		.head_logo3 {
+			top: 20px;
+		}
+		.title_selectButton {
+			top: 14px;
+			cursor: pointer;
+			position: absolute;
+			left: 25px;
+			display: block;
+			border: 1px solid #398439;
+		}
+		.title_selectButton .show_menuButton {
+			border: none;
+			background-color: #AAB400;
+			color: white;
+		}
+		.header_backgroundShade {
+			opacity: 0.8;
+			background-color: #000000;
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 998;
+		}
+		.hide_title_tab {
+			display: none;
+		}
+		.head_link {
+			clear: both;
+			position: absolute;
+			right: 0px;
+			top: 54px;
+			z-index: 99;
+			width: 150px;
+			border: 1px solid black;
+			border-top: none;
+		}
+		
+	}
+	
+	@media screen and (max-device-width:600px) {
+		.tab_button {
+			clear: both;
+		}
+
+        .home_part2{
+            width: 300px;
+        }
+	}
+
+	@media screen and (max-width:501px ) {
+		.line_height_buttom1{
+			margin-bottom: 35px;
+		}
+	}
+	
+	@media screen and (max-width:380px ) {
+		.line_height_bottom2{
+			margin-bottom: 25px;
+		}
+	}
+
+.input-error-messages {
+    background: maroon;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    position: relative;
+}
+
+
+.input-error-messages-arrow {
+    position: absolute;
+    top: -10px;
+    content: "";
+    left: 20px;
+    border-style: solid;
+    border-color: transparent transparent maroon;
+    border-width: 5px;
+}

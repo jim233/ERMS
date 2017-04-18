@@ -1,0 +1,40 @@
+﻿
+    <div>
+        <table style="width:500px; margin-left:15px;margin-top:15px; border:none" cellpadding="3%" width="95%">
+            <tr>
+                <td>User ID</td>
+                <td>
+                    <input class="form-control Common_input1" type="text" ng-model="UserID" ng-readonly="true">                    
+                </td>
+                <td>
+                    <input style="padding:2px 12px" type="button" value="..." class="btn btn-default file_btn" ng-click="GALOpen()">
+                </td>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td><input class="form-control Common_input1" type="text" ng-model="FirstName"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input class="form-control Common_input1" type="text" ng-model="LastName"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input class="form-control Common_input1" type="text" ng-model="Email"></td>
+            </tr>
+            <tr>
+                <td>Region</td>
+                <td>
+                    <select class="form-control Common_select" ng-model="region" ng-options="m.Value as m.Text for m in regionsList" style="height:30px"></select>
+                </td>
+            </tr>
+        </table>
+
+        <div class="row col-md-12 col-xs-12">
+            <button type="button" class="btn_style btn-default" ng-click="Register()">
+                <div class="btn_bg"></div>
+                Submit
+            </button>
+        </div>
+    </div>
+

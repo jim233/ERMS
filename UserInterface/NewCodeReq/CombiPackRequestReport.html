@@ -1,0 +1,115 @@
+﻿<div>
+    <div class="Search_text">Combi Pack Request Confirm</div>
+    <div class="CoreRange_contain">
+        <a ng-click="CombiReport.createOpen()">Create Request(s) </a>
+    </div>
+    <div class="second_contain">
+        <div>Please confirm the combi pack requested is:</div>
+    </div>
+    <div class="CoreRange_contain">
+        &nbsp;
+        <span class="Common_text2" ng-bind="CombiReport.getValue.noOfFormulation"></span>
+        &nbsp;element pack in a&nbsp;
+        <span class="Common_text2" ng-bind="CombiPack">bbb</span>&nbsp;Collation.<br>
+        LEAD AI for the Combi Pack:&nbsp;
+        <span class="Common_text2" ng-bind="CombiReport.getValue.combiPackLeadAI">aaa</span><br>
+        Product line for the Combi Pack:&nbsp;
+        <span class="Common_text2" ng-bind="CombiReport.getValue.combiPackProductLine">aaa</span><br>
+        Tradename for the Combi Pack:&nbsp;
+        <span class="Common_text2" ng-bind="CombiReport.getValue.combiPackTradeName">aaa</span><br>
+        Country of sale for the Combi Pack:&nbsp;
+        <span class="Common_text2" ng-bind="CombiReport.getValue.combiPackCountryOfSale">aaa</span><br>
+        Presentation code for the Combi Pack:&nbsp;
+        <span class="Common_text2" ng-bind="CombiReport.getValue.combiPackPresentationCode">aaa</span><br>
+        ProductCategory:&nbsp;
+        <span class="Common_text2" ng-bind="CombiReport.getValue.combiPackProductCategoryText">aaa</span><br>
+    </div>
+
+    <!--show Element 1-->
+    <div ng-show="first_contain">
+        <div class="second_contain">
+            <div>ELEMENT1 of the combi pack:</div>
+        </div>
+        <div class="first_contain">
+            <span class="Common_text2" ng-bind="CombiReport.getValue.quantity1">aaa</span><br>
+            Fill level:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.fillQuantity1">aaa</span><br>
+            Lead AI:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.leadAI1">aaa</span><br>
+            Design Code:&nbsp;<span class="Common_text2" ng-bind="SFormulation1">aaa</span><br>
+            Formulation:&nbsp;<span class="Common_text2" ng-bind="SUCAgiCode1">aaa</span><br>
+            UC Agi Code:&nbsp;<span class="Common_text2" ng-bind="SPack1">aaa</span><br>
+            Pack:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.packSize1">aaa</span><br>
+            Is Syngenta Branded Pack required:&nbsp;<span class="Common_text2" ng-bind="PackRequired1">aaa</span><br>
+            Tradename:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.tradeName1">aaa</span><br>
+            Product Line:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.productLine1">aaa</span><br>
+            SU Available:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.sUExist1">aaa</span><br>
+            SU Agi Code:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.sUAgiCode1">aaa</span><br>
+            System action:&nbsp;<span class="Common_text2" ng-bind="systemaction1">aaa</span><br>
+        </div>
+    </div>
+
+    <!--show Element 2-->
+    <div ng-show="first_contain">
+        <div class="second_contain">
+            <div>ELEMENT2 of the combi pack:</div>
+        </div>
+        <div class="first_contain">
+            <span class="Common_text2" ng-bind="CombiReport.getValue.quantity2">aaa</span><br>
+            Fill level:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.fillQuantity2">aaa</span><br>
+            Lead AI:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.leadAI2">aaa</span><br>
+            Design Code:&nbsp;<span class="Common_text2" ng-bind="SFormulation2">aaa</span><br>
+            Formulation:&nbsp;<span class="Common_text2" ng-bind="SUCAgiCode2">aaa</span><br>
+            UC Agi Code:&nbsp;<span class="Common_text2" ng-bind="SPack2">aaa</span><br>
+            Pack:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.packSize2">aaa</span><br>
+            Is Syngenta Branded Pack required:&nbsp;<span class="Common_text2" ng-bind="PackRequired2">aaa</span><br>
+            Tradename:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.tradeName2">aaa</span><br>
+            Product Line:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.productLine2">aaa</span><br>
+            SU Available:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.sUExist2">aaa</span><br>
+            SU Agi Code:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.sUAgiCode2">aaa</span><br>
+            System action:&nbsp;<span class="Common_text2" ng-bind="systemaction2">aaa</span><br>
+        </div>
+    </div>
+
+    <!--show Element 3-->
+    <div ng-show="second_contain">
+        <div class="second_contain">
+            <div>ELEMENT3 of the combi pack:</div>
+        </div>
+        <div class="first_contain">
+            <span class="Common_text2" ng-bind="CombiReport.getValue.quantity3">aaa</span><br>
+            Fill level:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.fillQuantity3">aaa</span><br>
+            Lead AI:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.leadAI3">aaa</span><br>
+            Design Code:&nbsp;<span class="Common_text2" ng-bind="SFormulation3">aaa</span><br>
+            Formulation:&nbsp;<span class="Common_text2" ng-bind="SUCAgiCode3">aaa</span><br>
+            UC Agi Code:&nbsp;<span class="Common_text2" ng-bind="SPack3">aaa</span><br>
+            Pack:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.packSize3">aaa</span><br>
+            Is Syngenta Branded Pack required:&nbsp;<span class="Common_text2" ng-bind="PackRequired3">aaa</span><br>
+            Tradename:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.tradeName3">aaa</span><br>
+            Product Line:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.productLine3">aaa</span><br>
+            SU Available:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.sUExist3">aaa</span><br>
+            SU Agi Code:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.sUAgiCode3">aaa</span><br>
+            System action:&nbsp;<span class="Common_text2" ng-bind="systemaction3">aaa</span><br>
+        </div>
+    </div>
+
+    <!--show Element 4-->
+    <div ng-show="third_contain">
+        <div class="second_contain">
+            <div>ELEMENT4 of the combi pack:</div>
+        </div>
+        <div class="first_contain">
+            <span class="Common_text2" ng-bind="CombiReport.getValue.quantity4">aaa</span><br>
+            Fill level:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.fillQuantity4">aaa</span><br>
+            Lead AI:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.leadAI4">aaa</span><br>
+            Design Code:&nbsp;<span class="Common_text2" ng-bind="SFormulation4">aaa</span><br>
+            Formulation:&nbsp;<span class="Common_text2" ng-bind="SUCAgiCode4">aaa</span><br>
+            UC Agi Code:&nbsp;<span class="Common_text2" ng-bind="SPack4">aaa</span><br>
+            Pack:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.packSize4">aaa</span><br>
+            Is Syngenta Branded Pack required:&nbsp;<span class="Common_text2" ng-bind="PackRequired4">aaa</span><br>
+            Tradename:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.tradeName4">aaa</span><br>
+            Product Line:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.productLine4">aaa</span><br>
+            SU Available:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.sUExist4">aaa</span><br>
+            SU Agi Code:&nbsp;<span class="Common_text2" ng-bind="CombiReport.getValue.sUAgiCode4">aaa</span><br>
+            System action:&nbsp;<span class="Common_text2" ng-bind="systemaction4">aaa</span><br>
+        </div>
+    </div>
+</div>

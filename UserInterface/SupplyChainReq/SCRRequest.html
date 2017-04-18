@@ -1,0 +1,1648 @@
+﻿<div ng-include="'../UserInterface/loading.html'" ng-show="request.showLoadingPage"></div>
+<div>
+    <form name="newPack" novalidate>
+        <!--new pack && contry add-->
+        <div ng-show="showFirstPart">
+            <div class="SCRtitle_contain">
+                <div class="row">
+                    <div class="col-md-7 col-xs-12">
+                        <button type="button" class="btn_style btn-default" ng-click="request.saveSubmenu()" ng-disabled="request.SaveEnabledNPR">
+                            <div class="btn_bg"></div>
+                            Save
+                        </button>
+
+
+                        <button type="button" class="btn_style btn-default" ng-click="request.SubmitToProcurementMgr()"
+                                ng-show="request.SubmitProcMgr">
+                            <div class="btn_bg"></div>
+
+                            <!--<button type="button" class="btn_style btn-default" ng-click="request.touploadData()" ng-disabled="request.SubmitEnabledNPR || newPack.leadAI.$dirty || newPack.SUAGI.$dirty ||newPack.designCode.$dirty||newPack.UCAGI.$dirty || newPack.packSize.$dirty || newPack.quantity.$dirty || newPack.numberPerCase.$dirty || newPack.tradeName.$dirty ||newPack.countryOfSale.$dirty|| newPack.countryPresCode.$dirty||newPack.makeToOrder.$dirty||newPack.productCategory.$dirty||newPack.optionsRadiosB.$dirty||newPack.dateForSale.$dirty||newPack.justification.$dirty||newPack.Supplier.$dirty||newPack.regularContact.$dirty">-->
+                            Submit to Procurement Manager
+                        </button>
+                        <button type="button" class="btn_style btn-default" ng-click="request.touploadData()"
+                                ng-disabled="request.SubmitEnabledNPR">
+                            <div class="btn_bg"></div>
+
+                            <!--<button type="button" class="btn_style btn-default" ng-click="request.touploadData()" ng-disabled="request.SubmitEnabledNPR || newPack.leadAI.$dirty || newPack.SUAGI.$dirty ||newPack.designCode.$dirty||newPack.UCAGI.$dirty || newPack.packSize.$dirty || newPack.quantity.$dirty || newPack.numberPerCase.$dirty || newPack.tradeName.$dirty ||newPack.countryOfSale.$dirty|| newPack.countryPresCode.$dirty||newPack.makeToOrder.$dirty||newPack.productCategory.$dirty||newPack.optionsRadiosB.$dirty||newPack.dateForSale.$dirty||newPack.justification.$dirty||newPack.Supplier.$dirty||newPack.regularContact.$dirty">-->
+                            Submit
+                        </button>
+                    </div>
+                    <div class="col-md-3 col-xs-12" ng-show="false">
+                        <div class="SCR_link_f1">Refer to New Pack Req </div>
+                        <a class="SCR_link_f2">27731</a>
+                    </div>
+                </div>
+            </div>
+            <div class="second_contain">
+                <div class="row reserve_height">
+                    <div class="col-md-12 col-xs-12 Special_text1" ng-show="request.subMenu">Data saved successfully.Please click on submit, if you wish to complete the screen.</div>
+                </div>
+                <div class="row line_height_buttom" ng-show="request.NotOrgShow">
+                    <div class="col-md-3 col-xs-4 Common_text">Contact if not originator</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.originatorIdName" ng-disabled="request.originatorIdEnable" ng-readonly="true">
+                        <input type="button" value="..." class="btn btn-default file_btn" ng-click="request.openOrg()" ng-disabled="request.OrgGAL">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Lead AI<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8" style="position:relative">
+                        <input type="text" size="20" name="leadAI" id="upfile" class="form-control Small_input" required ng-model="request.leadAIID"
+                               ng-disabled="request.leadAIIDEnable" ng-change="request.ValidatePackLeadAI()">
+                        <div class="input-error-messages" ng-show="request.isPackLeadAI">
+                            <div>Please select Lead AI</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom" ng-show="request.SUAgiCodeShow">
+                    <div class="col-md-3 col-xs-4 Common_text">SU Agi Code</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="SUAGI" id="upfile" class="form-control Small_input" required ng-model="request.getSUAgiCode"
+                               ng-change="request.ValidatePackSUAgiCode()">
+                        <div class="input-error-messages" ng-show="request.isPackSUAgiCode">
+                            <div>Please select SU Agi Code</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom" ng-show="showWhenLeadAI">
+                    <div class="col-md-3 col-xs-4 Common_text">Design Code<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="designCode" id="upfile" class="form-control Small_input" required ng-model="request.GetDesignCode"
+                               ng-disabled="request.GetDesignCodeEnable" ng-change="request.ValidatePackDesCode()">
+                        <div class="input-error-messages" ng-show="request.isPackDesCode">
+                            <div>Please select Design Code</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom" ng-show="showWhenLeadAI">
+                    <div class="col-md-3 col-xs-4 Common_text">UC Agi Code<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="UCAGI" id="upfile" class="form-control Small_input" required ng-model="request.GetUCagicode"
+                               ng-disabled="request.GetUCagicodeEnable" ng-change="request.ValidatePackUCAgiCode()">
+                        <div class="input-error-messages" ng-show="request.isPackUCAgiCode">
+                            <div>Please select UC Agi Code</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Quantity/Primary Pack Size<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="packSize" id="upfile" class="form-control Small_input" required ng-model="request.GetQuantityPackSize"
+                               ng-disabled="request.GetQuantityPackSizeEnable" ng-change="request.ValidatePackQty()">
+                        <div class="input-error-messages" ng-show="request.isPackQty">
+                            <div>Please select Quantity/Primary Pack Size</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom" ng-show="request.PartFilledShow">
+                    <div class="col-md-3 col-xs-4 Common_text">Part Filled Quantity<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="quantity" id="upfile" class="form-control Small_input" required ng-model="request.getPartyFilled"
+                               ng-change="request.ValidatePackPartFilled()">
+                        <div class="input-error-messages" ng-show="request.isPartFilled">
+                            <div>Please select Part Filled Quantity</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">UoM(e.g. litre)<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-model="request.UOMselected" ng-options="m.Value as m.Text for m in getPageUOM"
+                                ng-disabled="request.UOMselectedEnable" ng-change="request.ValidatePackUOM()">
+                            <option></option>
+                        </select>
+                        <div class="input-error-messages" ng-show="request.isPartUOM">
+                            <div>Please select UoM(e.g. litre)</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Number of packs per outer case (collation)<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="numberPerCase" id="upfile" class="form-control Small_input" required ng-model="request.GetConfigurationCollation"
+                               ng-disabled="request.GetConfigurationCollationEnable" ng-change="request.ValidatePackCol()">
+                        <div class="input-error-messages" ng-show="request.isPackCol">
+                            <div>Please select Number of packs per outer case (collation)</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text" style="color: red;" ng-model="request.SpacLabel" ng-bind="request.SpacLabel"></div>
+                    <div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-model="request.SPACselected" ng-options="m.Value as m.Text for m in getSPAC"
+                                ng-disabled="request.SPACselectedEnable" ng-change="request.ValidatePackSPAC()">
+                            <option></option>
+                        </select>
+                        <div class="input-error-messages" ng-show="request.isPackSPAC">
+                            <div>Please select SPAC packaging</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 line_height_buttom Common_text" ng-show="request.NPCAPresonSynBrandPack">
+                        <a>Presentation on Syngenta Branded packs</a>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Reactivation Request</div>
+                    <div class="radio_style">
+                        <label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadiosA" value="1" ng-model="request.reactivationRequest" ng-checked="request.reactivationRequest == '1'">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="radio_style">
+                        <label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadiosA" value="0" ng-model="request.reactivationRequest" ng-checked="request.reactivationRequest == '0'">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="row line_height_buttom" ng-show="request.NSUShow">
+                    <div class="col-md-3 col-xs-4 Common_text">NSU Code</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.GetNSUCode" ng-disabled="request.GetNSUCodeEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom" ng-show="request.StandardAncillariesshow">
+                    <div class="col-md-3 col-xs-4 Common_text">Standard Ancillaries</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.GetAncillariesSpecialReq" ng-disabled="request.GetAncillariesSpecialReqEnable">
+                    </div>
+                    <a class="col-md-1 col-xs-2 Common_text line_height_buttom">Help</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Product Line Seller<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom1">
+                        <select class="form-control Common_select" ng-model="request.PLSselected" ng-options="m.Value as m.Text for m in getPoductLine"
+                                ng-disabled="request.PLSselectedEnable" ng-change="request.ValidatePackSProd()">
+                            <option></option>
+                        </select>
+                        <div class="input-error-messages" ng-show="request.isPackProd">
+                            <div>Please select Product Line Seller</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-show="request.ShowAncillariesTextarea">
+                    <div class="col-md-3 col-xs-4 Common_text">Additional Ancillaries/Special Requirements</div>
+                    <div class="col-md-1 col-xs-8">
+                        <select class="form-control Common_select" style="width: 90px;" ng-change="request.SelectChangeFunc(request.optionChecked)" ng-model="request.optionChecked" ng-options="m.Value as m.Text for m in getAdditionSlec" ng-disabled="request.ddlAncillariesEnable">
+                            <option value="0"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" ng-show="request.ShowAncillariesTextarea">
+                    <div class="col-md-4 col-xs-12 col-md-offset-3 line_height_buttom">
+                        <textarea class="form-control" rows="3" ng-model="request.textAdditionalRequire" ng-disabled="request.showTextarea"></textarea>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Trade Name<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="tradeName" id="upfile" class="form-control Small_input" required ng-model="request.GetTradeName"
+                               ng-disabled="request.GetTradeNameEnable" ng-change="request.ValidatePacktrade()">
+                        <div class="input-error-messages" ng-show="request.isPackTrade">
+                            <div>Please select Trade Name</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-show="request.CountryOfSaleShow">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Country of sale<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom1">
+                        <select class="form-control Common_select" name="countryOfSale" required ng-model="request.countrySaleSelected"
+                                ng-options="m.Value as m.Text for m in getCountryData" ng-disabled="request.countrySaleSelectedEnable" ng-change="request.validatePackCntry()">
+                            <option></option>
+                        </select>
+                        <div class="input-error-messages" ng-show="request.isPackCntry">
+                            <div>Please select Country of sale</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-show="request.CntryPresCodeShow">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Country Pres Code<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom">
+                        <textarea class="form-control" rows="3" name="countryPresCode" required ng-model="request.GetCountryPresCode" ng-readonly="request.GetCountryPresCodeRead"
+                                  ng-change="request.validatePackCntryPcode()"></textarea>
+                        <div class="input-error-messages" ng-show="request.isPackCntryPcode">
+                            <div>Please select Country Pres Code</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                    <a class="col-md-4 col-xs-7 Common_text line_height_buttom" ng-disabled="request.GetCountryPresCodeLink" ng-click="LookPresentationCode()">Look up Presentation Code</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Make To Order<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom1">
+                        <select class="form-control Common_select" name="makeToOrder" required ng-model="request.MTOselected" ng-options="m.Value as m.Text for m in getMaketoOrder"
+                                ng-disabled="request.MTOselectedEnable" ng-change="request.validatePackMtO()">
+                            <option></option>
+                        </select>
+                        <div class="input-error-messages" ng-show="request.isPackMtO">
+                            <div>Please select Make To Order</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-show="request.ProductCategoryShow">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Product Category<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom1">
+                        <select class="form-control Common_select" ng-model="request.PCselected" required name="productCategory" ng-options="m.Value as m.Text for m in getProductCati"
+                                ng-disabled="request.PCselectedEnable" ng-change="request.validatePackProdCat()">
+                            <option></option>
+                        </select>
+                        <div class="input-error-messages" ng-show="request.isPackProdCat">
+                            <div>Please select Product Category</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 line_height_buttom Common_text">
+                        <a>Help</a>
+                    </div>
+                </div>
+                <div class="row line_height_buttom" ng-show="request.sourceDiv">
+                    <div class="col-md-3 col-xs-4 Common_text">Will you be sourcing it locally?<span style="color:red">*</span></div>
+                    <div class="radio_style">
+                        <label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadiosB" value="true" ng-model='request.SourceLocally' ng-checked="request.SourceLocally == true" ng-click="request.checkForWYBSIL()" ng-disabled="request.SourceLocallyYes">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="radio_style">
+                        <label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadiosB" value="false" ng-model='request.SourceLocally' ng-checked="request.SourceLocally == false" ng-click="request.checkForWYBSIL()" ng-disabled="request.SourceLocallyNo">
+                            No
+                        </label>
+                    </div>
+                    <span class="validation_position" ng-show="newPack.optionsRadiosB.$dirty&&newPack.optionsRadiosB.$invalid">this is reqired</span>
+                </div>
+                <div class="row line_height_buttom" ng-show="request.sourceDiv">
+                    <div class="col-md-3 col-xs-4 Common_text">If so give details</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.GetSourceLocallyDetails" ng-disabled="request.checkForWYBSILValue">
+                    </div>
+                </div>
+                <div class="row line_height_buttom" ng-show="request.dateofFirstSaleshow">
+                    <div class="col-md-3 col-xs-4 Common_text">Date of first Sale<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8" id='sandbox-container'>
+                        <input type="text" size="20" name="dateForSale" class="form-control Small_input" required ng-model="request.time2">
+                        <span class="validation_position" ng-show="newPack.dateForSale.$dirty&&newPack.dateForSale.$invalid">this is reqired</span>
+                    </div>
+                </div>
+                <div class="row line_height_buttom" ng-show="request.yeartableShow">
+                    <div class="col-md-offset-3">
+                        <div class="table_contain">
+                            <div class="table_Line">
+                                <div class="table_title_com">
+                                    Year
+                                </div>
+                                <div class="table_title_com">
+                                    <span ng-bind="request.getTableYear"></span>
+                                </div>
+                                <div class="table_title_com">
+                                    <span ng-bind="request.getTableYearOne"></span>
+                                </div>
+                                <div class="table_title_com">
+                                    <span ng-bind="request.getTableYearTwo"></span>
+                                </div>
+                            </div>
+                            <div class="table_Line" ng-repeat="r in request.getTableDetail">
+                                <div class="table_row_com" ng-bind="r.showTitle">
+                                    Sales Price per lt/kg in US$*
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" ng-model="r.Year1" ng-change="countForTotalSalesValue('1','a')" />
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" ng-model="r.Year2" ng-change="countForTotalSalesValue('2','a')" />
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" ng-model="r.Year3" ng-change="countForTotalSalesValue('3','a')" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-show="request.MrktJustificationShow">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Marketing Justification<span style="color:red" ng-show="request.MktJustMandatory">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom">
+                        <textarea class="form-control" name="justification" rows="8" ng-maxlength="1000" ng-model="request.GetMarketingJustification"
+                                  ng-readonly="request.GetMarketingJustificationRead" ng-change="request.validatePackMarket()"></textarea>
+                        <div class="input-error-messages" ng-show="request.isPackMarket">
+                            <div>Please select Marketing Justification</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-7 Common_text line_height_buttom">Maximum 1000 letters</div>
+                </div>
+                <div class="row" ng-show="request.showSupplier">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Supplier<span style="color:blue">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom">
+                        <textarea class="form-control" name="Supplier" rows="8" ng-maxlength="1000" required ng-model="request.GetSupplier" ng-readonly="request.GetSupplierRead"></textarea>
+                        <span class="validation_position" ng-show="newPack.Supplier.$dirty&&newPack.Supplier.$invalid">this is reqired</span>
+                    </div>
+                    <div class="col-md-4 col-xs-7 Common_text line_height_buttom">Maximum 1000 letters</div>
+                </div>
+                <div class="row line_height_buttom" ng-show="request.RegContactShow">
+                    <div class="col-md-3 col-xs-4 Common_text">Regulatory Contact<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="regularContact" id="upfile" class="form-control Small_input" ng-model="request.GetRegulatoryContact"
+                               ng-disabled="request.GetRegulatoryContactEnable" ng-change="request.validatePackReg()">
+                        <input type="button" value="..." class="btn btn-default file_btn" ng-click="request.openReg()" ng-disabled="request.RegGAL">
+                        <div class="input-error-messages" ng-show="request.isPackReg">
+                            <div>Please select Regulatory Contact</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--SOCB - LRMS change - Added Procurement Manager -->
+                <div class="row line_height_buttom" ng-show="request.ProcMgShow">
+                    <div class="col-md-3 col-xs-4 Common_text">Procurement Manager<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="procManager" id="txtPrcMgr" class="form-control Small_input" ng-model="request.ProcMgr" ng-disabled="request.ProcMgrEnable" ng-readonly="true">
+                        <input type="button" value="..." class="btn btn-default file_btn" ng-click="request.openGALProcMgr()" ng-disabled="request.ProcGAL">
+                    </div>
+                </div>
+                <!--EOCB - LRMS change - Added Procurement Manager -->
+                <div class="row line_height_buttom"></div>
+                <div class="row line_height_buttom"></div>
+                <div class="row line_height_buttom" ng-show="request.NoteShow">
+                    <div class="col-md-12 col-xs-12 Common_text"><span style="color:blue">*</span>- Provide details of supplier if Lead AI is not in drop down list.</div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form name="supplyChain" novalidate>
+        <!--SupplyChain1 -> Use from SupplyChainHome-->
+        <div ng-show="showSupplyChainPart">
+            <div class="SCRtitle_contain">
+                <div class="row">
+                    <div class="col-md-7 col-xs-12">
+                        <button type="button" class="btn_style btn-default" ng-click="request.saveSCMenu()" ng-disabled="request.SaveEnabledSC">
+                            <div class="btn_bg"></div>
+                            Save
+                        </button>
+                        <button type="button" class="btn_style btn-default" ng-click="request.SCSunbmit()" ng-disabled="request.SubmitEnabledSC">
+                            <div class="btn_bg"></div>
+                            Submit
+                        </button>
+                    </div>
+                    <div class="col-md-3 col-xs-12" ng-show="false">
+                        <div class="SCR_link_f1">Refer to New Pack Req </div>
+                        <a class="SCR_link_f2">27731</a>
+                    </div>
+                </div>
+            </div>
+            <div class="second_contain">
+                <div class="row reserve_height">
+                    <div class="col-md-12 col-xs-12 Special_text1" ng-show="request.subMenu">Data saved successfully.Please click on submit, if you wish to complete the screen.</div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Contact if not originator</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.SCGetNotOrgData" ng-disabled="request.SCGetNotOrgDataEnable" ng-readonly="true">
+                        <input type="button" value="..." class="btn btn-default file_btn" ng-click="request.openOrg()" ng-disabled="request.galDisable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Details for changes to be made LeadAI</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.SCGetDetailsChangeLeadAI" ng-disabled="request.SCGetDetailsChangeLeadAIEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Changes to be made (Effective Date)<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8" id="sandbox-container-SPC">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.time2SCP" ng-disabled="request.SCGetDateChangeEnable">
+                        <!--<p id="date"></p>-->
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Current Design Code Variant A No<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" required="required" ng-model="request.SCGetCurrentDesignCodeVariantnumber" ng-disabled="request.SCGetCurrentDesignCodeVariantnumberEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">New Design Code Variant A No<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" required="required" ng-model="request.SCGetNewDesignCodeVariantnumber" ng-disabled="request.SCGetNewDesignCodeVariantnumberEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Current UC Agi Code<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.SCGetCurrentUCAgiCode" ng-disabled="request.SCGetCurrentUCAgiCodeEnable">
+                    </div>
+                    <div class="col-md-4 col-xs-12 Common_text">Please enter only numbers(Maximum 10 digits)</div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">New UC Agi Code<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.SCGetNewUCAgiCode" ng-disabled="request.SCGetNewUCAgiCodeEnable">
+                    </div>
+                    <div class="col-md-4 col-xs-12 Common_text">Please enter only numbers(Maximum 10 digits)</div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Current pack<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.SCGetCurrentPack" ng-disabled="request.SCGetCurrentPackEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">New pack<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.SCGetNewPack" ng-disabled="request.SCGetNewPackEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Make To Order<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-model="request.SCGetSelectedMakeToOrder" ng-options="m.Value as m.Text for m in SCGGetMakeToOrder" ng-disabled="request.SCGetSelectedMakeToOrderEnable"></select>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Current Source</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.SCGetCurrentSource" ng-disabled="request.SCGetCurrentSourceEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">New Source</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.SCGetNewSource" ng-disabled="request.SCGetNewSourceEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-12 col-xs-12" style="margin-left: -15px;">
+                        <div class="table_contain1">
+                            <div class="table_Line">
+                                <div class="table_title_com">
+                                    SU Agi Code affected <span style="color:red">*</span>
+                                </div>
+                                <div class="table_title_com">
+                                    Country of Sales <span style="color:red">*</span>
+                                </div>
+                                <div class="table_title_com">
+                                    TradeName <span style="color:red">*</span>
+                                </div>
+                                <div class="table_title_com">
+                                    Presentation Code <span style="color:red">*</span>
+                                </div>
+                                <div class="table_title_com">
+                                    Product Line Seller <span style="color:red">*</span>
+                                </div>
+                            </div>
+                            <div class="table_Line" ng-repeat="r in getGetSUAgiCodeAffected">
+                                <div class="table_row_com">
+                                    <input type="text" class="table_row1 form-control" ng-model="r.m_Item1" ng-change="request.checkLineOne($index,'1')">
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" class="table_row1 form-control" ng-model="r.m_Item2" ng-change="request.checkLineOne($index,'2')">
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" class="table_row1 form-control" ng-model="r.m_Item3" ng-change="request.checkLineOne($index,'3')">
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" class="table_row1 form-control" ng-model="r.m_Item4" ng-change="request.checkLineOne($index,'4')">
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" class="table_row1 form-control" ng-model="r.m_Item5" ng-change="request.checkLineOne($index,'5')">
+                                </div>
+                                <input type="button" ng-if="$first" value="New Row" class="btn btn-default file_btn3" ng-click="add()">
+                            </div>
+
+                            <div class="table_Line" ng-repeat="r in InputRepeat" ng-model="Inputid">
+                                <div class="table_row_com">
+                                    <input type="text" class="table_row1 form-control" ng-model="r.n_Item1">
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" class="table_row1 form-control" ng-model="r.n_Item2">
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" class="table_row1 form-control" ng-model="r.n_Item3">
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" class="table_row1 form-control" ng-model="r.n_Item4">
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" class="table_row1 form-control" ng-model="r.n_Item5">
+                                </div>
+                                <input type="button" value="Delete" class="btn btn-default file_btn3" ng-model="r.repeatID" ng-click="del($index,r.repeatID)">
+                            </div>
+                        </div>
+                        <!--<input type="text" class="table_row1 form-control">-->
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Background Information</div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom">
+                        <textarea class="form-control" rows="8" maxlength="1000" ng-model="request.SCGGetBackgroundInformation" ng-readonly="request.SCGGetBackgroundInformationRead"></textarea>
+                    </div>
+                    <div class="col-md-4 col-xs-7 Common_text line_height_buttom">Maximum 1000 letters</div>
+                </div>
+                <div class="row line_height_buttom"></div>
+                <div class="row line_height_buttom"></div>
+            </div>
+        </div>
+    </form>
+
+    <form name="EPT" novalidate>
+        <!--SupplyChain2 EPT range  && EPT Copy-->
+        <div ng-show="showEPTpart">
+            <div class="SCRtitle_contain">
+                <div class="row">
+                    <div class="col-md-7 col-xs-12">
+                        <button type="button" class="btn_style btn-default" ng-click="request.EPTCopy()" ng-disabled="request.disableCopy">
+                            <div class="btn_bg"></div>
+                            Copy
+                        </button>
+                        <button type="button" class="btn_style btn-default" ng-click="request.saveEPTMenu('0')" ng-disabled="request.SaveEnableEPT">
+                            <div class="btn_bg"></div>
+                            Save
+                        </button>
+                        <button type="submit" class="btn_style btn-default" ng-click="request.EPTSubmit()" ng-disabled="request.SubmitEnableEPT">
+                            <div class="btn_bg"></div>
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="second_contain">
+                <div class="row reserve_height">
+                    <div class="col-md-12 col-xs-12 Special_text1" ng-show="request.subMenu">Data saved successfully.Please click on submit, if you wish to complete the screen.</div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Contact if not originator</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.EPTgetNotOriginator" ng-disabled="request.EPTgetNotOriginatorEnable" ng-readonly="true">
+                        <input type="button" value="..." class="btn btn-default file_btn" ng-click="request.openOrg()" ng-disabled="request.OrgGALEPT">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">SMS Team</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.SMSTerm" required="required" ng-disabled="request.SMSTermEnable">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Lead AI<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom">
+                        <select class="form-control Common_select" ng-model="request.EPTgetLeadAI" ng-options="m.Value as m.Text for m in getLeadAI" ng-disabled="request.EPTgetLeadAIEnable" ng-change="request.EPTLeadAI()">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 col-xs-4 Common_text line_height_buttom" ng-show="request.TypeHereAI">Or Type here</div>
+                    <div class="col-md-3 col-xs-8 line_height_buttom" ng-show="request.TypeHereAI">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" required="required" ng-model="request.EPTgetAltLeadAI" ng-disabled="request.EPTgetAltLeadAIenable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Category e.g.growth/value/cash</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" required="required" ng-model="request.EPTgetCategory" ng-disabled="request.EPTgetCategoryEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Design Code<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" required="required" ng-model="request.EPTgetDesignCode" ng-disabled="request.EPTgetDesignCodeEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Uc Agi Code<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.EPTgetUCAgiCode" ng-disabled="request.EPTgetUCAgiCodeEnable">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Formulation Description<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom">
+                        <textarea class="form-control" rows="3" ng-model="request.EPTgetFDes" ng-disabled="request.EPTgetFDesEnable"></textarea>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Quantity/Primary Pack Size<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.EPTgetQty" ng-disabled="request.EPTgetQtyEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">UoM(e.g. litre)<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-model="request.EPTgetUOM" ng-options="m.Value as m.Text for m in getUOM" ng-disabled="request.EPTgetUOMEnable">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Number of packs per outer case (collation)<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.EPTgetConfiguration" ng-disabled="request.EPTgetConfigurationEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom" ng-show="request.MTOShow">
+                    <div class="col-md-3 col-xs-4 Common_text">Make To Order<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-model="request.EPTGetMakeToOrder" ng-options="m.Value as m.Text for m in getMakeToOrder" ng-disabled="request.EPTGetMakeToOrderEnable">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Ancillaries/Special Requirements</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.EPTgetAncillaries" ng-disabled="request.EPTgetAncillariesEnable">
+                    </div>
+                    <a class="col-md-1 col-xs-2 Common_text line_height_buttom">Help</a>
+                </div>
+                <div class="row" ng-show="request.CommentsSectionShow">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Comments</div>
+                    <div class="col-md-1 col-xs-8">
+                        <select class="form-control Common_select line_height_buttom" style="width: 90px;" ng-change="request.EPTCommentChange()" ng-model="request.optionChecked" ng-options="m.Value as m.Text for m in getComments" ng-disabled="request.ddlAncillariesYesNocommentsEnable">
+                        </select>
+                    </div>
+                </div>
+                <div class="row" ng-show="request.CommentsSectionShow">
+                    <div class="col-md-4 col-xs-12 col-md-offset-3 line_height_buttom">
+                        <textarea class="form-control" rows="3" ng-disabled="request.showTextarea" ng-model="request.EPTgetCommentsDdl"></textarea>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Product Line Seller<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-options="m.Value as m.Text for m in getPLS" ng-model="request.EPTgetPLS" ng-disabled="request.EPTgetPLSEnable">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Trade Name<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.EPTgetTradeName" ng-disabled="request.EPTgetTradeNameEnable">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Country of sale<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom1">
+                        <select class="form-control Common_select" ng-model="request.EPTgetCountryOfSale" ng-options="m.Value as m.Text for m in getCountryOfSale" ng-disabled="request.EPTgetCountryOfSaleEnable">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Country Pres Code<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom">
+                        <textarea class="form-control" rows="3" ng-model="request.EPTgetCountryPresCode" ng-readonly="request.EPTgetCountryPresCodeRead"></textarea>
+                    </div>
+                    <a class="col-md-4 col-xs-7 Common_text line_height_buttom" ng-disabled="request.LookupPrescodeEPT" ng-click="LookPresentationCode()">Look up Presentation Code</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Product Category<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom1">
+                        <select class="form-control Common_select" ng-model="request.EPTgetProductCategory" ng-options="m.Value as m.Text for m in getProductCategory" ng-disabled="request.EPTgetProductCategoryEnable">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="col-md-5 line_height_buttom Common_text">
+                        <a>Help</a>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Date of first Sale<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8" id="sandbox-container-EPT">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.time2EPT" ng-disabled="request.EPTgetDateOfFirstSaleEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Regulatory Contact<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.EPTgetRegContact" ng-disabled="request.EPTgetRegContactEnable" ng-readonly="true">
+                        <input type="button" value="..." class="btn btn-default file_btn" ng-click="request.openReg()" ng-disabled="request.RegGALEPT">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Comment</div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom">
+                        <textarea class="form-control" rows="8" maxlength="1000" ng-model="request.EPTgetComment"></textarea>
+                    </div>
+                    <div class="col-md-4 col-xs-7 Common_text line_height_buttom">Maximum 1000 letters</div>
+                </div>
+                <div class="row line_height_buttom"></div>
+                <div class="row line_height_buttom"></div>
+            </div>
+
+            <div style="margin-left:20px;" ng-show="request.ShowCopyTable">
+                <table border="1" cellpadding="5px">
+                    <tr style="background-color:yellow">
+                        <th>Copy Request Number</th>
+                        <th>Country</th>
+                    </tr>
+                    <tr ng-repeat="r in getcopydetails">
+                        <td><a ng-bind="r.COPYREQUESTNUMBER" ng-click="request.OnClickCopyTbl(r.COPYREQUESTNUMBER)">27904</a></td>
+                        <td ng-bind="r.COUNTRY">Andorra</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+
+    <form name="PFR" novalidate>
+        <!--IMC-Yes-Product PFR mode-->
+        <div ng-show="showPFRPart">
+            <div class="SCRtitle_contain">
+                <div class="row">
+                    <div class="col-md-7 col-xs-12">
+                        <button type="button" class="btn_style btn-default" id="btnSave" ng-click="request.savePFRMenu()">
+                            <div class="btn_bg"></div>
+                            Save
+                        </button>
+                        <button type="submit" class="btn_style btn-default" id="btnSubmit" ng-click="request.PFRSubmit()" ng-disabled="request.SubmitEnablePFR">
+                            <div class="btn_bg"></div>
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="second_contain">
+                <div class="row reserve_height">
+                    <div class="col-md-12 col-xs-12 Special_text1" ng-show="request.subMenu">Data saved successfully.Please click on submit, if you wish to complete the screen.</div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-7 col-xs-12 Common_text">Please ensure that you have registered your request on range Enhancement sharepoint site </div>
+                    <a class="col-md-5 col-xs-12">http://ts1.pro.intra/sites/GLRE/default.aspx</a>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Contact if not originator</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="txtNotOriginator" class="form-control Small_input" ng-model="request.PFROriginator" ng-disabled="request.PFRCinOEnable" ng-readonly="true">
+                        <input type="button" value="..." class="btn btn-default file_btn" ng-click="request.openOrg()" ng-disabled="request.GALDisable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Lead AI<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="LeadAI" id="txtLeadAI" ng-minlength="1" maxlength="255" class="form-control Small_input" required="required"
+                               ng-model="request.PFRLeadAI" ng-disabled="request.PFRLeadAIEnable" ng-change="validatePFRLeadAI()">
+                        <div class="input-error-messages" ng-show="request.isPFRLeadAI">
+                            <div>Please input Lead AI</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Design Code<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="txtDesignCode" id="txtDesignCode" class="form-control Small_input" required="required"
+                               ng-model="request.PFRDesignCode" ng-disabled="request.PFRDesignCodeEnable" ng-change="validatePFRDesignCode()" maxlength="20">
+                        <div class="input-error-messages" ng-show="request.isDesignCode">
+                            <div>Please input Design Code</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Uc Agi Code<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="txtUCAgiCode" class="form-control Small_input" ng-model="request.PFRAgiCode"
+                               ng-disabled="request.PFRAgiCodeEnable" ng-change="validatePFRAgiCode()" required="required" maxlength="20">
+                        <div class="input-error-messages" ng-show="request.isUcAgiCode">
+                            <div>Please input Uc Agi Code</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Quantity/Primary Pack Size<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="txtQtyOrPackSize" class="form-control Small_input" required="required"
+                               ng-model="request.PFRQuantityPackSize" ng-disabled="request.PFRQuantityPackSizeEnable" ng-change="validateQty()" maxlength="9">
+                        <div class="input-error-messages" ng-show="request.isQty">
+                            <div>Please input Quantity/Primary Pack Size</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                        <div class="input-error-messages" ng-show="request.isQtyNum">
+                            <div>Please enter a valid quantity, it should contain numeric values upto 2 decimal places only</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">UoM(e.g. litre)<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" id="ddlUoM" ng-model="request.UOMSelected" ng-options="m.Value as m.Text for m in GetUoM"
+                                ng-disabled="request.UOMSelectedEnable" ng-change="validateUOM()">
+                            <option></option>
+                        </select>
+                        <div class="input-error-messages" ng-show="request.isUOM">
+                            <div>Please input UoM</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Number of packs per outer case (collation)<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="txtConfig" class="form-control Small_input" ng-model="request.PFRgetConfigurationorCollation"
+                               ng-disabled="request.PFRgetConfigurationorCollationEnable" ng-change="validatePacks()" required="required" maxlength="20">
+                        <div class="input-error-messages" ng-show="request.isPacks">
+                            <div>Please input Number of packs per outer case (collation)</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Make To Order<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" id="ddlMakeToOrder" ng-model="request.PFRMTOselected" ng-options="m.Value as m.Text for m in GetMakeToOrder"
+                                ng-disabled="request.PFRMTOselectedEnable" ng-change="validateOrder()">
+                            <option></option>
+                        </select>
+                        <div class="input-error-messages" ng-show="request.isOrder">
+                            <div>Please input Make To Order</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Product Line Seller<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" id="ddlProductLineSeller" ng-model="request.PLSselected" ng-options="m.Value as m.Text for m in GetProductLineSeller"
+                                ng-disabled="request.PLSselectedEnable" ng-change="validateProd()">
+                            <option></option>
+                        </select>
+                        <div class="input-error-messages" ng-show="request.isProd">
+                            <div>Please input Product Line Seller</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Trade Name<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="txtTradeName" class="form-control Small_input" ng-model="request.PFRgetTradeName"
+                               ng-disabled="request.PFRgetTradeNameEnable" ng-change="validateTrade()" required="required" maxlength="255">
+                        <div class="input-error-messages" ng-show="request.isTrade">
+                            <div>Please input Trade Name</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Country of sale<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom1">
+                        <select class="form-control Common_select" id="ddlCountryOfSale" ng-model="request.COSselected" ng-options="m.Value as m.Text for m in GetCountryofSale"
+                                ng-disabled="request.COSselectedEnable" ng-change="validateCoS()">
+                            <option></option>
+                        </select>
+                        <div class="input-error-messages" ng-show="request.isCoS">
+                            <div>Please input Country of sale</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Country Pres Code<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom">
+                        <textarea class="form-control" rows="3" id="txtCountryPresCode" ng-model="request.PFRgetCountryPresCode"
+                                  ng-readonly="request.PFRgetCountryPresCodeRead" ng-change="validateCPC()" required="required"></textarea>
+                        <div class="input-error-messages" ng-show="request.isCPC">
+                            <div>Please input Country Pres Code</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                    <a class="col-md-4 col-xs-7 Common_text line_height_buttom" id="btnLookUpPresCode" ng-disabled="request.btnLookUpPresCodeEnable" ng-click="LookPresentationCode()">Look up Presentation Code</a>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">3rd Party Supplier<span style="color:blue">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="txtSupliers" class="form-control Small_input" ng-model="request.PFRgetSupplier" 
+                               ng-disabled="request.PFRgetSupplierEnable" maxlength="100">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Regulatory Contact</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="txtRegualtory" class="form-control Small_input" ng-model="request.PFRgetRegulatoryContact" ng-disabled="request.PFRgetRegulatoryContactEnable">
+                        <input type="button" value="..." class="btn btn-default file_btn" ng-disabled="request.RegContactEnable" ng-click="request.openReg()">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">NSU Code(For IDS Data Management Use)</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="txtNSUCodePFR" class="form-control Small_input" ng-model="request.PFRgetNSUCode" maxlength="9">
+                    </div>
+                </div>
+                <div class="row line_height_buttom"></div>
+                <div class="row line_height_buttom"></div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-12 col-xs-12 Common_text"><span style="color:blue">*</span> From whom will this material be purchased?</div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form name="other" novalidate>
+        <!--IMC-Yes-non Other mode-->
+        <div ng-show="showOtherPart">
+            <div class="SCRtitle_contain">
+                <div class="row">
+                    <div class="col-md-7 col-xs-12">
+                        <button type="button" class="btn_style btn-default" ng-click="request.saveOtherMenu()" ng-disabled="request.SaveEnabledOtr">
+                            <div class="btn_bg"></div>
+                            Save
+                        </button>
+                        <button type="button" class="btn_style btn-default" ng-click="request.OtherSubmit()" ng-disabled="request.SubmitEnabledOtr">
+                            <div class="btn_bg"></div>
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="second_contain">
+                <div class="row reserve_height">
+                    <div class="col-md-12 col-xs-12 Special_text1" ng-show="request.subMenu">Data saved successfully.Please click on submit, if you wish to complete the screen.</div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Contact if not originator</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.othgetNotOriginator" ng-readonly="true">
+                        <input type="button" value="..." class="btn btn-default file_btn" ng-click="request.openOrg()">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Lead AI<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" ng-change="validateOtherLeadAI()" name="upfile" id="upfile" class="form-control Small_input" required="required" 
+                               ng-model="request.othgetLeadAI" ng-disabled="request.othgetLeadAIEnable" maxlength="255">
+                        <div class="input-error-messages" ng-show="request.isotherLeadAI">
+                            <div>Please input Lead AI</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Product Line Seller</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" required="required" ng-model="request.othgetProductLineSeller"
+                               ng-disabled="request.othgetProductLineSellerEnable" maxlength="255">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Description</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input"
+                               ng-model="request.othgetDescription" ng-disabled="request.othgetDescriptionEnable" maxlength="255">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">UOM</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" required="required" ng-model="request.othgetUoM"
+                               ng-disabled="request.othgetUoMEnable" maxlength="255">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Comments </div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom">
+                        <textarea class="form-control" rows="8" maxlength="1000" ng-model="request.othgetComments" ng-readonly="request.othgetCommentsRead"
+                                  ng-change="request.checkLength()"></textarea>
+                        <div class="input-error-messages" ng-show="request.icCommentLen">
+                            <div>Maximum 1000 letters in the field Comment</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Country<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <select class="form-control Common_select" ng-model="request.othgetCountry" ng-options="m.Value as m.Text for m in GetCountryOfSaleList"
+                                ng-change="validateOtherCountry()" ng-disabled="request.othgetCountryEnable"></select>
+                        <div class="input-error-messages" ng-show="request.isotherCountry">
+                            <div>Please select Country</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Country Pres Code<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom">
+                        <textarea class="form-control" ng-change="validateOtherCountryPC()" rows="3" ng-model="request.othgetCountryPresCode"
+                                  ng-disabled="request.othgetCountryPresCodeEnable" maxlength="255"></textarea>
+                        <div class="input-error-messages" ng-show="request.isotherCountryPCode">
+                            <div>Please input / select Country Press Code</div>
+                            <div class="input-error-messages-arrow"></div>
+                        </div>
+                    </div>
+                    <a class="col-md-4 col-xs-7 Common_text line_height_buttom" ng-disabled="request.othLookUpPrescodeEnable" ng-click="LookPresentationCode()">Look up Presentation Code</a>
+
+                </div>
+                <div class="row line_height_buttom"></div>
+                <div class="row line_height_buttom"></div>
+            </div>
+        </div>
+    </form>
+
+    <form name="combiPack" novalidate>
+        <!--combi pack-->
+        <!--SCR COMBI Pack-->
+        <div ng-show="showCombiPackPartOne">
+            <div class="SCRtitle_contain">
+                <div class="row">
+                    <div class="col-md-7 col-xs-12">
+                        <button type="button" class="btn_style btn-default" ng-click="request.saveCPMenu()" ng-disabled="request.SaveEnableCP">
+                            <div class="btn_bg"></div>
+                            Save
+                        </button>
+                        <button type="button" class="btn_style btn-default" ng-click="request.CPSubmit()" ng-disabled="request.SubmitEnableCP">
+                            <div class="btn_bg"></div>
+                            Submit
+                        </button>
+                    </div>
+                    <!--<div class="col-md-3 col-xs-12">
+                        <div class="SCR_link_f1">Refer to New Pack Req </div>
+                        <a class="SCR_link_f2">27731</a>
+                    </div>-->
+                </div>
+            </div>
+            <div class="second_contain">
+                <div class="row reserve_height">
+                    <div class="col-md-12 col-xs-12 Special_text1" ng-show="request.subMenu">Data saved successfully.Please click on submit, if you wish to complete the screen.</div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-12 Common_text2">COMBI Pack Product Detail</div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Contact if not originator</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPOriginator" ng-disabled="request.CPOriginatorEnable" ng-readonly="true">
+                        <input type="button" value="..." class="btn btn-default file_btn" ng-click="request.openOrg()" ng-disabled="request.CPGALNOEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Combi Lead AI</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPLeadAI" required="required" ng-disabled="request.CPLeadAIEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Combi Pack Collation</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPCombiCollation" required="required" ng-disabled="request.CPCombiCollationEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text" style="color: red;">Is SPAC packaging required ?</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" required="required" ng-model="request.SynBrand" ng-disabled="request.SynBrandEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Reactivation Request</div>
+                    <div class="radio_style">
+                        <label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadios" value="1" ng-model="request.CPReactivation_Request" ng-checked="request.CPReactivation_Request == true" ng-change="request.CPReactivation_Requestfunc()">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="radio_style">
+                        <label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadios" value="0" ng-model="request.CPReactivation_Request" ng-checked="request.CPReactivation_Request == false" ng-change="request.CPReactivation_Requestfunc()">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="row line_height_buttom" ng-show="request.CPAGI_Code_ReactivateShow">
+                    <div class="col-md-3 col-xs-4 Common_text">AGI Code to Reactivate<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPAGI_Code_Reactivate">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Do you want UOM as PC (Piece)?<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom1">
+                        <select class="form-control Common_select" ng-model="request.CPUOMSelect" ng-options="m.Value as m.Text for m in CPUOM" ng-disabled="request.CPUOMSelectEnable"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Make To Order<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom1">
+                        <select class="form-control Common_select" ng-model="request.CPMTOSelect" ng-options="m.Value as m.Text for m in CPUOM" ng-disabled="request.CPMTOSelectEnable"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Combi Country of sale<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom1">
+                        <select class="form-control Common_select" ng-model="request.CPCountrySelect" ng-options="m.Value as m.Text for m in CPCountries" ng-disabled="request.CPCountrySelectEnable"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Presentation Code<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom">
+                        <textarea class="form-control" rows="3" ng-model="request.CPCombiPresCode" ng-disabled="request.CPCombiPresCodeEnable"></textarea>
+                    </div>
+                    <a class="col-md-4 col-xs-7 Common_text line_height_buttom" ng-click="LookPresentationCode()" ng-disabled="request.LookupPresCodeCP">Look up Presentation Code</a>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Will you be assembling this combi pack locally?<span style="color:red">*</span></div>
+                    <div class="radio_style">
+                        <label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadios1" value="true" ng-model="request.CPSourceLocally" ng-checked="request.CPSourceLocally == true" ng-disabled="request.CPSourceLocallyYes" ng-change="request.CPSourceLocallyfunc()">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="radio_style">
+                        <label style="font-weight: normal;">
+                            <input type="radio" name="optionsRadios1" value="false" ng-model="request.CPSourceLocally" ng-checked="request.CPSourceLocally == false" ng-disabled="request.CPSourceLocallyNo" ng-change="request.CPSourceLocallyfunc()">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">If so give details</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPSourceLocallyDetails" ng-disabled="request.CPSourceLocallyDetailsEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Planned date of first Sale<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8" id="sandbox-container-CP">
+                        <input type="date" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.time2CoP" ng-disabled="request.CPCombiFirstSaleDateEnable">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Product Line</div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom1">
+                        <select class="form-control Common_select" ng-model="request.CPPLSelect" ng-options="m.Value as m.Text for m in CPProductLine" ng-disabled="request.CPPLSelectEnable"></select>
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">TradeName</div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPCombiTradeName" ng-disabled="request.CPCombiTradeNameEnable">
+                    </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-12 col-xs-12 Common_text">This Combi Pack contains <span ng-bind="request.CPNoOfChildElements"></span> elements</div>
+                </div>
+                <div class="row line_height_buttom"></div>
+
+                <!--Element 1-->
+                <div ng-show="showCombiE1">
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-12 Common_text2">Combi Element 1</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-12 Common_text">This element required a range request</div>
+                        <div class="col-md-3 col-xs-12 Common_text" ng-bind="request.CPElement1RequestType"></div>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="SCR_link_f1">Click here to view Range Request</div>
+                            <a class="SCR_link_f2" ng-bind="request.CPElement1RangeReqNo" ng-click="request.elementNoToRedirect('1')">27731</a>
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-4 col-xs-12 Common_text">Status of Request: <span ng-bind="request.CPElement1Status"></span></div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Combi Element SU</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement1SU" required="required" ng-disabled="request.CPElement1SUEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Lead AI</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement1LeadAI" required="required" ng-disabled="request.CPElement1LeadAIEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Design Code Variant A No.</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement1Design" required="required" ng-disabled="request.CPElement1DesignEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">UC Agi Code</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement1UCCode" required="required" ng-disabled="request.CPElement1UCCodeEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Bottle Size</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement1Size" required="required" ng-disabled="request.CPElement1SizeEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Part Filled Quantity</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement1PartFillQty" required="required" ng-disabled="request.CPElement1PartFillQtyEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text" style="color: red;">Is SPAC packaging required ?</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" required="required" ng-model="request.SynBrand1" ng-disabled="request.SynBrand1Enable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Trade Name</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement1Tradename" required="required" ng-disabled="request.CPElement1TradenameEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Productline</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement1Productline" required="required" ng-disabled="request.CPElement1ProductlineEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom"></div>
+                </div>
+
+                <!--Element 2-->
+                <div ng-show="showCombiE1">
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-12 Common_text2">Combi Element 2</div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-4 col-xs-12 Common_text">This element required a range request</div>
+                        <div class="col-md-3 col-xs-12 Common_text" ng-bind="request.CPElement2RequestType"></div>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="SCR_link_f1">Click here to view Range Request</div>
+                            <a class="SCR_link_f2" ng-bind="request.CPElement2RangeReqNo" ng-click="request.elementNoToRedirect('2')"></a>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-4 col-xs-12 Common_text">With FAST for source </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-4 col-xs-12 Common_text">Status of Request: <span ng-bind="request.CPElement2Status"></span></div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Combi Element SU</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement2SU" required="required" ng-disabled="request.CPElement2SUEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Lead AI</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement2LeadAI" required="required" ng-disabled="request.CPElement2LeadAIEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Design Code Variant A No.</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement2Design" required="required" ng-disabled="request.CPElement2DesignEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">UC Agi Code</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement2UCCode" required="required" ng-disabled="request.CPElement2UCCodeEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Bottle Size</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement2Size" required="required" ng-disabled="request.CPElement2SizeEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Part Filled Quantity</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement2PartFillQty" required="required" ng-disabled="request.CPElement2PartFillQtyEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text" style="color: red;">Is SPAC packaging required ?</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" required="required" ng-model="request.SynBrand2" ng-disabled="request.SynBrand2Enable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Trade Name</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement2Tradename" required="required" ng-disabled="request.CPElement2TradenameEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Productline</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement2Productline" required="required" ng-disabled="request.CPElement2ProductlineEnable">
+                        </div>
+                    </div>
+                </div>
+                <!--element 3-->
+                <div ng-show="showCombiE2">
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-12 Common_text2">Combi Element 3</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-12 Common_text">This element required a range request</div>
+                        <div class="col-md-3 col-xs-12 Common_text" ng-bind="request.CPElement3RequestType"></div>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="SCR_link_f1">Click here to view Range Request</div>
+                            <a class="SCR_link_f2" ng-bind="request.CPElement3RangeReqNo" ng-click="request.elementNoToRedirect('3')">27731</a>
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-4 col-xs-12 Common_text">Status of Request: <span ng-bind="request.CPElement3Status"></span></div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Combi Element SU</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement3SU" required="required" ng-disabled="request.CPElement3SUEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Lead AI</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement3LeadAI" required="required" ng-disabled="request.CPElement3LeadAIEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Design Code Variant A No.</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement3Design" required="required" ng-disabled="request.CPElement3DesignEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">UC Agi Code</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement3UCCode" required="required" ng-disabled="request.CPElement3UCCodeEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Bottle Size</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement3Size" required="required" ng-disabled="request.CPElement3SizeEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Part Filled Quantity</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement3PartFillQty" required="required" ng-disabled="request.CPElement3PartFillQtyEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text" style="color: red;">Is SPAC packaging required ?</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" required="required" ng-model="request.SynBrand3" ng-disabled="request.SynBrand3Enable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Trade Name</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement3Tradename" required="required" ng-disabled="request.CPElement3TradenameEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Productline</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement3Productline" required="required" ng-disabled="request.CPElement3ProductlineEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom"></div>
+                </div>
+                <!--element 4-->
+                <div ng-show="showCombiE3">
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-12 Common_text2">Combi Element 4</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-12 Common_text">This element required a range request</div>
+                        <div class="col-md-3 col-xs-12 Common_text" ng-bind="request.CPElement4RequestType" ng-click="request.elementNoToRedirect('4')"></div>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="SCR_link_f1">Click here to view Range Request</div>
+                            <a class="SCR_link_f2" ng-bind="request.CPElement4RangeReqNo">27731</a>
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-4 col-xs-12 Common_text">Status of Request: <span ng-bind="request.CPElement4Status"></span></div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Combi Element SU</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement4SU" required="required" ng-disabled="request.CPElement4SUEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Lead AI</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement4LeadAI" required="required" ng-disabled="request.CPElement4LeadAIEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Design Code Variant A No.</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement4Design" required="required" ng-disabled="request.CPElement4DesignEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">UC Agi Code</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement4UCCode" required="required" ng-disabled="request.CPElement4UCCodeEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Bottle Size</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement4Size" required="required" ng-disabled="request.CPElement4SizeEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Part Filled Quantity</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement4PartFillQty" required="required" ng-disabled="request.CPElement4PartFillQtyEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text" style="color: red;">Is SPAC packaging required ?</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" required="required" ng-model="request.SynBrand4" ng-disabled="request.SynBrand4Enable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Trade Name</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement4Tradename" required="required" ng-disabled="request.CPElement4TradenameEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom">
+                        <div class="col-md-3 col-xs-4 Common_text">Productline</div>
+                        <div class="col-md-4 col-xs-8">
+                            <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-model="request.CPElement4Productline" required="required" ng-disabled="request.CPElement4ProductlineEnable">
+                        </div>
+                    </div>
+                    <div class="row line_height_buttom"></div>
+                </div>
+
+                <!--table bottom-->
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-12 Common_text2">Business Case for COMBI Pack</div>
+                    <div class="col-md-8 col-xs-12" style="margin-left: -15px;">
+                        <div class="table_contain1">
+                            <div class="table_Line">
+                                <div class="table_title_com">
+                                    Year
+                                </div>
+                                <div class="table_title_com">
+                                    2016
+                                </div>
+                                <div class="table_title_com">
+                                    2017
+                                </div>
+                                <div class="table_title_com">
+                                    2018
+                                </div>
+                            </div>
+                            <div class="table_Line" ng-repeat="r in CPYearList">
+                                <div class="table_row_com">
+                                    <span ng-bind="r.yearName"></span><span style="color:red">*</span>
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" class="table_row1 form-control" ng-model="r.Year1" ng-change="countForTotalSalesValue('1','b')" ng-disabled="$index == 2">
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" class="table_row1 form-control" ng-model="r.Year2" ng-change="countForTotalSalesValue('2','b')" ng-disabled="$index == 2">
+                                </div>
+                                <div class="table_row_com">
+                                    <input type="text" class="table_row1 form-control" ng-model="r.Year3" ng-change="countForTotalSalesValue('3','b')" ng-disabled="$index == 2">
+                                </div>
+                            </div>
+                            <!--<div class="table_Line">
+                        <div class="table_row_com">
+                            Volume (000's lts/kgs)<span style="color:red">*</span>
+                        </div>
+                        <div class="table_row_com">
+                            <input type="text" class="table_row1 form-control">
+                        </div>
+                        <div class="table_row_com">
+                            <input type="text" class="table_row1 form-control">
+                        </div>
+                        <div class="table_row_com">
+                            <input type="text" class="table_row1 form-control">
+                        </div>
+                    </div>
+                    <div class="table_Line">
+                        <div class="table_row_com">
+                            <span style="color:red">*</span>
+                        </div>
+                        <div class="table_row_com">
+                            <input type="text" class="table_row1 form-control">
+                        </div>
+                        <div class="table_row_com">
+                            <input type="text" class="table_row1 form-control">
+                        </div>
+                        <div class="table_row_com">
+                            <input type="text" class="table_row1 form-control">
+                        </div>
+                    </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Marketing Justification<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8 line_height_buttom">
+                        <textarea class="form-control" rows="8" maxlength="1000" ng-readonly="request.MktJustificationCP" ng-model="request.MktJustification"></textarea>
+                    </div>
+                    <div class="col-md-4 col-xs-7 Common_text line_height_buttom">Maximum 1000 letters</div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-12 Common_text2">Regulatory Approval </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-12 col-xs-12 Common_text2">Please ensure this product/pack request has been approved by your local Regulatory Manager and provide his/her name below to confirm this </div>
+                </div>
+                <div class="row line_height_buttom">
+                    <div class="col-md-3 col-xs-4 Common_text">Regulatory Manager<span style="color:red">*</span></div>
+                    <div class="col-md-4 col-xs-8">
+                        <input type="text" size="20" name="upfile" id="upfile" class="form-control Small_input" ng-disabled="request.CPRegManagerEnable" ng-model="request.RegContact" ng-readonly="true">
+                        <input type="button" value="..." class="btn btn-default file_btn" ng-click="request.openReg()" ng-disabled="request.CPRegGAL">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+<script type="text/ng-template" id="myModelContentscrr.html">
+    <!--/look up presentation code pop up-->
+    <div class="modal-header">
+        <h4 class="modal-title">LookUp Presentation Code</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row line_height_buttom">
+            <div class="col-md-12 col-xs-12 Common_text">Answer the following questions to enable the correct presentation code to be selected for this request.</div>
+        </div>
+        <div class="row ">
+            <div class="col-md-5 col-xs-6 Common_text">
+                Is a Country specific label required?
+            </div>
+            <div class="col-md-6 col-xs-6 form-group">
+                <select class="form-control Common_select" ng-model="CountryData" ng-change="Country(CountryData)" ng-options="m.Value as m.Text for m in CountryLabel">
+                    <!-- ng-options="m.name for m in CountryArray" -->
+                </select>
+            </div>
+        </div>
+        <div class="row " ng-show="showSndLookUp">
+            <div class="col-md-5 col-xs-6 Common_text">
+                Is a Customer specific label required?
+            </div>
+            <div class="col-md-6 col-xs-6 form-group">
+                <select class="form-control Common_select" ng-change="SndCountry(CustomerData)" ng-model="CustomerData" ng-options="m.Value as m.Text for m in CusotmerLabel"></select>
+            </div>
+        </div>
+        <div class="row " ng-show="showSndLookUpSnd">
+            <div class="col-md-5 col-xs-6 Common_text">
+                Select suitable INTL. Presentation Code.
+            </div>
+            <div class="col-md-6 col-xs-6 form-group">
+                <select class="form-control Common_select" ng-model="PresDataSelect" ng-change="PresDataIntl(PresDataSelect)" ng-options="m.Value as m.Text for m in PresCode"></select>
+            </div>
+        </div>
+        <div class="row " ng-show="showThdLoopUp">
+            <div class="col-md-5 col-xs-6 Common_text">
+                What is the Customer Name?
+            </div>
+            <div class="col-md-6 col-xs-6 form-group">
+                <input type="text" size="20" name="upfile" id="upfile" ng-model="PresDataCustomer" ng-change="ChangePresData(PresDataCustomer)" class="form-control Small_input">
+            </div>
+        </div>
+        <div class="row " ng-show="showFthLoopUp">
+            <div class="col-md-5 col-xs-6 Common_text">
+                Result
+            </div>
+            <div class="col-md-6 col-xs-6 form-group">
+                <textarea class="form-control" rows="3" ng-model="PresData"></textarea>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn_style btn-default" ng-click="ok(PresData)">
+            <div class="btn_bg"></div>
+            Ok
+        </button>
+        <button type="button" class="btn_style btn-default" ng-click="cancel()">
+            <div class="btn_bg"></div>
+            Cancle
+        </button>
+    </div>
+</script>
+<script>
+    $('.datepicker').datepicker();
+</script>
+</div>

@@ -1,0 +1,57 @@
+﻿<div>
+    <form>
+        <div class="SCRtitle_contain">
+            <div class="row">
+                <div class="col-md-7 col-xs-12">
+                    <button type="button" class="btn_style btn-default" ng-click="RegApprover.saveRegulatory()" ng-disabled="RegApprover.btnSaveDisabled">
+                        <div class="btn_bg"></div>
+                        Save
+                    </button>
+                    <button type="submit" class="btn_style btn-default" ng-click="RegApprover.submitRegulatory()" ng-disabled="RegApprover.btnSubmitDisabled">
+                        <div class="btn_bg"></div>
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="second_contain">
+            <div class="row reserve_height">
+                <div class="col-md-12 col-xs-12 Special_text1" ng-show="RegApprover.showOperationMsg">
+                    {{RegApprover.operationMsg}}
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Regulatory Approver Name</div>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" size="20" class="form-control Small_input" ng-model="RegApprover.GetRegulatoryApproverName" ng-disabled="GetRegulatoryApproverNameDisabled">
+                </div>
+            </div>
+            
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Approval Status<span style="color:red">*</span></div>
+                <div class="col-md-4 col-xs-8">
+                    <select class="form-control Common_select" ng-options="m.Value as m.Text for m in RegApprover.GetApprovalStatus" ng-model="RegApprover.GetSelectedApprovalStatus" ng-disabled="RegApprover.GetApprovalStatusDisabled" ng-change="RegApprover.changeForComment()"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-4 Common_text line_height_buttom">Comment</div>
+                <div class="col-md-4 col-xs-8 line_height_buttom">
+                    <textarea class="form-control" rows="3" ng-model="RegApprover.GetComments" ng-readonly="RegApprover.GetCommentsReadOnly"></textarea>
+                </div>
+            </div>
+            <div class="row line_height_buttom">
+                <div class="col-md-3 col-xs-4 Common_text">Completed Date</div>
+                <div class="col-md-4 col-xs-8" id="sandbox-container-FstGSCM">
+                    <input type="date" size="20" name="upfile" id="upfile" ng-model="RegApprover.GetCompletedDate" class="form-control Small_input" ng-disabled="RegApprover.GetCompletedDateDisabled">
+                </div>
+            </div>
+
+            <div>
+                <input type="hidden" ng-model="RegApprover.GetRegId" />
+                <input type="hidden" ng-model="RegApprover.requestid" />
+                <input type="hidden" ng-model="RegApprover.username" />
+             
+            </div>
+        </div>
+    </form>
+</div>
